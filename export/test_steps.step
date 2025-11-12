@@ -1,0 +1,38 @@
+{
+    "block": {
+        "name": "choice",
+        "text": "<strong>Свершение 2.</strong>&nbsp;Что выдаст код?<code class=\"language-python\">do_case = input(\"Ты помыл посуду! \")\nif do_case == \"да\":\n    print(\"Можешь погулять!\")\nelse:\n    print(\"Помой и вытри посуду!\")</code>",
+        "options": {
+            "is_multiple_choice": false
+        },
+        "subtitle_files": [],
+        "is_deprecated": false,
+        "source": {
+            "is_multiple_choice": false,
+            "is_always_correct": false,
+            "sample_size": 2,
+            "preserve_order": false,
+            "is_html_enabled": true,
+            "is_options_feedback": false,
+            "options": [
+                {
+                    "is_correct": true,
+                    "text": "Можешь погулять!",
+                    "feedback": ""
+                },
+                {
+                    "is_correct": false,
+                    "text": "Помой и вытри посуду!",
+                    "feedback": ""
+                }
+            ]
+        },
+        "subtitles": {},
+        "tests_archive": null,
+        "feedback_correct": "",
+        "feedback_wrong": ""
+    },
+    "id": "8736153",
+    "has_review": false,
+    "time": "2025-11-12T07:09:19.592Z"
+}
