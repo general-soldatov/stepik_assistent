@@ -1,4 +1,4 @@
-from models.test import Step
+from models.tester import Step
 from typing import Tuple
 
 class Test:
@@ -38,6 +38,3 @@ class TestOfCode(Test):
     def set_text(self, text: str, num: str, path_code: str) -> None:
         super().set_text(text, num)
         self.data.block.text += self.set_code(path_code)
-
-def parsing():
-    pass

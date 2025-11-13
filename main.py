@@ -1,4 +1,4 @@
-from test.parse import Test, TestOfCode
+from analys.parse import Test, TestOfCode
 
 
 data: Test = TestOfCode()
