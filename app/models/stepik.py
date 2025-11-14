@@ -1,4 +1,4 @@
-from pydantic import BaseModel, field_validator
+from pydantic import BaseModel
 
 class Block(BaseModel):
     name: str
@@ -12,12 +12,6 @@ class Block(BaseModel):
     tests_archive: str | None
     feedback_correct: str
     feedback_wrong: str
-
-    @field_validator('name')
-    def check_name(cls, value):
-        if value in ['text', 'choice']:
-            return value
-        raise ValueError('Неопознанный объект!')
 
 
 class Step(BaseModel):

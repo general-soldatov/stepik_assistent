@@ -1,8 +1,8 @@
-from models.tester import Step
+from app.models.tester import Step
 from typing import Tuple
 
 class Test:
-    def __init__(self, path: str = 'test/sample_test.step') -> None:
+    def __init__(self, path: str = 'analys/sample_test.step') -> None:
         self.data = self._load_test(path)
 
     @staticmethod
@@ -32,7 +32,7 @@ class TestOfCode(Test):
 
     def set_code(self, path_code) -> str:
         language, code = self.import_file_code(path_code)
-        template = f'<code class="language-{language}">{code}</code>'
+        template = f'<pre><code class="language-{language}">{code}</code></pre>'
         return template
 
     def set_text(self, text: str, num: str, path_code: str) -> None:

@@ -1,4 +1,6 @@
 import json
+import yaml
+from app.models.stepik import Project
 
 def step_visual():
     with open('2055467_1_text.step', 'r', encoding='utf-8') as file:
@@ -8,4 +10,11 @@ def step_visual():
         data = json.dumps(text, ensure_ascii=False, indent=4)
         file.write(data)
 
-step_visual()
+def write_yaml():
+    with open('projects/test_1.yaml', 'r', encoding='utf-8') as file:
+        text = yaml.safe_load(file.read())
+        data = Project.model_validate(text)
+        print(data)
+
+# step_visual()
+write_yaml()

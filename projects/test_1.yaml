@@ -1,0 +1,12 @@
+question:
+  types: choice
+  case_num: 2
+  text: Что выдаст код?
+  code_path: code.py
+answer:
+  true_:
+    - Хочу покушать!
+  false_:
+    - Не хочу кушать!
+    - Развести траты!
+    - Это супер!
