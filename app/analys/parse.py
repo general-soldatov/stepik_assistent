@@ -1,4 +1,4 @@
-from app.models.tester import Step
+from app.models.stepik import Step
 from typing import Tuple
 
 class Test:
