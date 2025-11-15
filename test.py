@@ -1,20 +1,21 @@
-import json
-import yaml
-from app.models.project import Project
+import requests
+from urllib.parse import quote_plus
 
-def step_visual():
-    with open('2055467_1_text.step', 'r', encoding='utf-8') as file:
-        text = json.load(file)
+# Настройки клиента
+CLIENT_ID = '<your_client_id>'
+CLIENT_SECRET = '<your_client_secret>'
+REDIRECT_URI = 'https://example.com/callback'
+SCOPE = 'read write'
+AUTHORIZATION_URL = f'https://stepik.org/oauth2/authorize/?client_id={quote_plus(CLIENT_ID)}&response_type=code&redirect_uri={quote_plus(REDIRECT_URI)}&scope={quote_plus(SCOPE)}'
 
-    with open('text.step', 'w', encoding='utf-8') as file:
-        data = json.dumps(text, ensure_ascii=False, indent=4)
-        file.write(data)
-
-def read_yaml():
-    with open('projects/test_1.yaml', 'r', encoding='utf-8') as file:
-        text = yaml.safe_load(file.read())
-        data = Project.model_validate(text)
-        print(data)
-
-# step_visual()
-read_yaml()
+def get_access_token(code):
+    token_url = 'https://stepik.org/api/oauth2/token/'
+    data = {
+        'grant_type': 'authorization_code',
+        'code': code,
+        'client_id': CLIENT_ID,
+        'client_secret': CLIENT_SECRET,
+        'redirect_uri': REDIRECT_URI
+    }
+    response = requests.post(token_url, data=data)
+    return response.json().get('access_token')

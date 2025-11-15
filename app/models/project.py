@@ -1,3 +1,4 @@
+import yaml
 from pydantic import BaseModel, field_validator
 from typing import List
 
@@ -17,6 +18,13 @@ class Answer(BaseModel):
     true_: List[str]
     false_: List[str]
 
-class Project(BaseModel):
+class YamlProject(BaseModel):
+    @classmethod
+    def model_validate_yaml(cls, path, encoding='utf-8'):
+        with open(path, 'r', encoding=encoding) as file:
+            data = yaml.safe_load(file.read())
+            return cls.model_validate(data)
+
+class Project(YamlProject):
     question: Question
     answer: Answer
