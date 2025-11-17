@@ -1,7 +1,7 @@
 question:
   types: choice
-  case_num: 2
-  text: Что выдаст код?
+  case_num: 3
+  text: Что выдаст код, если пользователь введёт <code>Привет</code>?
   code_path: code.py
 answer:
   true_:

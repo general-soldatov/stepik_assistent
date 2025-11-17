@@ -1,7 +1,9 @@
 from pydantic import BaseModel
 from typing import List
 
-class OptiosTest(BaseModel):
+from .project import Project
+
+class OptionsTest(BaseModel):
     is_correct: bool
     text: str
     feedback: str = ""
@@ -13,7 +15,7 @@ class Source(BaseModel):
     preserve_order: bool
     is_html_enabled: bool
     is_options_feedback: bool
-    options: List[OptiosTest]
+    options: List[OptionsTest]
 
 class Block(BaseModel):
     name: str

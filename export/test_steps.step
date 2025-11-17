@@ -1,7 +1,7 @@
 {
     "block": {
         "name": "choice",
-        "text": "<strong>Свершение 2.</strong>&nbsp;Что выдаст код?<pre><code class=\"language-python\">do_case = input(\"Ты помыл посуду! \")\nif do_case == \"да\":\n    print(\"Можешь погулять!\")\nelse:\n    print(\"Помой и вытри посуду!\")</code></pre>",
+        "text": "<strong>Свершение 3.</strong>&nbsp;Что выдаст код, если пользователь введёт <code>Привет</code>?<pre><code class=\"language-python\">do_case = input(\"Ты помыл посуду! \")\nif do_case == \"да\":\n    print(\"Можешь погулять!\")\nelse:\n    print(\"Помой и вытри посуду!\")</code></pre>",
         "video": null,
         "options": {
             "is_multiple_choice": false
@@ -18,12 +18,22 @@
             "options": [
                 {
                     "is_correct": true,
-                    "text": "Можешь погулять!",
+                    "text": "Хочу покушать!",
                     "feedback": ""
                 },
                 {
                     "is_correct": false,
-                    "text": "Помой и вытри посуду!",
+                    "text": "Не хочу кушать!",
+                    "feedback": ""
+                },
+                {
+                    "is_correct": false,
+                    "text": "Развести траты!",
+                    "feedback": ""
+                },
+                {
+                    "is_correct": false,
+                    "text": "Это супер!",
                     "feedback": ""
                 }
             ]

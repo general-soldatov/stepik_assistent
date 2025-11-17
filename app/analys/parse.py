@@ -1,8 +1,9 @@
-from app.models.stepik import Step
+from app.models.stepik import Step, OptionsTest
+from app.models.project import Project
 from typing import Tuple
 
 class Test:
-    def __init__(self, path: str = 'analys/sample_test.step') -> None:
+    def __init__(self, path: str = 'app/analys/sample_test.step') -> None:
         self.data = self._load_test(path)
 
     @staticmethod
@@ -38,3 +39,23 @@ class TestOfCode(Test):
     def set_text(self, text: str, num: str, path_code: str) -> None:
         super().set_text(text, num)
         self.data.block.text += self.set_code(path_code)
+
+    @staticmethod
+    def _add_options(project: Project):
+        answers = project.answer
+        return [*(OptionsTest(is_correct=True, text=text)
+            for text in answers.true_), *(OptionsTest(
+                is_correct=False, text=text)
+            for text in answers.false_)]
+
+
+    def _set_answers(self, project: Project):
+       options = self.data.block.source.options
+       self.data.block.source.options = self._add_options(project)
+       self.data.block.source.sample_size = len(options)
+
+    def add_project(self, project: Project):
+        self.set_text(project.question.text,
+                      project.question.case_num,
+                      project.question.code_path)
+        self._set_answers(project)
