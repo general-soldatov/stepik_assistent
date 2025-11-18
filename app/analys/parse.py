@@ -36,9 +36,14 @@ class TestOfCode(Test):
         template = f'<pre><code class="language-{language}">{code}</code></pre>'
         return template
 
+    @staticmethod
+    def template_help(text: str):
+        return f"<details><summary><strong>Подсказка</strong></summary>{text}</details>"
+
     def set_text(self, text: str, num: str, path_code: str) -> None:
         super().set_text(text, num)
         self.data.block.text += self.set_code(path_code)
+
 
     @staticmethod
     def _add_options(project: Project):
@@ -58,4 +63,6 @@ class TestOfCode(Test):
         self.set_text(project.question.text,
                       project.question.case_num,
                       project.question.code_path)
+        if project.question.help:
+            self.data.block.text += self.template_help(project.question.help)
         self._set_answers(project)

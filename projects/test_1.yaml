@@ -3,6 +3,7 @@ question:
   case_num: 3
   text: Что выдаст код, если пользователь введёт <code>Привет</code>?
   code_path: code.py
+  help: Используйте оператор <code>or</code>
 answer:
   true_:
     - Хочу покушать!

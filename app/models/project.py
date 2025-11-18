@@ -7,6 +7,7 @@ class Question(BaseModel):
     case_num: int
     text: str
     code_path: str
+    help: str | None = None
 
     @field_validator('types')
     def check_name(cls, value):
