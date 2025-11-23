@@ -1,7 +1,8 @@
 {
     "block": {
         "name": "choice",
-        "text": "<strong>Свершение 2.</strong>&nbsp;Что выдаст код?<code class=\"language-python\">do_case = input(\"Ты помыл посуду! \")\nif do_case == \"да\":\n    print(\"Можешь погулять!\")\nelse:\n    print(\"Помой и вытри посуду!\")</code>",
+        "text": "<strong>Свершение 2.</strong>&nbsp;Что выдаст код, если пользователь введёт <code>data</code><pre><code class=\"language-python\">do_case = input(\"Ты помыл посуду! \")\nif do_case == \"да\":\n    print(\"Можешь погулять!\")\nelse:\n    print(\"Помой и вытри посуду!\")</code></pre>",
+        "video": null,
         "options": {
             "is_multiple_choice": false
         },
