@@ -1,0 +1,35 @@
+{
+    "block": {
+        "name": "matching",
+        "text": "<p><strong>Свершение 1.&nbsp;</strong>Сопоставьте системы счисления и их префиксы, используемые при написании кода.</p>",
+        "video": null,
+        "options": {},
+        "subtitle_files": [],
+        "is_deprecated": false,
+        "source": {
+            "preserve_firsts_order": false,
+            "is_html_enabled": true,
+            "pairs": [
+                {
+                    "first": "0x",
+                    "second": "Шестнадцатеричная"
+                },
+                {
+                    "first": "0o",
+                    "second": "Восьмеричная"
+                },
+                {
+                    "first": "0b",
+                    "second": "Двоичная"
+                }
+            ]
+        },
+        "subtitles": {},
+        "tests_archive": null,
+        "feedback_correct": "",
+        "feedback_wrong": ""
+    },
+    "id": "6714228",
+    "has_review": false,
+    "time": "2025-11-24T05:21:21.147Z"
+}

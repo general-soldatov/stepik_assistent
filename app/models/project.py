@@ -1,19 +1,25 @@
 import yaml
-from pydantic import BaseModel, field_validator
+from pydantic import BaseModel, field_validator, computed_field
 from typing import List
+
+
 
 class Question(BaseModel):
     types: str
     case_num: int
-    text: str
+    text_data: str
     code_path: str
     help: str | None = None
 
     @field_validator('types')
     def check_name(cls, value):
-        if value in ['text', 'choice']:
+        if value in ['text', 'choice', 'matching']:
             return value
         raise ValueError('Неопознанный объект!')
+
+    @computed_field
+    def text(self) -> str:
+        pass
 
 class Answer(BaseModel):
     true_: List[str]

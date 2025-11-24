@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, computed_field, Field
 from typing import List
 
 from .project import Project
@@ -26,9 +26,10 @@ class Block(BaseModel):
     is_deprecated: bool
     source: Source | dict
     subtitles: dict
-    tests_archive: str | None
-    feedback_correct: str
-    feedback_wrong: str
+    tests_archive: str | None = None
+    feedback_correct: str = ""
+    feedback_wrong: str = ""
+
 
 
 class Step(BaseModel):
