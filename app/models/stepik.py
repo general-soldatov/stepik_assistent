@@ -1,7 +1,5 @@
-from pydantic import BaseModel, computed_field, Field
+from pydantic import BaseModel
 from typing import List
-
-from .project import Project
 
 class OptionsTest(BaseModel):
     is_correct: bool
@@ -12,23 +10,23 @@ class Source(BaseModel):
     is_multiple_choice: bool
     is_always_correct: bool
     sample_size: int
-    preserve_order: bool = False
-    is_html_enabled: bool = True
+    preserve_order: bool
+    is_html_enabled: bool
     is_options_feedback: bool
     options: List[OptionsTest]
 
 class Block(BaseModel):
-    name: str = "text"
-    text: str = ""
+    name: str
+    text: str
     video: str | None = None
-    options: dict = {}
-    subtitle_files: list = []
+    options: dict
+    subtitle_files: list
     is_deprecated: bool = False
     source: Source
-    subtitles: dict = {}
+    subtitles: dict
     tests_archive: str | None = None
-    feedback_correct: str = ""
-    feedback_wrong: str = ""
+    feedback_correct: str
+    feedback_wrong: str
 
 
 

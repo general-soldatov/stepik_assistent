@@ -6,7 +6,7 @@ class Data:
     def __init__(self, project: Project, path: str = 'app/analys/sample_test.step'):
         self.project = project
         step = self._load_temp(path)
-        self.block = step.block
+        self.block: Block = step.block
 
     @staticmethod
     def _load_temp(path) -> Step:
@@ -29,9 +29,6 @@ class Data:
             file.write(data)
 
 class Test(Data):
-    # def __init__(self, path: str = 'app/analys/sample_test.step') -> None:
-    #     self.data = self._load_test(path)
-
     def _build(self):
         self.block.name = self.project.question.types
         self.block.feedback_correct = self.project.answer.feedback.correct
@@ -70,7 +67,6 @@ class Test(Data):
             for text in answers.false_)]
 
     def _set_answers(self):
-        # options = self.block.source.options
         self.block.source.options = self._add_options(self.project)
         if self.project.answer.sample_size:
             self.block.source.sample_size = self.project.answer.sample_size

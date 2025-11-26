@@ -1,6 +1,7 @@
 import yaml
 from pydantic import BaseModel, field_validator, computed_field
 from typing import List
+from .ai_prompt import TestAI
 
 class Question(BaseModel):
     types: str
@@ -20,8 +21,8 @@ class Question(BaseModel):
         pass
 
 class Feedback(BaseModel):
-    correct: str = ""
-    wrong: str = ""
+    correct: str
+    wrong: str
 
 class Answer(BaseModel):
     true_: List[str]
@@ -39,3 +40,7 @@ class YamlProject(BaseModel):
 class Project(YamlProject):
     question: Question
     answer: Answer
+
+    @classmethod
+    def model_validate_ai(cls, data: dict, types='choice'):
+        return [cls.model_validate(test) for test in data[types]]

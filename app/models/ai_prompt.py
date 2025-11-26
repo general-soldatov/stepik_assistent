@@ -16,6 +16,6 @@ class MatchingTask(BaseModel):
     definitions: List[str]
 
 class TestAI(BaseModel):
-    test_tasks: List[TestTask]
-    sequence_task: List[SequenceTask]
-    matching_task: List[MatchingTask]
+    test_tasks: List[TestTask] | None = None
+    sequence_task: List[SequenceTask] | None = None
+    matching_task: List[MatchingTask] | None = None
