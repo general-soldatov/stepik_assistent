@@ -2,8 +2,6 @@ import yaml
 from pydantic import BaseModel, field_validator, computed_field
 from typing import List
 
-
-
 class Question(BaseModel):
     types: str
     case_num: int
@@ -21,9 +19,15 @@ class Question(BaseModel):
     def text(self) -> str:
         pass
 
+class Feedback(BaseModel):
+    correct: str = ""
+    wrong: str = ""
+
 class Answer(BaseModel):
     true_: List[str]
     false_: List[str]
+    sample_size: int | None = None
+    feedback: Feedback
 
 class YamlProject(BaseModel):
     @classmethod

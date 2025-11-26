@@ -12,20 +12,20 @@ class Source(BaseModel):
     is_multiple_choice: bool
     is_always_correct: bool
     sample_size: int
-    preserve_order: bool
-    is_html_enabled: bool
+    preserve_order: bool = False
+    is_html_enabled: bool = True
     is_options_feedback: bool
     options: List[OptionsTest]
 
 class Block(BaseModel):
-    name: str
-    text: str
-    video: str | None
-    options: dict
-    subtitle_files: list
-    is_deprecated: bool
-    source: Source | dict
-    subtitles: dict
+    name: str = "text"
+    text: str = ""
+    video: str | None = None
+    options: dict = {}
+    subtitle_files: list = []
+    is_deprecated: bool = False
+    source: Source
+    subtitles: dict = {}
     tests_archive: str | None = None
     feedback_correct: str = ""
     feedback_wrong: str = ""
