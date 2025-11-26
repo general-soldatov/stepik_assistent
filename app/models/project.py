@@ -25,8 +25,8 @@ class Feedback(BaseModel):
     wrong: str
 
 class Answer(BaseModel):
-    true_: List[str]
-    false_: List[str]
+    correct: List[str]
+    wrong: List[str]
     sample_size: int | None = None
     feedback: Feedback
 

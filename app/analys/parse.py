@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 from app.models.stepik import Step, OptionsTest, Block
-from app.models.project import Project, Question
+from app.models.project import Project, Question, Answer
 from app.models.ai_prompt import PromptAI, TestTask
 from typing import Tuple
 
@@ -67,9 +67,9 @@ class Test(Data):
     def _add_options(project: Project):
         answers = project.answer
         return [*(OptionsTest(is_correct=True, text=text)
-            for text in answers.true_), *(OptionsTest(
+            for text in answers.correct), *(OptionsTest(
                 is_correct=False, text=text)
-            for text in answers.false_)]
+            for text in answers.wrong)]
 
     def _set_answers(self):
         self.block.source.options = self._add_options(self.project)
@@ -95,8 +95,13 @@ class TestChoice(Test):
                 case_num=case_num,
                 text_data=project.question
             )
+            answer = Answer(
+                correct=project.correct,
+                wrong=project.wrong
+            )
             self.project = Project(
-                question = question # answer add
+                question = question,
+                answer=answer
             )
 
     def set_text(self):

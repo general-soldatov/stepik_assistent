@@ -5,9 +5,9 @@ question:
   code_path: code.py
   help: Используйте оператор <code>or</code>
 answer:
-  true_:
+  correct:
     - Хочу покушать!
-  false_:
+  wrong:
     - Не хочу кушать!
     - Развести траты!
     - Это супер!
