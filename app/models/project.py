@@ -7,7 +7,7 @@ class Question(BaseModel):
     types: str
     case_num: int
     text_data: str
-    code_path: str
+    code_path: str | None = None
     help: str | None = None
 
     @field_validator('types')
@@ -40,7 +40,3 @@ class YamlProject(BaseModel):
 class Project(YamlProject):
     question: Question
     answer: Answer
-
-    @classmethod
-    def model_validate_ai(cls, data: dict, types='choice'):
-        return [cls.model_validate(test) for test in data[types]]

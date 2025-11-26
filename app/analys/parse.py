@@ -1,12 +1,16 @@
+from abc import ABC, abstractmethod
 from app.models.stepik import Step, OptionsTest, Block
-from app.models.project import Project
+from app.models.project import Project, Question
+from app.models.ai_prompt import PromptAI, TestTask
 from typing import Tuple
 
-class Data:
-    def __init__(self, project: Project, path: str = 'app/analys/sample_test.step'):
-        self.project = project
+class Data(ABC):
+    def __init__(self, project: Project | PromptAI, case_num = None, path: str = 'app/analys/sample_test.step'):
         step = self._load_temp(path)
         self.block: Block = step.block
+        if isinstance(project, Project):
+            self.project = project
+
 
     @staticmethod
     def _load_temp(path) -> Step:
@@ -19,6 +23,7 @@ class Data:
                     has_review = False,
                     time = "2025-11-12T07:09:19.592Z")
 
+    @abstractmethod
     def _build(self):
         pass
 
@@ -82,6 +87,18 @@ class Test(Data):
 
 
 class TestChoice(Test):
+    def __init__(self, project, case_num=None, path = 'app/analys/sample_test.step'):
+        super().__init__(project, case_num, path)
+        if isinstance(project, TestTask):
+            question = Question(
+                types='choice',
+                case_num=case_num,
+                text_data=project.question
+            )
+            self.project = Project(
+                question = question # answer add
+            )
+
     def set_text(self):
         super().set_text()
         self._set_help()
