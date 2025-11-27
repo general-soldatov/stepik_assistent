@@ -27,10 +27,13 @@ class Data(ABC):
     def _build(self):
         pass
 
-    def export(self, name: str) -> None:
+    def preview(self):
         self._build()
+        return self.block.model_dump_json(indent=4, ensure_ascii=False)
+
+    def export(self, name: str) -> None:
+        data = self.preview()
         with open(f"export/{name}.step", 'w', encoding='utf-8') as file:
-            data = self.block.model_dump_json(indent=4, ensure_ascii=False)
             file.write(data)
 
 class Test(Data):
@@ -48,7 +51,7 @@ class Test(Data):
         return text_step
 
     def set_text(self) -> None:
-        self.block.text += self.template_text(
+        self.block.text = self.template_text(
             text=self.project.question.text_data,
             num=self.project.question.case_num
         )

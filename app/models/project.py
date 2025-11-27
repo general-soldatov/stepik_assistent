@@ -21,14 +21,14 @@ class Question(BaseModel):
         pass
 
 class Feedback(BaseModel):
-    correct: str
-    wrong: str
+    correct: str = ""
+    wrong: str = ""
 
 class Answer(BaseModel):
     correct: List[str]
     wrong: List[str]
     sample_size: int | None = None
-    feedback: Feedback
+    feedback: Feedback = Feedback()
 
 class YamlProject(BaseModel):
     @classmethod

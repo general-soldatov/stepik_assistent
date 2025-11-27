@@ -1,4 +1,4 @@
-from app.analys.parse import Test, TestOfCode
+from app.analys.parse import Test, TestOfCode, TestChoice
 from app.models.project import Project
 from app.models.ai_prompt import TestAI
 
@@ -33,4 +33,7 @@ TEXT = '''{
 
 data = json.loads(TEXT)
 pr = TestAI.model_validate(data)
-print(pr)
+for i, item in enumerate(pr.test_tasks, 1):
+    print(item.question)
+    proj = TestChoice(item, i)
+    print(proj.preview())
