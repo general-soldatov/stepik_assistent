@@ -89,7 +89,21 @@ class Test(Data):
         return super().export(name=f"test_step_{self.project.question.case_num}")
 
 
-class TestChoice(Test):
+class TestOfCode(Test):
+    @staticmethod
+    def import_file_code(path) -> Tuple[str, str]:
+        if '.py' in path:
+            language = 'python'
+        with open(path, 'r', encoding='utf-8') as code:
+            return language, code.read()
+
+    def set_code(self, path_code) -> str:
+        language, code = self.import_file_code(path_code)
+        template = f'<pre><code class="language-{language}">{code}</code></pre>'
+        return template
+
+
+class TestChoice(TestOfCode):
     def __init__(self, project, case_num=None, path = 'app/analys/sample_test.step'):
         super().__init__(project, case_num, path)
         if isinstance(project, TestTask):
@@ -107,26 +121,9 @@ class TestChoice(Test):
                 answer=answer
             )
 
-    def set_text(self):
-        super().set_text()
-        self._set_help()
-
-
-class TestOfCode(Test):
-    @staticmethod
-    def import_file_code(path) -> Tuple[str, str]:
-        if '.py' in path:
-            language = 'python'
-        with open(path, 'r', encoding='utf-8') as code:
-            return language, code.read()
-
-    def set_code(self, path_code) -> str:
-        language, code = self.import_file_code(path_code)
-        template = f'<pre><code class="language-{language}">{code}</code></pre>'
-        return template
-
     def set_text(self) -> None:
         super().set_text()
-        self.block.text += self.set_code(
-            self.project.question.code_path)
+        if self.project.question.code_path:
+            self.block.text += self.set_code(
+                self.project.question.code_path)
         self._set_help()

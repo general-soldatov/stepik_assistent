@@ -4,10 +4,7 @@ from app.models.ai_prompt import TestAI
 
 import json
 
-# PATH = "projects/test_1.yaml"
-# project = Project.model_validate_yaml(PATH)
-# data: Test = TestOfCode(project)
-# data.export()
+PATH = "projects/project_1.yaml"
 
 TEXT = '''{
     "test_tasks": [
@@ -31,9 +28,17 @@ TEXT = '''{
     ]
 }'''
 
-data = json.loads(TEXT)
-pr = TestAI.model_validate(data)
-for i, item in enumerate(pr.test_tasks, 1):
-    print(item.question)
-    proj = TestChoice(item, i)
-    print(proj.preview())
+def build_test_project():
+    project = Project.model_validate_yaml(PATH)
+    data: Test = TestChoice(project)
+    data.export()
+
+def parseAI():
+    data = json.loads(TEXT)
+    pr = TestAI.model_validate(data)
+    # for i, item in enumerate(pr.test_tasks, 1):
+    #     print(item.question)
+    #     proj = TestChoice(item, i)
+    #     print(proj.preview())
+
+build_test_project()
