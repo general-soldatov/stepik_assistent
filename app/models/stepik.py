@@ -7,6 +7,9 @@ class OptionsTest(BaseModel):
     feedback: str = ""
 
 class Source(BaseModel):
+    pass
+
+class SourceTest(Source):
     is_multiple_choice: bool
     is_always_correct: bool
     sample_size: int
@@ -22,7 +25,7 @@ class Block(BaseModel):
     options: dict
     subtitle_files: list
     is_deprecated: bool = False
-    source: Source
+    source: SourceTest
     subtitles: dict
     tests_archive: str | None = None
     feedback_correct: str

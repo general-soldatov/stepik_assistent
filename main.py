@@ -36,9 +36,9 @@ def build_test_project():
 def parseAI(start=1):
     data = json.loads(TEXT)
     pr = TestAI.model_validate(data)
-    # for i, item in enumerate(pr.test_tasks, start):
-    #     print(item.question)
-    #     proj = TestChoice(item, i)
-    #     print(proj.preview())
+    for i, item in enumerate(pr.test_tasks, start):
+        print(item.question)
+        proj = TestChoice(item, i)
+        print(proj.preview())
 
 build_test_project()
