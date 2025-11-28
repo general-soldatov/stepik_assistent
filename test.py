@@ -9,6 +9,7 @@ PATH = "projects/test_1.yaml"
 # test.export()
 
 import json
+import yaml
 
 def json_indent(path='matching.step'):
     with open(path, 'r', encoding='utf-8') as fl:
@@ -16,4 +17,10 @@ def json_indent(path='matching.step'):
     with open(path , 'w', encoding='utf-8') as file:
         json.dump(text, file, ensure_ascii=False, indent=4)
 
-json_indent()
+def read_yaml(path="projects/project_2.yaml"):
+    with open(path, 'r', encoding='utf-8') as file:
+        data = yaml.safe_load(file.read())
+        print(data)
+
+# json_indent()
+read_yaml()

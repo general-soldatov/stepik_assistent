@@ -1,0 +1,73 @@
+0:
+  text:
+    path: /cdwsf/sdfs.md
+    # data: Hello, world!
+1:
+  choice:
+    question:
+      text_data: Что выдаст код, если пользователь введёт <code>Привет</code>?
+      code_path: code.py
+      help: Используйте оператор <code>or</code>
+    answer:
+      correct:
+        - Хочу покушать!
+      wrong:
+        - Не хочу жрать!
+        - Развести траты!
+        - Это супер!
+      # sample_size: 2
+      # feedback:
+      #   correct: "Круто!"
+      #   wrong: "Не расстраивайся!"
+2:
+  choice:
+    question:
+      text_data: Что выдаст код, если пользователь введёт <code>Привет</code>?
+      code_path: code.py
+      help: Используйте оператор <code>or</code>
+    answer:
+      correct:
+        - Хочу покушать!
+      wrong:
+        - Не хочу жрать!
+        - Развести траты!
+        - Это супер!
+      # sample_size: 2
+      # feedback:
+      #   correct: "Круто!"
+      #   wrong: "Не расстраивайся!"
+3:
+  matching:
+    question:
+      text_data: Что выдаст код, если пользователь введёт <code>Привет</code>?
+      # code_path: code.py
+      # help: Используйте оператор <code>or</code>
+    answer:
+      first:
+        - int
+        - float
+      second:
+        - number
+        - number with point
+      # feedback:
+      #   correct: "Круто!"
+      #   wrong: "Не расстраивайся!"
+4:
+  sequence:
+    question:
+      text_data: Что выдаст код, если пользователь введёт <code>Привет</code>?
+      # code_path: code.py
+      # help: Используйте оператор <code>or</code>
+    answer:
+      - one
+      - two
+      - three
+5:
+  program:
+    question:
+      text_data: Что выдаст код, если пользователь введёт <code>Привет</code>?
+      # code_path: code.py
+      # help: Используйте оператор <code>or</code>
+6:
+  ai_data:
+    path: /dsfdkl/dfd.json
