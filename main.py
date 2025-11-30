@@ -24,7 +24,7 @@ TEXT = '''{
     {
         "task": "str",
         "therms": ["str", "sdd", "ds"],
-        "definitions": ["str", "sdd", "gh"]
+        "definitions": ["str", "sdd", "gh"] 
     }
     ]
 }'''
