@@ -38,7 +38,7 @@ def parseAI(start=1):
     data = json.loads(TEXT)
     pr = TestAI.model_validate(data)
     for i, item in enumerate(pr.test_tasks, start):
-        proj = TestChoice(item, i)
+        proj = TestChoice(item, i)  
         print(proj.preview())
         start += 1
     for i, item in enumerate(pr.matching_task, start):
