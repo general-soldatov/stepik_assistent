@@ -1,4 +1,5 @@
-from app.analys.parse import Test, TestOfCode, TestChoice
+from app.creator.test import TestOfCode, TestChoice
+from app.creator.template import Test
 from app.models.project import Project
 from app.models.ai_prompt import TestAI
 
