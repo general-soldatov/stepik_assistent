@@ -1,9 +1,7 @@
-0:
-  text:
+- text:
     path: /cdwsf/sdfs.md
     # data: Hello, world!
-1:
-  choice:
+- choice:
     question:
       text_data: Что выдаст код, если пользователь введёт <code>Привет</code>?
       code_path: code.py
@@ -19,8 +17,7 @@
       # feedback:
       #   correct: "Круто!"
       #   wrong: "Не расстраивайся!"
-2:
-  choice:
+- choice:
     question:
       text_data: Что выдаст код, если пользователь введёт <code>Привет</code>?
       code_path: code.py
@@ -36,8 +33,7 @@
       # feedback:
       #   correct: "Круто!"
       #   wrong: "Не расстраивайся!"
-3:
-  matching:
+- matching:
     question:
       text_data: Что выдаст код, если пользователь введёт <code>Привет</code>?
       # code_path: code.py
@@ -52,8 +48,7 @@
       # feedback:
       #   correct: "Круто!"
       #   wrong: "Не расстраивайся!"
-4:
-  sequence:
+- sequence:
     question:
       text_data: Что выдаст код, если пользователь введёт <code>Привет</code>?
       # code_path: code.py
@@ -62,12 +57,10 @@
       - one
       - two
       - three
-5:
-  program:
+- program:
     question:
       text_data: Что выдаст код, если пользователь введёт <code>Привет</code>?
       # code_path: code.py
       # help: Используйте оператор <code>or</code>
-6:
-  ai_data:
+- ai_data:
     path: /dsfdkl/dfd.json
