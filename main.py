@@ -1,6 +1,6 @@
-from app.creator.test import TestOfCode, TestChoice
+from app.creator.test_task import TestOfCode, TestChoice, MatchingTest
 from app.creator.template import Test
-from app.models.project import Project
+from app.models.project import TaskTemplate
 from app.models.ai_prompt import TestAI
 
 import json
@@ -30,16 +30,20 @@ TEXT = '''{
 }'''
 
 def build_test_project():
-    project = Project.model_validate_yaml(PATH)
+    project = TaskTemplate.model_validate_yaml(PATH)
     data: Test = TestChoice(project)
     data.export()
 
 def parseAI(start=1):
     data = json.loads(TEXT)
     pr = TestAI.model_validate(data)
-    # for i, item in enumerate(pr.test_tasks, start):
-    #     print(item.question)
-    #     proj = TestChoice(item, i)
-    #     print(proj.preview())
+    for i, item in enumerate(pr.test_tasks, start):
+        proj = TestChoice(item, i)
+        print(proj.preview())
+        start += 1
+    for i, item in enumerate(pr.matching_task, start):
+        proj = MatchingTest(item, i)
+        print(proj.preview())
 
-build_test_project()
+# build_test_project()
+parseAI()

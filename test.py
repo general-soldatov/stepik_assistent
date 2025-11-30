@@ -1,4 +1,4 @@
-from app.creator.test import TestOfCode
+from app.creator.test_task import TestOfCode
 # from app.models.project import Project
 
 PATH = "projects/test_1.yaml"

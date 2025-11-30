@@ -1,7 +1,18 @@
 import yaml
 from pydantic import BaseModel, field_validator, computed_field
-from typing import List
+from typing import List, Union
 from .ai_prompt import TestAI
+
+class YamlProject(BaseModel):
+    @classmethod
+    def model_validate_yaml(cls, path, encoding='utf-8'):
+        with open(path, 'r', encoding=encoding) as file:
+            data = yaml.safe_load(file.read())
+            return cls.model_validate(data)
+
+class TaskTemplate(YamlProject):
+    question: Question
+    answer: Union[AnswerTest, AnswerMatching]
 
 class Question(BaseModel):
     types: str
@@ -25,18 +36,13 @@ class Feedback(BaseModel):
     wrong: str = ""
 
 class Answer(BaseModel):
-    correct: List[str]
-    wrong: List[str]
     sample_size: int | None = None
     feedback: Feedback = Feedback()
 
-class YamlProject(BaseModel):
-    @classmethod
-    def model_validate_yaml(cls, path, encoding='utf-8'):
-        with open(path, 'r', encoding=encoding) as file:
-            data = yaml.safe_load(file.read())
-            return cls.model_validate(data)
+class AnswerTest(Answer):
+    correct: List[str]
+    wrong: List[str]
 
-class Project(YamlProject):
-    question: Question
-    answer: Answer
+class AnswerMatching(Answer):
+    first: List[str]
+    second: List[str]

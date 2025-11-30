@@ -1,16 +1,15 @@
 from abc import ABC, abstractmethod
-from app.models.stepik import Step, OptionsTest, Block
-from app.models.project import Project, Question, Answe
+from app.models.stepik import Step, OptionsTest, Block, SourceTest
+from app.models.project import TaskTemplate, Question, AnswerTest
 from app.models.ai_prompt import PromptAI, TestTask
 from typing import Tuple
 
 class Data(ABC):
-    def __init__(self, project: Project | PromptAI, case_num = None, path: str = 'app/analys/sample_test.step'):
+    def __init__(self, project: TaskTemplate | PromptAI, case_num = None, path: str = 'app/creator/sample_test.step'):
         step = self._load_temp(path)
         self.block: Block = step.block
-        if isinstance(project, Project):
+        if isinstance(project, TaskTemplate):
             self.project = project
-
 
     @staticmethod
     def _load_temp(path) -> Step:
@@ -44,6 +43,7 @@ class Test(Data):
         self.block.feedback_wrong = self.project.answer.feedback.wrong
         self.set_text()
         self._set_answers()
+        self._set_options(multiply_choice=False)
 
     @staticmethod
     def template_text(text: str, num: int) -> str:
@@ -63,12 +63,21 @@ class Test(Data):
 
     def _set_options(self, multiply_choice: bool):
         self.block.options = dict(is_multiple_choice=multiply_choice)
-        self.block.source.is_multiple_choice = multiply_choice
-        self.block.source.preserve_order = False
-        self.block.source.is_html_enabled = True
+        self._set_source()
+        print(self.block.source)
+
+    def _set_source(self):
+        sample_size, options = self._set_answers()
+        self.block.source = SourceTest(
+            is_html_enabled = True, 
+            preserve_order = False,
+            is_multiple_choice = self.block.options['is_multiple_choice'],
+            sample_size=sample_size, options=options,
+            is_always_correct=False,
+            is_options_feedback=False)
 
     @staticmethod
-    def _add_options(project: Project):
+    def _add_options(project: TaskTemplate):
         answers = project.answer
         return [*(OptionsTest(is_correct=True, text=text)
             for text in answers.correct), *(OptionsTest(
@@ -76,11 +85,11 @@ class Test(Data):
             for text in answers.wrong)]
 
     def _set_answers(self):
-        self.block.source.options = self._add_options(self.project)
-        if self.project.answer.sample_size:
-            self.block.source.sample_size = self.project.answer.sample_size
-        else:
-            self.block.source.sample_size = len(self.block.source.options)
+        sample_size = self.project.answer.sample_size
+        options = self._add_options(self.project)
+        if not sample_size:
+            sample_size = len(options)
+        return sample_size, options
 
     @staticmethod
     def template_help(text: str):

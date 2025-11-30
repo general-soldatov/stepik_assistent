@@ -8,11 +8,11 @@
     "subtitle_files": [],
     "is_deprecated": false,
     "source": {
+        "is_html_enabled": true,
         "is_multiple_choice": false,
         "is_always_correct": false,
         "sample_size": 4,
         "preserve_order": false,
-        "is_html_enabled": true,
         "is_options_feedback": false,
         "options": [
             {
