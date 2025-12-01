@@ -1,7 +1,6 @@
 import yaml
 from pydantic import BaseModel, field_validator, computed_field
 from typing import List, Union
-from .ai_prompt import TestAI
 
 class YamlProject(BaseModel):
     @classmethod
@@ -9,10 +8,6 @@ class YamlProject(BaseModel):
         with open(path, 'r', encoding=encoding) as file:
             data = yaml.safe_load(file.read())
             return cls.model_validate(data)
-
-class TaskTemplate(YamlProject):
-    question: Question
-    answer: Union[AnswerTest, AnswerMatching]
 
 class Question(BaseModel):
     types: str
@@ -26,10 +21,6 @@ class Question(BaseModel):
         if value in ['text', 'choice', 'matching']:
             return value
         raise ValueError('Неопознанный объект!')
-
-    @computed_field
-    def text(self) -> str:
-        pass
 
 class Feedback(BaseModel):
     correct: str = ""
@@ -46,3 +37,7 @@ class AnswerTest(Answer):
 class AnswerMatching(Answer):
     first: List[str]
     second: List[str]
+
+class TaskTemplate(YamlProject):
+    question: Question
+    answer: Union[AnswerTest, AnswerMatching]

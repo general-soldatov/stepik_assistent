@@ -1,6 +1,30 @@
 from pydantic import BaseModel
 from typing import List, Union
 
+class OptionsTest(BaseModel):
+    is_correct: bool
+    text: str
+    feedback: str = ""
+
+class Source(BaseModel):
+    is_html_enabled: bool = True
+
+class SourceTest(Source):
+    is_multiple_choice: bool
+    is_always_correct: bool
+    sample_size: int
+    preserve_order: bool
+    is_options_feedback: bool
+    options: List[OptionsTest]
+
+class Pairs(BaseModel):
+    first: str
+    second: str
+
+class SourceMatching(Source):
+    preserve_first_order: bool = False
+    pairs: List[Pairs]
+
 class Block(BaseModel):
     name: str
     text: str
@@ -19,27 +43,3 @@ class Step(BaseModel):
     id: str
     has_review: bool
     time: str
-
-class OptionsTest(BaseModel):
-    is_correct: bool
-    text: str
-    feedback: str = ""
-
-class Source(BaseModel):
-    is_html_enabled: bool = True
-    
-class SourceTest(Source):
-    is_multiple_choice: bool
-    is_always_correct: bool
-    sample_size: int
-    preserve_order: bool
-    is_options_feedback: bool
-    options: List[OptionsTest]
-
-class Pairs(BaseModel):
-    first: str
-    second: str
-
-class SourceMatching(Source):
-    preserve_first_order: bool = False
-    pairs: List[Pairs]

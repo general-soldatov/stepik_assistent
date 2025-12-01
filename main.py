@@ -1,30 +1,30 @@
-from app.creator.test_task import TestOfCode, TestChoice, MatchingTest
+from app.creator.test_task import TestChoice, MatchingTest
 from app.creator.template import Test
 from app.models.project import TaskTemplate
 from app.models.ai_prompt import TestAI
 
 import json
 
-PATH = "projects/project_1.yaml"
+PATH = "projects/project_2.yaml"
 
 TEXT = '''{
     "test_tasks": [
     {
-        "question": "str data is super string!",
+        "text": "str data is super string!",
         "correct": ["Privet"],
         "wrong": ["Hi", "Hello"]
     }],
     "sequence_task": [
         {
-            "task": "str",
+            "text": "str",
             "steps": ["dfdf", "sdd", "sdrefd"]
         }
     ],
     "matching_task": [
     {
-        "task": "str",
+        "text": "str",
         "therms": ["str", "sdd", "ds"],
-        "definitions": ["str", "sdd", "gh"] 
+        "definitions": ["str", "sdd", "gh"]
     }
     ]
 }'''
@@ -38,8 +38,8 @@ def parseAI(start=1):
     data = json.loads(TEXT)
     pr = TestAI.model_validate(data)
     for i, item in enumerate(pr.test_tasks, start):
-        proj = TestChoice(item, i)  
-        print(proj.preview())
+        data = TestChoice(item, i)
+        print(data.preview())
         start += 1
     for i, item in enumerate(pr.matching_task, start):
         proj = MatchingTest(item, i)

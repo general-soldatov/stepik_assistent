@@ -8,8 +8,7 @@ class Data(ABC):
     def __init__(self, project: TaskTemplate | PromptAI, case_num = None, path: str = 'app/creator/sample_test.step'):
         step = self._load_temp(path)
         self.block: Block = step.block
-        if isinstance(project, TaskTemplate):
-            self.project = project
+        self.project = project
 
     @staticmethod
     def _load_temp(path) -> Step:
@@ -69,7 +68,7 @@ class Test(Data):
     def _set_source(self):
         sample_size, options = self._set_answers()
         self.block.source = SourceTest(
-            is_html_enabled = True, 
+            is_html_enabled = True,
             preserve_order = False,
             is_multiple_choice = self.block.options['is_multiple_choice'],
             sample_size=sample_size, options=options,
@@ -111,4 +110,3 @@ class TestOfCode(Test):
         language, code = self.import_file_code(path_code)
         template = f'<pre><code class="language-{language}">{code}</code></pre>'
         return template
-
