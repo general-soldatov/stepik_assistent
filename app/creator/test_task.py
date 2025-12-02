@@ -36,7 +36,11 @@ class SortingTest(TestOfCode):
         self.block.source = SourceSorting(options=options)
 
 class TextData(Data):
-    pass
+    def _build(self):
+        if self.project.path:
+            pass
+        if self.project.data:
+            pass
 
 
 class TaskObject(ObjectsTypes):
