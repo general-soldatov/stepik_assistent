@@ -1,10 +1,10 @@
 from abc import ABC, abstractmethod
 from app.models.stepik import Step, OptionsTest, Block, SourceTest
-from app.models.main_model import TaskTemplate, PromptAI
+from app.models.main_model import TaskTemplate
 from typing import Tuple
 
 class Data(ABC):
-    def __init__(self, project: TaskTemplate | PromptAI, case_num = None, path: str = 'app/creator/sample_test.step'):
+    def __init__(self, project: TaskTemplate, case_num = None, path: str = 'app/creator/sample_test.step'):
         step = self._load_temp(path)
         self.block: Block = step.block
         self.project = project

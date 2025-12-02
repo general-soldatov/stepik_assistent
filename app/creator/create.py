@@ -1,5 +1,5 @@
 import yaml
-from app.models.project import Question, AnswerTest, AnswerSorting, AnswerMatching, Text
+from app.models.project import Text, Question, ObjectsTypes
 from app.models.main_model import TaskTemplate, TestAI
 from typing import List, Dict, Union
 from pydantic import BaseModel
@@ -15,12 +15,15 @@ class BuildProject:
     def _create_question(types: str) -> Question:
         text = "Sample text for {}".format(types)
         return Question(types=types, text_data=text)
-    
+
     def _add(self, question, answer, type) -> None:
         self.data.project.append({type: TaskTemplate(question=question, answer=answer)})
 
     def _extend(self, tasks: list, type) -> None:
         self.data.project.extend([{type: TaskTemplate.model_validate_ai(item)} for item in tasks])
+
+    def _create_answer(self, types: str, **kwargs):
+        return ObjectsTypes.__dict__[types]()(**kwargs)
 
     def add_text(self) -> None:
         self.data.project.append({'text': Text()})
@@ -28,19 +31,19 @@ class BuildProject:
     def add_choice(self) -> None:
         types = 'choice'
         question = self._create_question(types)
-        answer = AnswerTest(correct=['correct_answer'], wrong=['wrong_answer'])
+        answer = self._create_answer(types, correct=['correct_answer'], wrong=['wrong_answer'])
         self._add(question, answer, types)
 
     def add_sorting(self) -> None:
         types = 'sorting'
         question = self._create_question(types)
-        answer = AnswerSorting(steps=['step 1', 'step 2'])
+        answer = self._create_answer(types, steps=['step 1', 'step 2'])
         self._add(question, answer, types)
 
     def add_matching(self) -> None:
         types = 'matching'
         question = self._create_question(types)
-        answer = AnswerMatching(first=['first', 'second'], second=['one', 'two'])
+        answer =  self._create_answer(types, first=['first', 'second'], second=['one', 'two'])
         self._add(question, answer, types)
 
     def import_ai(self, data: Dict[str, List[dict]]) -> None:
@@ -56,12 +59,15 @@ class BuildProject:
 
 class ImportProject:
     def __init__(self, path: str):
-        self.data: list = self.read(path)
+        self.data: Data = Data(project=self.read(path))
 
     @staticmethod
     def read(path: str):
         with open(path, 'r', encoding='utf-8') as file:
             return yaml.safe_load(file.read())
-        
+
     def create(self):
-        pass
+        for elem in self.data.project:
+            for name, task in elem.items():
+                if name == "text":
+                    pass

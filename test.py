@@ -1,5 +1,5 @@
-from app.creator.test_task import TestOfCode
-# from app.models.project import Project
+# from app.creator.test_task import TestOfCode
+from app.models.project import ObjectsTypes
 
 PATH = "projects/test_1.yaml"
 # project = Project.model_validate_yaml(PATH)
@@ -22,5 +22,7 @@ def read_yaml(path="projects/project_2.yaml"):
         data = yaml.safe_load(file.read())
         print(data)
 
-json_indent()
+# json_indent()
 # read_yaml()
+
+print(ObjectsTypes().objects)
