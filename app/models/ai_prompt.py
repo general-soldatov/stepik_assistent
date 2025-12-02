@@ -46,8 +46,3 @@ class MatchingTask(PromptAI):
     @computed_field(return_type=Question)
     def answer(self):
         return AnswerMatching(first=self.therms, second=self.definitions)
-
-class TestAI(BaseModel):
-    test_tasks: List[TestTask] | None = None
-    sequence_task: List[SortingTask] | None = None
-    matching_task: List[MatchingTask] | None = None
