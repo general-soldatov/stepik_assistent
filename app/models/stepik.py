@@ -1,9 +1,11 @@
 from pydantic import BaseModel
 from typing import List, Union
 
-class OptionsTest(BaseModel):
-    is_correct: bool
+class Options(BaseModel):
     text: str
+
+class OptionsTest(Options):
+    is_correct: bool
     feedback: str = ""
 
 class Source(BaseModel):
@@ -16,6 +18,9 @@ class SourceTest(Source):
     preserve_order: bool
     is_options_feedback: bool
     options: List[OptionsTest]
+
+class SourceSorting(Source):
+    options: List[Options]
 
 class Pairs(BaseModel):
     first: str

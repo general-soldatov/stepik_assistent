@@ -48,15 +48,16 @@
       # feedback:
       #   correct: "Круто!"
       #   wrong: "Не расстраивайся!"
-- sequence:
+- sorting:
     question:
       text_data: Что выдаст код, если пользователь введёт <code>Привет</code>?
       # code_path: code.py
       # help: Используйте оператор <code>or</code>
     answer:
-      - one
-      - two
-      - three
+      steps:
+        - one
+        - two
+        - three
 - program:
     question:
       text_data: Что выдаст код, если пользователь введёт <code>Привет</code>?

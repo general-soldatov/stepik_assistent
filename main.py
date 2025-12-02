@@ -1,9 +1,10 @@
-from app.creator.test_task import TestChoice, MatchingTest
+from app.creator.test_task import TestChoice, MatchingTest, SortingTest
 from app.creator.template import Test
 from app.models.project import TaskTemplate
 from app.models.ai_prompt import TestAI
 
 import json
+import yaml
 
 PATH = "projects/project_2.yaml"
 
@@ -34,16 +35,18 @@ def build_test_project():
     data: Test = TestChoice(project)
     data.export()
 
-def parseAI(start=1):
+def parseAI():
     data = json.loads(TEXT)
     pr = TestAI.model_validate(data)
-    for i, item in enumerate(pr.test_tasks, start):
-        data = TestChoice(item, i)
+    for item in pr.test_tasks:
+        data = TestChoice(item)
         print(data.preview())
-        start += 1
-    for i, item in enumerate(pr.matching_task, start):
-        proj = MatchingTest(item, i)
-        print(proj.preview())
+    for item in pr.matching_task:
+        data = MatchingTest(item)
+        print(data.preview())
+    for item in pr.sequence_task:
+        data = SortingTest(item)
+        print(data.preview())
 
 # build_test_project()
 parseAI()

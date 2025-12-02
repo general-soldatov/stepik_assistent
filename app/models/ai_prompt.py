@@ -1,6 +1,6 @@
 from pydantic import BaseModel, computed_field, Field
 from typing import List
-from .project import Question, AnswerTest, AnswerMatching
+from .project import Question, AnswerTest, AnswerMatching, AnswerSorting
 from abc import ABC, abstractmethod
 
 class PromptAI(BaseModel, ABC):
@@ -29,14 +29,14 @@ class TestTask(PromptAI):
     def answer(self):
         return AnswerTest(correct=self.correct, wrong=self.wrong)
 
-class SequenceTask(PromptAI):
+class SortingTask(PromptAI):
     text: str
     steps: List[str]
-    types: str = Field(default="sequence_task", exclude=True)
+    types: str = Field(default="sorting", exclude=True)
 
-    @computed_field(return_type=Question)
+    @computed_field(return_type=AnswerSorting)
     def answer(self):
-        pass
+        return AnswerSorting(steps=self.steps)
 
 class MatchingTask(PromptAI):
     therms: List[str]
@@ -49,5 +49,5 @@ class MatchingTask(PromptAI):
 
 class TestAI(BaseModel):
     test_tasks: List[TestTask] | None = None
-    sequence_task: List[SequenceTask] | None = None
+    sequence_task: List[SortingTask] | None = None
     matching_task: List[MatchingTask] | None = None

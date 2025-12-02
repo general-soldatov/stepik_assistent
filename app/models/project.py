@@ -18,7 +18,7 @@ class Question(BaseModel):
 
     @field_validator('types')
     def check_name(cls, value):
-        if value in ['text', 'choice', 'matching']:
+        if value in ['text', 'choice', 'matching', 'sorting']:
             return value
         raise ValueError('Неопознанный объект!')
 
@@ -38,6 +38,9 @@ class AnswerMatching(Answer):
     first: List[str]
     second: List[str]
 
+class AnswerSorting(Answer):
+    steps: List[str]
+
 class TaskTemplate(YamlProject):
     question: Question
-    answer: Union[AnswerTest, AnswerMatching]
+    answer: Union[AnswerTest, AnswerMatching, AnswerSorting]
