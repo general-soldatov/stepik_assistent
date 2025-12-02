@@ -11,7 +11,7 @@ PATH = "projects/test_1.yaml"
 import json
 import yaml
 
-def json_indent(path='matching.step'):
+def json_indent(path='sorting.step'):
     with open(path, 'r', encoding='utf-8') as fl:
         text = json.load(fl)
     with open(path , 'w', encoding='utf-8') as file:
@@ -22,5 +22,5 @@ def read_yaml(path="projects/project_2.yaml"):
         data = yaml.safe_load(file.read())
         print(data)
 
-# json_indent()
-read_yaml()
+json_indent()
+# read_yaml()
