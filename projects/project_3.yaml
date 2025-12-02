@@ -1,3 +1,6 @@
+- text:
+    data: null
+    path: null
 - choice:
     answer:
       correct:
@@ -48,9 +51,6 @@
       help: null
       text_data: str
       types: sorting
-- text:
-    data: null
-    path: null
 - choice:
     answer:
       correct:

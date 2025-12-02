@@ -7,9 +7,8 @@ from pydantic import BaseModel
 class Data(BaseModel):
     project: List[Dict[str, Union[TaskTemplate, Text]]]
 
-class Project:
+class BuildProject:
     def __init__(self) -> None:
-        # self.project: List[TaskTemplate] = []
         self.data = Data(project=[])
 
     @staticmethod
@@ -54,3 +53,15 @@ class Project:
         data = self.data.model_dump()
         with open(path, 'w', encoding='utf-8') as file:
             yaml.dump(data['project'], file)
+
+class ImportProject:
+    def __init__(self, path: str):
+        self.data: list = self.read(path)
+
+    @staticmethod
+    def read(path: str):
+        with open(path, 'r', encoding='utf-8') as file:
+            return yaml.safe_load(file.read())
+        
+    def create(self):
+        pass

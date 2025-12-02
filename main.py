@@ -1,7 +1,7 @@
 from app.creator.test_task import TestChoice, MatchingTest, SortingTest
 from app.creator.template import Test
 from app.models.main_model import TestAI, TaskTemplate
-from app.creator.create import Project
+from app.creator.create import BuildProject, ImportProject
 
 import json
 import yaml
@@ -37,15 +37,19 @@ def build_test_project():
 
 def parseAI():
     data = json.loads(TEXT)
-    project = Project()
-    project.import_ai(data)
+    project = BuildProject()
     project.add_text()
+    project.import_ai(data)
     project.add_choice()
     project.add_matching()
     project.add_sorting()
     # print(*project.project, sep='\n')
     project.export_to_yaml(PATH)
 
+def import_data():
+    data = ImportProject(PATH)
+    print(*[dt for dt in data.data], sep='\n')
 
 # build_test_project()
-parseAI()
+# parseAI()
+import_data()
