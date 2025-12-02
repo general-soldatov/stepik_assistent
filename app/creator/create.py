@@ -1,15 +1,17 @@
 import yaml
 from app.models.project import Text, Question, ObjectsTypes
 from app.models.main_model import TaskTemplate, TestAI
+from .test_task import TaskObject
+from .template import Data
 from typing import List, Dict, Union
 from pydantic import BaseModel
 
-class Data(BaseModel):
+class DataObject(BaseModel):
     project: List[Dict[str, Union[TaskTemplate, Text]]]
 
 class BuildProject:
     def __init__(self) -> None:
-        self.data = Data(project=[])
+        self.data = DataObject(project=[])
 
     @staticmethod
     def _create_question(types: str) -> Question:
@@ -23,7 +25,8 @@ class BuildProject:
         self.data.project.extend([{type: TaskTemplate.model_validate_ai(item)} for item in tasks])
 
     def _create_answer(self, types: str, **kwargs):
-        return ObjectsTypes.__dict__[types]()(**kwargs)
+        obj = ObjectsTypes()
+        return ObjectsTypes.__dict__[types](obj)(**kwargs)
 
     def add_text(self) -> None:
         self.data.project.append({'text': Text()})
@@ -59,7 +62,7 @@ class BuildProject:
 
 class ImportProject:
     def __init__(self, path: str):
-        self.data: Data = Data(project=self.read(path))
+        self.data: DataObject = DataObject(project=self.read(path))
 
     @staticmethod
     def read(path: str):
@@ -67,7 +70,8 @@ class ImportProject:
             return yaml.safe_load(file.read())
 
     def create(self):
+        obj = TaskObject()
         for elem in self.data.project:
             for name, task in elem.items():
-                if name == "text":
-                    pass
+                data: Data = TaskObject.__dict__[name](obj, task)
+                data.preview()

@@ -1,5 +1,7 @@
 from app.models.stepik import Pairs, SourceMatching, SourceSorting, Options
-from .template import TestOfCode
+from .template import TestOfCode, Data
+from app.models.project import ObjectsTypes, Text
+from app.models.main_model import TaskTemplate
 
 class TestChoice(TestOfCode):
     def set_text(self) -> None:
@@ -23,12 +25,36 @@ class MatchingTest(TestOfCode):
             is_html_enabled = True,
             preserve_first_order = False,
             pairs=options)
-        
+
 class SortingTest(TestOfCode):
     @staticmethod
     def _add_options(project):
         return [Options(text=txt) for txt in project.answer.steps]
-    
+
     def _set_source(self):
         _, options = self._set_answers()
         self.block.source = SourceSorting(options=options)
+
+class TextData(Data):
+    pass
+
+
+class TaskObject(ObjectsTypes):
+    def __init__(self):
+        super().__init__()
+        self.number = 0
+
+    def choice(self, project: TaskTemplate):
+        self.number += 1
+        return TestChoice(project, self.number)
+
+    def text(self, project: Text):
+        return TextData(project)
+
+    def matching(self, project: TaskTemplate):
+        self.number += 1
+        return MatchingTest(project, self.number)
+
+    def sorting(self, project: TaskTemplate):
+        self.number += 1
+        return SortingTest(project, self.number)

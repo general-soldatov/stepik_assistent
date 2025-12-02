@@ -38,7 +38,7 @@ def build_test_project():
 def parseAI():
     data = json.loads(TEXT)
     project = BuildProject()
-    project.add_text()
+    # project.add_text()
     # project.import_ai(data)
     project.add_choice()
     # project.add_matching()
@@ -49,8 +49,8 @@ def parseAI():
 def import_data():
     data = ImportProject(PATH)
     # print(*[dt for dt in data.data], sep='\n')
-    print(ImportProject.__dict__.keys())
+    data.create()
 
 # build_test_project()
-parseAI()
-# import_data()
+# parseAI()
+import_data()

@@ -29,20 +29,16 @@ class ObjectsTypes:
         self.objects = tuple(filter(lambda x: not x.startswith('__'),
                                         self.__class__.__dict__.keys()))
 
-    @staticmethod
-    def text():
+    def text(self):
         return Text
 
-    @staticmethod
-    def choice():
+    def choice(self):
         return AnswerTest
 
-    @staticmethod
-    def matching():
+    def matching(self):
         return AnswerMatching
 
-    @staticmethod
-    def sorting():
+    def sorting(self):
         return AnswerSorting
 
 class Question(BaseModel):

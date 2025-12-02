@@ -8,6 +8,7 @@ class Data(ABC):
         step = self._load_temp(path)
         self.block: Block = step.block
         self.project = project
+        self.case_num = case_num
 
     @staticmethod
     def _load_temp(path) -> Step:
@@ -52,7 +53,7 @@ class Test(Data):
     def set_text(self) -> None:
         self.block.text = self.template_text(
             text=self.project.question.text_data,
-            num=self.project.question.case_num
+            num=self.case_num
         )
 
     def _set_help(self):
