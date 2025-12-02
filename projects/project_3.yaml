@@ -1,6 +1,56 @@
 - choice:
     answer:
       correct:
+      - Privet
+      feedback:
+        correct: ''
+        wrong: ''
+      sample_size: null
+      wrong:
+      - Hi
+      - Hello
+    question:
+      code_path: null
+      help: null
+      text_data: str data is super string!
+      types: choice
+- matching:
+    answer:
+      feedback:
+        correct: ''
+        wrong: ''
+      first:
+      - str
+      - sdd
+      - ds
+      sample_size: null
+      second:
+      - str
+      - sdd
+      - gh
+    question:
+      code_path: null
+      help: null
+      text_data: str
+      types: matching
+- sorting:
+    answer:
+      feedback:
+        correct: ''
+        wrong: ''
+      sample_size: null
+      steps:
+      - dfdf
+      - sdd
+      - sdrefd
+    question:
+      code_path: null
+      help: null
+      text_data: str
+      types: sorting
+- choice:
+    answer:
+      correct:
       - correct_answer
       feedback:
         correct: ''
@@ -13,3 +63,20 @@
       help: null
       text_data: Sample text for choice
       types: choice
+- matching:
+    answer:
+      feedback:
+        correct: ''
+        wrong: ''
+      first:
+      - first
+      - second
+      sample_size: null
+      second:
+      - one
+      - two
+    question:
+      code_path: null
+      help: null
+      text_data: Sample text for matching
+      types: matching

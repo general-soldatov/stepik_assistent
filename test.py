@@ -24,5 +24,3 @@ def read_yaml(path="projects/project_2.yaml"):
 
 # json_indent()
 # read_yaml()
-
-print(ObjectsTypes().objects)

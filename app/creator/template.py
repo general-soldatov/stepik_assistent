@@ -94,9 +94,6 @@ class Test(Data):
     def template_help(text: str):
         return f"<details><summary><strong>Подсказка</strong></summary>{text}</details>"
 
-    def export(self):
-        return super().export(name=f"test_step_{self.project.question.case_num}")
-
 
 class TestOfCode(Test):
     @staticmethod

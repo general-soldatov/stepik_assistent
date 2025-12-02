@@ -71,7 +71,7 @@ class ImportProject:
 
     def create(self):
         obj = TaskObject()
-        for elem in self.data.project:
+        for i, elem in enumerate(self.data.project, 0):
             for name, task in elem.items():
                 data: Data = TaskObject.__dict__[name](obj, task)
-                data.preview()
+                data.export(f'{i:03}_{name}_{obj.number:02}')
