@@ -3,7 +3,6 @@ from typing import List, Union
 
 class Question(BaseModel):
     types: str
-    # case_num: int
     text_data: str
     code_path: str | None = None
     help: str | None = None
@@ -32,3 +31,7 @@ class AnswerMatching(Answer):
 
 class AnswerSorting(Answer):
     steps: List[str]
+
+class Text(BaseModel):
+    path: str | None = None
+    data: str | None = None

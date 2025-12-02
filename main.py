@@ -1,13 +1,12 @@
 from app.creator.test_task import TestChoice, MatchingTest, SortingTest
 from app.creator.template import Test
 from app.models.main_model import TestAI, TaskTemplate
-# from app.models.project import TaskTemplate
-# from app.models.ai_prompt import TestAI
+from app.creator.create import Project
 
 import json
 import yaml
 
-PATH = "projects/project_2.yaml"
+PATH = "projects/project_3.yaml"
 
 TEXT = '''{
     "test_tasks": [
@@ -38,18 +37,15 @@ def build_test_project():
 
 def parseAI():
     data = json.loads(TEXT)
-    pr = TestAI.model_validate(data)
-    data = TaskTemplate.model_validate_ai(pr.test_tasks[0])
-    print(data.model_dump_json(indent=4))
-    # for item in pr.test_tasks:
-    #     data = TestChoice(item)
-    #     print(data.preview())
-    # for item in pr.matching_task:
-    #     data = MatchingTest(item)
-    #     print(data.preview())
-    # for item in pr.sequence_task:
-    #     data = SortingTest(item)
-    #     print(data.preview())
+    project = Project()
+    project.import_ai(data)
+    project.add_text()
+    project.add_choice()
+    project.add_matching()
+    project.add_sorting()
+    # print(*project.project, sep='\n')
+    project.export_to_yaml(PATH)
+
 
 # build_test_project()
 parseAI()

@@ -1,7 +1,5 @@
 from abc import ABC, abstractmethod
 from app.models.stepik import Step, OptionsTest, Block, SourceTest
-# from app.models.project import TaskTemplate, Question, AnswerTest
-# from app.models.ai_prompt import PromptAI, TestTask
 from app.models.main_model import TaskTemplate, PromptAI
 from typing import Tuple
 

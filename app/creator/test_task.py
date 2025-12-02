@@ -1,7 +1,4 @@
-# from app.models.project import TaskTemplate, Question, AnswerTest, AnswerMatching
-# from app.models.ai_prompt import PromptAI, TestTask, MatchingTask
 from app.models.stepik import Pairs, SourceMatching, SourceSorting, Options
-
 from .template import TestOfCode
 
 class TestChoice(TestOfCode):
