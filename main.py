@@ -4,7 +4,9 @@ from app.models.main_model import TestAI, TaskTemplate
 from app.creator.create import BuildProject, ImportProject
 
 import json
-import yaml
+import click
+
+
 
 PATH = "projects/project_3.yaml"
 
@@ -38,9 +40,9 @@ def build_test_project():
 def parseAI():
     data = json.loads(TEXT)
     project = BuildProject()
-    # project.add_text()
-    project.import_ai(data)
-    project.add_choice()
+    project.add_text()
+    # project.import_ai(data)
+    # project.add_choice()
     project.add_matching()
     # project.add_sorting()
     # print(*project.project, sep='\n')

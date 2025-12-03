@@ -6,8 +6,8 @@ from typing import Tuple
 
 class Data(ABC):
     def __init__(self, project: TaskTemplate | Text, case_num = None, path: str = 'app/creator/sample_test.step'):
-        step = self._load_temp(path)
-        self.block: Block = step.block
+        self.step: Step = self._load_temp(path)
+        self.block: Block = self.step.block
         self.project = project
         self.case_num = case_num
 
@@ -28,7 +28,7 @@ class Data(ABC):
 
     def preview(self):
         self._build()
-        return self.block.model_dump_json(indent=4, ensure_ascii=False)
+        return self.step.model_dump_json(indent=4, ensure_ascii=False)
 
     def export(self, name: str) -> None:
         data = self.preview()

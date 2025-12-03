@@ -1,6 +1,6 @@
 # from app.creator.test_task import TestOfCode
 from app.models.project import ObjectsTypes
-
+from app.markdown import markdown_to_html
 PATH = "projects/test_1.yaml"
 # project = Project.model_validate_yaml(PATH)
 # # print(project)
@@ -10,8 +10,9 @@ PATH = "projects/test_1.yaml"
 
 import json
 import yaml
+import markdown as md
 
-def json_indent(path='sorting.step'):
+def json_indent(path='text.step'):
     with open(path, 'r', encoding='utf-8') as fl:
         text = json.load(fl)
     with open(path , 'w', encoding='utf-8') as file:
@@ -22,5 +23,11 @@ def read_yaml(path="projects/project_2.yaml"):
         data = yaml.safe_load(file.read())
         print(data)
 
-# json_indent()
+json_indent()
 # read_yaml()
+# txt = "projects/text.md"
+# with open(txt, 'r', encoding='utf-8') as file:
+#     data = markdown_to_html(file.read())
+# with open('text.html', 'w', encoding='utf-8') as file:
+#     file.write(data)
+# print(data)
