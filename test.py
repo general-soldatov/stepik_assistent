@@ -1,6 +1,6 @@
 # from app.creator.test_task import TestOfCode
 from app.models.project import ObjectsTypes
-from app.markdown import markdown_to_html
+from app.markdown import ReadMD
 PATH = "projects/test_1.yaml"
 # project = Project.model_validate_yaml(PATH)
 # # print(project)
@@ -25,9 +25,11 @@ def read_yaml(path="projects/project_2.yaml"):
 
 json_indent()
 # read_yaml()
-# txt = "projects/text.md"
+txt = "projects/text.md"
 # with open(txt, 'r', encoding='utf-8') as file:
 #     data = markdown_to_html(file.read())
 # with open('text.html', 'w', encoding='utf-8') as file:
 #     file.write(data)
 # print(data)
+obj = ReadMD.file_import(txt)
+obj.to_html_file('text.html')

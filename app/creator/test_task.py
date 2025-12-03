@@ -2,7 +2,7 @@ from app.models.stepik import Pairs, SourceMatching, SourceSorting, Options
 from .template import TestOfCode, Data
 from app.models.project import ObjectsTypes, Text
 from app.models.main_model import TaskTemplate
-from app.markdown import markdown_to_html
+from app.markdown import ReadMD
 
 class TestChoice(TestOfCode):
     def set_text(self) -> None:
@@ -37,16 +37,11 @@ class SortingTest(TestOfCode):
         self.block.source = SourceSorting(options=options)
 
 class TextData(Data):
-    @staticmethod
-    def _from_md_to_html(path: str):
-        with open(path, 'r', encoding='utf-8') as file:
-            return markdown_to_html(file.read())
-
     def _build(self):
         if self.project.path:
-            self.block.text = self._from_md_to_html(self.project.path)
+            self.block.text = ReadMD.file_import(self.project.path).to_html_text()
         if self.project.data:
-            self.block.text = markdown_to_html(self.project.data)
+            self.block.text = ReadMD(self.project.data).to_html_text()
         self.block.name = "text"
         self.block.options = {}
 
