@@ -2,7 +2,8 @@ from app.models.stepik import Pairs, SourceMatching, SourceSorting, Options
 from .template import TestOfCode, Data
 from app.models.project import ObjectsTypes, Text
 from app.models.main_model import TaskTemplate
-from app.markdown import ReadMD
+# from app.markdown import ReadMD
+from py_markdown.py_markdown import ReadMD
 
 class TestChoice(TestOfCode):
     def set_text(self) -> None:
