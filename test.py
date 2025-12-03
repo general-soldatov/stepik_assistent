@@ -1,6 +1,5 @@
 # from app.creator.test_task import TestOfCode
 from app.models.project import ObjectsTypes
-from app.markdown import ReadMD
 PATH = "projects/test_1.yaml"
 # project = Project.model_validate_yaml(PATH)
 # # print(project)
@@ -10,7 +9,7 @@ PATH = "projects/test_1.yaml"
 
 import json
 import yaml
-from py_markdown.py_markdown import ReadMD
+from py_markdown import ReadMD
 
 def json_indent(path='text.step'):
     with open(path, 'r', encoding='utf-8') as fl:
