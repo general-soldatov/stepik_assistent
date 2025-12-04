@@ -1,17 +1,17 @@
-question:
-  types: choice
-  case_num: 3
-  text_data: Что выдаст код, если пользователь введёт <code>Привет</code>?
-  code_path: code.py
-  help: Используйте оператор <code>or</code>
-answer:
-  correct:
-    - Хочу покушать!
-  wrong:
-    - Не хочу жрать!
-    - Развести траты!
-    - Это супер!
-  # sample_size: 2
-  feedback:
-    correct: "Круто!"
-    wrong: "Не расстраивайся!"
+- matching:
+    question:
+      types: matching
+      text_data: Sample text for matching
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      first:
+      - first
+      - second
+      second:
+      - one
+      - two

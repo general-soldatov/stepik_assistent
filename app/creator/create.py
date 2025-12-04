@@ -55,10 +55,11 @@ class BuildProject:
         self._extend(pr.matching_task, 'matching')
         self._extend(pr.sequence_task, 'sorting')
 
-    def export_to_yaml(self, path: str) -> None:
-        data = self.data.model_dump()
-        with open(path, 'w', encoding='utf-8') as file:
-            yaml.dump(data['project'], file)
+    def export_to_yaml(self, path: str, encoding: str = 'utf-8') -> None:
+        data = self.data.model_dump()['project']
+        with open(path, 'w', encoding=encoding) as file:
+            allow_unicode = encoding == 'utf-8'
+            yaml.dump(data, file, encoding=encoding, sort_keys=False, allow_unicode=allow_unicode)
 
 class ImportProject:
     def __init__(self, path: str):

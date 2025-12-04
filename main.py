@@ -8,29 +8,30 @@ import click
 
 
 
-PATH = "projects/project_3.yaml"
+PATH = "projects/project_1.yaml"
 
 TEXT = '''{
     "test_tasks": [
     {
-        "text": "str data is super string!",
-        "correct": ["Privet"],
-        "wrong": ["Hi", "Hello"]
+        "text": "Text question",
+        "correct": ["correct"],
+        "wrong": ["uncorrect_1", "uncorrect_2", "uncorrect_3"]
     }],
     "sequence_task": [
         {
-            "text": "str",
-            "steps": ["dfdf", "sdd", "sdrefd"]
+            "text": "Text",
+            "steps": ["one", "two", "three"]
         }
     ],
     "matching_task": [
     {
-        "text": "str",
-        "therms": ["str", "sdd", "ds"],
-        "definitions": ["str", "sdd", "gh"]
+        "text": "Question",
+        "therms": ["one", "two", "three"],
+        "definitions": ["first", "second", "third"]
     }
     ]
 }'''
+PATH_AI = "ai_request.json"
 
 def build_test_project():
     project = TaskTemplate.model_validate_yaml(PATH)
@@ -38,9 +39,10 @@ def build_test_project():
     data.export()
 
 def parseAI():
-    data = json.loads(TEXT)
+    with open(PATH_AI, 'r', encoding='utf-8') as file:
+        data = json.load(file)
     project = BuildProject()
-    project.add_text()
+    # project.add_text()
     # project.import_ai(data)
     # project.add_choice()
     project.add_matching()

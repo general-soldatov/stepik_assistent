@@ -27,7 +27,7 @@ class Pairs(BaseModel):
     second: str
 
 class SourceMatching(Source):
-    preserve_first_order: bool = False
+    preserve_firsts_order: bool = False
     pairs: List[Pairs]
 
 class Block(BaseModel):

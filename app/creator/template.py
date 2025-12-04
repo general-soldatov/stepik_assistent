@@ -64,7 +64,6 @@ class Test(Data):
     def _set_options(self, multiply_choice: bool):
         self.block.options = dict(is_multiple_choice=multiply_choice)
         self._set_source()
-        print(self.block.source)
 
     def _set_source(self):
         sample_size, options = self._set_answers()

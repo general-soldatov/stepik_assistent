@@ -1,0 +1,62 @@
+{
+    "block": {
+        "name": "code",
+        "text": "<p><strong>Свершение 14. </strong>Теперь Вы разрабатываете систему освещения в теплице. Свет должен включаться в 21 час, соответственно, выключаться в 7 утра. Либо включаться при освещённости ниже 6000 люкс и выключаться при достижении данного значения. Во входном потоке считываются две переменные <code>time_now</code>, в которую передаётся текущее время, и <code>illumination</code>, в которую считывается значение с датчика фотоэлемента. Создайте bool переменную  <code>lumen_on</code>, которая включает (true) и выключает (false) свет. Этой переменной присвойте результат составных условий в соответствии с техническим заданием. </p>\n\n<p><strong>Примечание: </strong>Необходимо прописать только часть кода, функция main уже объявлена! </p>",
+        "video": null,
+        "options": {
+            "execution_time_limit": 5,
+            "execution_memory_limit": 256,
+            "limits": {
+                "c": {
+                    "time": 5,
+                    "memory": 256
+                }
+            },
+            "code_templates": {
+                "c": "// Напишите Ваш код здесь"
+            },
+            "code_templates_header_lines_count": {
+                "c": 11
+            },
+            "code_templates_footer_lines_count": {
+                "c": 5
+            },
+            "code_templates_options": {},
+            "samples": [
+                [
+                    "",
+                    "Тест 1: Успешно ✅\nТест 2: Успешно ✅\nТест 3: Успешно ✅\nТест 4: Успешно ✅\nТест 5: Успешно ✅\nТест 6: Успешно ✅\nТест 7: Успешно ✅\nТест 8: Успешно ✅\nТест 9: Успешно ✅"
+                ]
+            ],
+            "is_run_user_code_allowed": true
+        },
+        "subtitle_files": [],
+        "is_deprecated": false,
+        "source": {
+            "code": "# This is a sample Code Challenge\n# Learn more: https://stepik.org/lesson/9172\n# Ask your questions via help@stepik.org\n\ndef generate():\n    return []\n\ndef check(reply, clue):\n    return reply.strip() == '''Тест 1: Успешно ✅\nТест 2: Успешно ✅\nТест 3: Успешно ✅\nТест 4: Успешно ✅\nТест 5: Успешно ✅\nТест 6: Успешно ✅\nТест 7: Успешно ✅\nТест 8: Успешно ✅\nТест 9: Успешно ✅'''\n\n# def solve(dataset):\n#     a, b = dataset.split()\n#     return str(int(a) + int(b))",
+            "execution_time_limit": 5,
+            "execution_memory_limit": 256,
+            "samples_count": 1,
+            "templates_data": "::c\n::header\n\n#include <stdio.h>\n#include <stdbool.h>\n#define TEST 9\n\nint main(void)\n{\n    int data[TEST][2] = {{6000, 11}, {5000, 12}, {6000, 21}, {10000, 11}, {6000, 7}, \n                         {5999, 7}, {2000, 20}, {7000, 6}, {8000, 22}};\n    for (short i = 0; i < TEST; i++)\n    {\n        int illumination = data[i][0], time_now = data[i][1];\n::code\n        // Напишите Ваш код здесь\n::footer\n        printf(\"Тест %d: \", i + 1);\n        bool control = !(time_now < 21 && time_now >= 7) || illumination < 6000;\n        printf((control == lumen_on) ? \"Успешно ✅\\n\" : \"Ошибка ❌\\n\");\n    }\n}",
+            "is_time_limit_scaled": true,
+            "is_memory_limit_scaled": true,
+            "is_run_user_code_allowed": true,
+            "manual_time_limits": [],
+            "manual_memory_limits": [],
+            "test_archive": [],
+            "test_cases": [
+                [
+                    "",
+                    "Тест 1: Успешно ✅\nТест 2: Успешно ✅\nТест 3: Успешно ✅\nТест 4: Успешно ✅\nТест 5: Успешно ✅\nТест 6: Успешно ✅\nТест 7: Успешно ✅\nТест 8: Успешно ✅\nТест 9: Успешно ✅"
+                ]
+            ]
+        },
+        "subtitles": {},
+        "tests_archive": "/api/step-sources/6763579/tests",
+        "feedback_correct": "",
+        "feedback_wrong": ""
+    },
+    "id": "6763579",
+    "has_review": false,
+    "time": "2025-12-04T08:13:36.717Z"
+}

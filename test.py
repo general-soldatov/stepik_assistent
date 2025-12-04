@@ -22,13 +22,13 @@ def read_yaml(path="projects/project_2.yaml"):
         data = yaml.safe_load(file.read())
         print(data)
 
-json_indent()
+json_indent('export/1633992_16_code.step')
 # read_yaml()
-txt = "projects/text.md"
+# txt = "projects/text.md"
 # with open(txt, 'r', encoding='utf-8') as file:
 #     data = markdown_to_html(file.read())
 # with open('text.html', 'w', encoding='utf-8') as file:
 #     file.write(data)
 # print(data)
-obj = ReadMD.file_import(txt)
-obj.to_html_file('text.html')
+# obj = ReadMD.file_import(txt)
+# obj.to_html_file('text.html')

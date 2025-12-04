@@ -24,8 +24,12 @@ class MatchingTest(TestOfCode):
         _, options = self._set_answers()
         self.block.source = SourceMatching(
             is_html_enabled = True,
-            preserve_first_order = False,
+            preserve_firsts_order = True,
             pairs=options)
+
+    def _set_options(self, multiply_choice=False):
+        self.block.options = dict()
+        self._set_source()
 
 class SortingTest(TestOfCode):
     @staticmethod
