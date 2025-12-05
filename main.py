@@ -8,9 +8,9 @@ import click
 
 
 
-PATH = "projects/project_1.yaml"
+PATH = "projects/project_2.yaml"
 
-TEXT = '''{
+TEXT = '''Представь, что ты автор курса по микроконтроллерам. Напиши вопросы к теме "Логические операции в языке Си, больше, меньше, равно, не равно и т.д.". Должно быть 10 заданий тестовых на выбор одного правильного ответа, а также 5 на сортировку или сопоставление. Ответ представь в формате json по образцу:{
     "test_tasks": [
     {
         "text": "Text question",
@@ -43,9 +43,9 @@ def parseAI():
         data = json.load(file)
     project = BuildProject()
     # project.add_text()
-    # project.import_ai(data)
+    project.import_ai(data)
     # project.add_choice()
-    project.add_matching()
+    # project.add_matching()
     # project.add_sorting()
     # print(*project.project, sep='\n')
     project.export_to_yaml(PATH)

@@ -1,7 +1,8 @@
-- matching:
+- choice:
     question:
-      types: matching
-      text_data: Sample text for matching
+      types: choice
+      text_data: Что вернет оператор сравнения ==, если два сравниваемых значения
+        равны?
       code_path: null
       help: null
     answer:
@@ -9,9 +10,129 @@
       feedback:
         correct: ''
         wrong: ''
-      first:
-      - first
-      - second
-      second:
-      - one
-      - two
+      correct:
+      - '1'
+      wrong:
+      - '0'
+      - 'true'
+      - 'false'
+      - 'null'
+- choice:
+    question:
+      types: choice
+      text_data: Какой оператор возвращает true, если первое значение больше второго?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - '>'
+      wrong:
+      - <
+      - <=
+      - '!='
+- choice:
+    question:
+      types: choice
+      text_data: Какой оператор проверяет неравенство двух значений?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - '!='
+      wrong:
+      - ==
+      - '>'
+      - <=
+- choice:
+    question:
+      types: choice
+      text_data: Вернет ли выражение (a > b) значение false, если a = 5, b = 10?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - Да
+      wrong:
+      - Нет
+      - Зависит от типа переменных
+      - Ошибка компиляции
+- choice:
+    question:
+      types: choice
+      text_data: Какое значение вернет сравнение 1 != 1?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - '0'
+      wrong:
+      - 'true'
+      - '1'
+      - 'false'
+- choice:
+    question:
+      types: choice
+      text_data: При каком условии оператор <= возвратит истину?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - Первое число меньше либо равно второму
+      wrong:
+      - Только если числа равны
+      - Только если первое число больше второго
+      - Ни при каких условиях
+- choice:
+    question:
+      types: choice
+      text_data: 'Выберите неверное утверждение:'
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - Оператор '!=' проверяет равенство значений
+      wrong:
+      - Операторы '<', '>' используются для проверки порядка чисел
+      - Оператор '==' используется для проверки равенства
+      - Оператор '>=' означает 'больше или равно'
+- choice:
+    question:
+      types: choice
+      text_data: 'Результатом выражения 5 <= 5 является:'
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - '1'
+      wrong:
+      - 'false'
+      - '0'
+      - 'true'

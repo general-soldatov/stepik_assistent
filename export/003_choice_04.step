@@ -1,0 +1,49 @@
+{
+    "block": {
+        "name": "choice",
+        "text": "<strong>Свершение 4.</strong>&nbsp;Какой из следующих вариантов не является лексемой?",
+        "video": null,
+        "options": {
+            "is_multiple_choice": false
+        },
+        "subtitle_files": [],
+        "is_deprecated": false,
+        "source": {
+            "is_html_enabled": true,
+            "is_multiple_choice": false,
+            "is_always_correct": false,
+            "sample_size": 4,
+            "preserve_order": false,
+            "is_options_feedback": false,
+            "options": [
+                {
+                    "text": "@variable",
+                    "is_correct": true,
+                    "feedback": ""
+                },
+                {
+                    "text": "variable",
+                    "is_correct": false,
+                    "feedback": ""
+                },
+                {
+                    "text": "123",
+                    "is_correct": false,
+                    "feedback": ""
+                },
+                {
+                    "text": "float",
+                    "is_correct": false,
+                    "feedback": ""
+                }
+            ]
+        },
+        "subtitles": {},
+        "tests_archive": null,
+        "feedback_correct": "",
+        "feedback_wrong": ""
+    },
+    "id": "8736153",
+    "has_review": false,
+    "time": "2025-11-12T07:09:19.592Z"
+}
