@@ -30,7 +30,7 @@ TEXT = '''Представь, что ты автор курса по микро�
     ]
 }'''
 PATH_AI = "ai_request.json"
-PATH = "projects/004_bit's_logical.yaml"
+PATH = "projects/003_bit's_logical.yaml"
 
 def build_test_project():
     project = TaskTemplate.model_validate_yaml(PATH)

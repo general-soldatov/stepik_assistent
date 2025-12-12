@@ -1,0 +1,212 @@
+- choice:
+    question:
+      types: choice
+      text_data: Какой оператор используется для побитового И в языке C?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - '&'
+      wrong:
+      - '|'
+      - "^"
+      - '~'
+- choice:
+    question:
+      types: choice
+      text_data: Какой результат будет у выражения 5 & 3?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - '1'
+      wrong:
+      - '0'
+      - '2'
+      - '5'
+- choice:
+    question:
+      types: choice
+      text_data: Какой оператор используется для побитового ИЛИ в языке C?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - '|'
+      wrong:
+      - '&'
+      - "^"
+      - '~'
+- choice:
+    question:
+      types: choice
+      text_data: Какой оператор используется для побитового исключающего ИЛИ в языке
+        C?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - "^"
+      wrong:
+      - '&'
+      - '|'
+      - '~'
+- choice:
+    question:
+      types: choice
+      text_data: Какой оператор используется для побитового отрицания в языке C?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - '~'
+      wrong:
+      - '&'
+      - '|'
+      - "^"
+- choice:
+    question:
+      types: choice
+      text_data: Какой из следующих операторов не является побитовым?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - '&&'
+      wrong:
+      - '&'
+      - '|'
+      - "^"
+- choice:
+    question:
+      types: choice
+      text_data: Что произойдет при выполнении операции 1 << 3?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - '8'
+      wrong:
+      - '3'
+      - '4'
+      - '16'
+- matching:
+    question:
+      types: matching
+      text_data: Сопоставьте операторы с их описаниями.
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      first:
+      - '&'
+      - '|'
+      - "^"
+      - '~'
+      second:
+      - Побитовое И
+      - Побитовое ИЛИ
+      - Побитовое исключающее ИЛИ
+      - Побитовое отрицание
+- matching:
+    question:
+      types: matching
+      text_data: Сопоставьте результаты операций с соответствующими выражениями.
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: 'Молодец! Ты ас в системах счисления!'
+        wrong: 'Нужно представить числа в двоичной системе!'
+      first:
+      - 5 & 3
+      - 5 | 3
+      - ~5
+      second:
+      - '1'
+      - '7'
+      - '-6'
+- matching:
+    question:
+      types: matching
+      text_data: Сопоставьте побитовые операции с их назначением.
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      first:
+      - '&'
+      - '|'
+      - '~'
+      second:
+      - Установить бит, если он установлен в любом из операндов.
+      - Установить бит, если он установлен в обоих операндах.
+      - Инвертировать состояние бита.
+- matching:
+    question:
+      types: matching
+      text_data: Сопоставьте выражения с их результатами.
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      first:
+      - "5 ^ 3"
+      - ~0
+      second:
+      - '6'
+      - '-1'
+- sorting:
+    question:
+      types: sorting
+      text_data: Упорядочите операторы по их приоритету, начиная с самого высокого.
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      steps:
+      - '<<'
+      - '&'
+      - '|'
+      - "^"
