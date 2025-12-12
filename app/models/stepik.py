@@ -37,7 +37,7 @@ class Block(BaseModel):
     options: dict
     subtitle_files: list
     is_deprecated: bool = False
-    source: Union[SourceTest, SourceMatching, None] = None
+    source: Union[SourceTest, SourceMatching, SourceSorting, None] = None
     subtitles: dict
     tests_archive: str | None = None
     feedback_correct: str
