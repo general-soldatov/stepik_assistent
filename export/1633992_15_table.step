@@ -1,0 +1,96 @@
+{
+    "block": {
+        "name": "table",
+        "text": "<p><strong>Свершение 13. </strong>Даны два условия через запятую, которые либо истинны, либо ложны. Вам необходимо отметить <em>истинные </em>ячейки для каждого оператора составных логических операций. Для НЕ используется <em>второе </em>условие.</p>",
+        "video": null,
+        "options": {},
+        "subtitle_files": [],
+        "is_deprecated": false,
+        "source": {
+            "rows": [
+                {
+                    "name": "True, True",
+                    "columns": [
+                        {
+                            "choice": true
+                        },
+                        {
+                            "choice": true
+                        },
+                        {
+                            "choice": false
+                        }
+                    ]
+                },
+                {
+                    "name": "True, False",
+                    "columns": [
+                        {
+                            "choice": false
+                        },
+                        {
+                            "choice": true
+                        },
+                        {
+                            "choice": true
+                        }
+                    ]
+                },
+                {
+                    "name": "False, True",
+                    "columns": [
+                        {
+                            "choice": false
+                        },
+                        {
+                            "choice": true
+                        },
+                        {
+                            "choice": false
+                        }
+                    ]
+                },
+                {
+                    "name": "False, False",
+                    "columns": [
+                        {
+                            "choice": false
+                        },
+                        {
+                            "choice": false
+                        },
+                        {
+                            "choice": true
+                        }
+                    ]
+                }
+            ],
+            "options": {
+                "is_checkbox": true,
+                "is_randomize_rows": true,
+                "is_randomize_columns": true,
+                "sample_size": -1
+            },
+            "columns": [
+                {
+                    "name": "И"
+                },
+                {
+                    "name": "ИЛИ"
+                },
+                {
+                    "name": "НЕ"
+                }
+            ],
+            "description": "Ряды: ",
+            "is_always_correct": false
+        },
+        "subtitles": {},
+        "tests_archive": null,
+        "feedback_correct": "",
+        "feedback_wrong": ""
+    },
+    "id": "6763590",
+    "has_review": false,
+    "time": "2025-12-04T08:13:27.718Z"
+}

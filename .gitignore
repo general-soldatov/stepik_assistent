@@ -1,3 +1,4 @@
 /venv/
 data.txt
 data.py
+/__pycache__/

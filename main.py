@@ -1,44 +1,60 @@
-from app.analys.parse import Test, TestOfCode, TestChoice
-from app.models.project import Project
-from app.models.ai_prompt import TestAI
+from app.creator.test_task import TestChoice, MatchingTest, SortingTest
+from app.creator.template import Test
+from app.models.main_model import TestAI, TaskTemplate
+from app.creator.create import BuildProject, ImportProject
 
 import json
+import click
 
-PATH = "projects/project_1.yaml"
 
-TEXT = '''{
+
+TEXT = '''Представь, что ты автор курса по микроконтроллерам. Напиши вопросы к теме "Логические операции в языке Си, больше, меньше, равно, не равно и т.д.". Должно быть 10 заданий тестовых на выбор одного правильного ответа, а также 5 на сортировку или сопоставление. Ответ представь в формате json по образцу:{
     "test_tasks": [
     {
-        "question": "str data is super string!",
-        "correct": ["Privet"],
-        "wrong": ["Hi", "Hello"]
+        "text": "Text question",
+        "correct": ["correct"],
+        "wrong": ["uncorrect_1", "uncorrect_2", "uncorrect_3"]
     }],
     "sequence_task": [
         {
-            "task": "str",
-            "steps": ["dfdf", "sdd", "sdrefd"]
+            "text": "Text",
+            "steps": ["one", "two", "three"]
         }
     ],
     "matching_task": [
     {
-        "task": "str",
-        "therms": ["str", "sdd", "ds"],
-        "definitions": ["str", "sdd", "gh"]
+        "text": "Question",
+        "therms": ["one", "two", "three"],
+        "definitions": ["first", "second", "third"]
     }
     ]
 }'''
+PATH_AI = "ai_request.json"
+PATH = "projects/004_bit's_logical.yaml"
 
 def build_test_project():
-    project = Project.model_validate_yaml(PATH)
+    project = TaskTemplate.model_validate_yaml(PATH)
     data: Test = TestChoice(project)
     data.export()
 
-def parseAI(start=1):
-    data = json.loads(TEXT)
-    pr = TestAI.model_validate(data)
-    for i, item in enumerate(pr.test_tasks, start):
-        print(item.question)
-        proj = TestChoice(item, i)
-        print(proj.preview())
+def parseAI():
+    with open(PATH_AI, 'r', encoding='utf-8') as file:
+        data = json.load(file)
+    project = BuildProject()
+    # project.add_text()
+    project.import_ai(data)
+    # project.add_choice()
+    # project.add_matching()
+    # project.add_sorting()
+    # print(*project.project, sep='\n')
+    project.export_to_yaml(PATH)
 
-build_test_project()
+def import_data():
+    data = ImportProject(PATH)
+    # print(*[dt for dt in data.data], sep='\n')
+    data.create()
+
+# build_test_project()
+# parseAI()
+# comment
+import_data()

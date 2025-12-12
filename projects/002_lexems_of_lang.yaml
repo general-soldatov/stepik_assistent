@@ -1,0 +1,213 @@
+- choice:
+    question:
+      types: choice
+      text_data: Что из представленного является идентификатором в языке Си?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - myVariable
+      wrong:
+      - 123abc
+      - '#define'
+      - int
+- choice:
+    question:
+      types: choice
+      text_data: Какое из следующих слов является зарезервированным словом в языке
+        Си?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: 'Да, из представленных слов зарезервирован только оператор return!'
+        wrong: ''
+      correct:
+      - return
+      wrong:
+      - myFunction
+      - variableName
+      - print
+- choice:
+    question:
+      types: choice
+      text_data: Какой символ используется для начала однострочного комментария в
+        языке Си?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: 'Помним, что это не Python!'
+      correct:
+      - //
+      wrong:
+      - /*
+      - '#'
+      - --
+- choice:
+    question:
+      types: choice
+      text_data: Какой из следующих вариантов не является лексемой?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - '@variable'
+      wrong:
+      - variable
+      - '123'
+      - float
+- choice:
+    question:
+      types: choice
+      text_data: Какой из следующих идентификаторов является допустимым в языке Си?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: 'Идентификатором может быть слово, не зарезервированное языком, а также не начинаться с цифры.'
+        wrong: ''
+      correct:
+      - _myVar1
+      wrong:
+      - 1stVariable
+      - my-var
+      - float
+- choice:
+    question:
+      types: choice
+      text_data: Какой символ используется для многострочного комментария в языке
+        Си?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - /* */
+      wrong:
+      - //
+      - '#'
+      - '**'
+- choice:
+    question:
+      types: choice
+      text_data: Какое из следующих слов не является зарезервированным словом в языке
+        Си?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - function
+      wrong:
+      - int
+      - while
+      - if
+- choice:
+    question:
+      types: choice
+      text_data: Что происходит, если вы используете зарезервированное слово в качестве
+        идентификатора?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - Ошибка компиляции
+      wrong:
+      - Код выполнится успешно
+      - Идентификатор будет проигнорирован
+      - Будет выдано предупреждение
+- choice:
+    question:
+      types: choice
+      text_data: Какой из следующих вариантов правильно оформляет однострочный комментарий?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - // Это комментарий
+      wrong:
+      - '# Это комментарий'
+      - / Это комментарий
+      - //Это комментарий//
+- matching:
+    question:
+      types: matching
+      text_data: Сопоставьте типы комментариев с их обозначениями.
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      first:
+      - однострочный комментарий
+      - многострочный комментарий
+      second:
+      - //
+      - /* */
+- matching:
+    question:
+      types: matching
+      text_data: Сопоставьте зарезервированные слова с их значениями.
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      first:
+      - if
+      - return
+      - while
+      second:
+      - условие
+      - возврат значения
+      - цикл
+- matching:
+    question:
+      types: matching
+      text_data: Сопоставьте лексемы с их категориями.
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      first:
+      - int
+      - _myVar
+      - // comment
+      second:
+      - тип данных
+      - идентификатор
+      - комментарий

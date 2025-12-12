@@ -1,42 +1,54 @@
-import yaml
-from pydantic import BaseModel, field_validator, computed_field
+from pydantic import BaseModel, field_validator
 from typing import List
-from .ai_prompt import TestAI
-
-class Question(BaseModel):
-    types: str
-    case_num: int
-    text_data: str
-    code_path: str | None = None
-    help: str | None = None
-
-    @field_validator('types')
-    def check_name(cls, value):
-        if value in ['text', 'choice', 'matching']:
-            return value
-        raise ValueError('Неопознанный объект!')
-
-    @computed_field
-    def text(self) -> str:
-        pass
 
 class Feedback(BaseModel):
     correct: str = ""
     wrong: str = ""
 
 class Answer(BaseModel):
-    correct: List[str]
-    wrong: List[str]
     sample_size: int | None = None
     feedback: Feedback = Feedback()
 
-class YamlProject(BaseModel):
-    @classmethod
-    def model_validate_yaml(cls, path, encoding='utf-8'):
-        with open(path, 'r', encoding=encoding) as file:
-            data = yaml.safe_load(file.read())
-            return cls.model_validate(data)
+class AnswerTest(Answer):
+    correct: List[str]
+    wrong: List[str]
 
-class Project(YamlProject):
-    question: Question
-    answer: Answer
+class AnswerMatching(Answer):
+    first: List[str]
+    second: List[str]
+
+class AnswerSorting(Answer):
+    steps: List[str]
+
+class Text(BaseModel):
+    path: str | None = None
+    data: str | None = None
+
+class ObjectsTypes:
+    def __init__(self):
+        self.objects = tuple(filter(lambda x: not x.startswith('__'),
+                                        self.__class__.__dict__.keys()))
+
+    def text(self):
+        return Text
+
+    def choice(self):
+        return AnswerTest
+
+    def matching(self):
+        return AnswerMatching
+
+    def sorting(self):
+        return AnswerSorting
+
+class Question(BaseModel):
+    types: str
+    text_data: str
+    code_path: str | None = None
+    help: str | None = None
+
+    @field_validator('types')
+    def check_name(cls, value):
+        if value in ObjectsTypes().objects:
+            return value
+        raise ValueError('Неопознанный объект!')
