@@ -1,0 +1,161 @@
+- choice:
+    question:
+      types: choice
+      text_data: Какой из следующих вариантов является правильным объявлением целочисленной
+        переменной в языке Си?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - int myVariable;
+      wrong:
+      - integer myVariable;
+      - myVariable int;
+      - float myVariable;
+- choice:
+    question:
+      types: choice
+      text_data: Какой из следующих вариантов правильно объявляет переменную с плавающей
+        точкой?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - float myFloat = 3.14;
+      wrong:
+      - float = 3.14 myFloat;
+      - myFloat float = 3.14;
+      - double myFloat = 3.14;
+- choice:
+    question:
+      types: choice
+      text_data: Какой из следующих способов объявления переменной является корректным?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - char letter = 'A';
+      wrong:
+      - char letter = A;
+      - char = 'A' letter;
+      - letter char = 'A';
+- choice:
+    question:
+      types: choice
+      text_data: Какой из следующих вариантов объявления переменной является неверным?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - int 1stVariable;
+      wrong:
+      - int firstVariable;
+      - int my_variable;
+      - int variable1;
+- choice:
+    question:
+      types: choice
+      text_data: Какой из следующих вариантов позволяет объявить несколько переменных
+        одного типа?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - int a, b, c;
+      wrong:
+      - int a; int b; int c;
+      - a, b, c int;
+      - int a b c;
+- matching:
+    question:
+      types: matching
+      text_data: Сопоставьте типы данных с их назначением.
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      first:
+      - int
+      - float
+      - char
+      second:
+      - Целое число
+      - Число с плавающей точкой
+      - Символ
+- matching:
+    question:
+      types: matching
+      text_data: Сопоставьте правильные объявления переменных с их типами.
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      first:
+      - int num;
+      - float pi;
+      - char letter;
+      second:
+      - Целочисленная переменная
+      - Переменная с плавающей точкой
+      - Символьная переменная
+- matching:
+    question:
+      types: matching
+      text_data: Сопоставьте инициализацию переменных с их значениями.
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      first:
+      - int x = 10;
+      - float y = 5.5;
+      - char z = 'B';
+      second:
+      - Целое число 10
+      - Число с плавающей точкой 5.5
+      - Символ B
+- sorting:
+    question:
+      types: sorting
+      text_data: Упорядочите типы данных по размеру (от меньшего к большему).
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      steps:
+      - char
+      - int
+      - float
+      - double
