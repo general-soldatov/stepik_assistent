@@ -9,19 +9,19 @@ import click
 
 
 TEXT = '''Представь, что ты автор курса по микроконтроллерам. Напиши вопросы к теме "Логические операции в языке Си, больше, меньше, равно, не равно и т.д.". Должно быть 10 заданий тестовых на выбор одного правильного ответа, а также 5 на сортировку или сопоставление. Ответ представь в формате json по образцу:{
-    "test_tasks": [
+    "choice": [
     {
         "text": "Text question",
         "correct": ["correct"],
         "wrong": ["uncorrect_1", "uncorrect_2", "uncorrect_3"]
     }],
-    "sequence_task": [
+    "sequence": [
         {
             "text": "Text",
             "steps": ["one", "two", "three"]
         }
     ],
-    "matching_task": [
+    "matching": [
     {
         "text": "Question",
         "therms": ["one", "two", "three"],
@@ -30,7 +30,7 @@ TEXT = '''Представь, что ты автор курса по микро�
     ]
 }'''
 PATH_AI = "ai_request.json"
-PATH = "projects/005_seven's_digit.yaml"
+PATH = "projects/007_button.yaml"
 
 def build_test_project():
     project = TaskTemplate.model_validate_yaml(PATH)

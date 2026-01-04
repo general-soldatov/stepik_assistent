@@ -3,6 +3,7 @@ from app.models.stepik import Step, OptionsTest, Block, SourceTest
 from app.models.main_model import TaskTemplate
 from app.models.project import Text
 from typing import Tuple
+from py_markdown import ReadMD
 
 class Data(ABC):
     def __init__(self, project: TaskTemplate | Text, case_num = None, path: str = 'app/creator/sample_test.step'):
@@ -52,10 +53,11 @@ class Test(Data):
         return text_step
 
     def set_text(self) -> None:
-        self.block.text = self.template_text(
-            text=self.project.question.text_data,
-            num=self.case_num
-        )
+        self.block.text = ReadMD(
+            self.template_text(
+                text=self.project.question.text_data,
+                num=self.case_num
+        )).to_html_text()
 
     def _set_help(self):
         if self.project.question.help:

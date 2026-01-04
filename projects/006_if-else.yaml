@@ -1,0 +1,138 @@
+- choice:
+    question:
+      types: choice
+      text_data: Что делает оператор if в языке Си?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - проверяет условие
+      wrong:
+      - вызывает функцию
+      - завершает программу
+      - инициализирует переменную
+- choice:
+    question:
+      types: choice
+      text_data: Что произойдет, если условие в if не выполнится?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - будет выполнен блок else
+      wrong:
+      - программа завершится
+      - будет вызвана ошибка
+      - ничего не произойдет
+- choice:
+    question:
+      types: choice
+      text_data: Что вернет оператор if, если условие истинно?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - выполнит блок кода внутри if
+      wrong:
+      - вернет false
+      - передаст управление в else
+      - ничего не вернет
+- choice:
+    question:
+      types: choice
+      text_data: Какой из следующих вариантов является верным синтаксисом if-else?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - if (условие) { код } else { код }
+      wrong:
+      - if условие { код } else { код }
+      - if (условие) код else код
+      - 'if (условие) -> код : else -> код'
+- choice:
+    question:
+      types: choice
+      text_data: Какой из следующих операторов используется для проверки равенства?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - ==
+      wrong:
+      - '='
+      - ===
+      - '!='
+- choice:
+    question:
+      types: choice
+      text_data: Что произойдет, если не будет блока else?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - программа продолжит выполнение после if
+      wrong:
+      - возникнет ошибка
+      - выполнится блок else
+      - программа завершится
+- choice:
+    question:
+      types: choice
+      text_data: 'Каково значение переменной a после выполнения следующего кода: ```c\nint a = 5;\nif (a < 10)\n\ta = 1; \nelse\n\ta = 2;```'
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - '1'
+      wrong:
+      - '2'
+      - '5'
+      - '0'
+- matching:
+    question:
+      types: matching
+      text_data: Сопоставьте конструкции if с их результатами.
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      first:
+      - if (1) {}
+      - if (0) {}
+      - if (x > 0) {}
+      second:
+      - выполнится
+      - не выполнится
+      - выполнится, если x положительное
