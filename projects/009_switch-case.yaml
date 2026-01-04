@@ -1,0 +1,142 @@
+- choice:
+    question:
+      types: choice
+      text_data: Что такое оператор switch в языке Си?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - Оператор для выбора одного из нескольких вариантов
+      wrong:
+      - Оператор для выполнения циклов
+      - Оператор для работы с массивами
+      - Оператор для определения условий
+- choice:
+    question:
+      types: choice
+      text_data: Какой синтаксис используется для оператора switch?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - 'switch (выражение) { case значение: ... }'
+      wrong:
+      - switch { выражение }
+      - 'case (значение) : ...'
+      - 'switch (выражение) : case значение'
+- choice:
+    question:
+      types: choice
+      text_data: Что происходит, если значение выражения не совпадает ни с одним из
+        case?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - Выполняется блок default, если он существует
+      wrong:
+      - Возникает ошибка компиляции
+      - Не происходит ничего
+      - Выполняется первый case
+- choice:
+    question:
+      types: choice
+      text_data: Какой оператор позволяет выходить из блока switch?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - break
+      - return
+      wrong:
+      - continue
+      - exit
+- choice:
+    question:
+      types: choice
+      text_data: Какой из следующих вариантов является корректным использованием switch-case?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - 'switch (x) { case 1: ... break; default: ... }'
+      wrong:
+      - 'switch x { case 1: ... }'
+      - 'switch (x) case 1: ...'
+      - 'case 1: switch (x) ...'
+- choice:
+    question:
+      types: choice
+      text_data: Что произойдет, если не использовать оператор break в case?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - Выполнится следующий case до ближайшего break
+      wrong:
+      - Произойдет ошибка компиляции
+      - Выполнится только текущий case
+      - Ничего не произойдет
+
+- choice:
+    question:
+      types: choice
+      text_data: Когда следует использовать оператор switch вместо if-else?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - Когда нужно проверить одно выражение на несколько значений
+      wrong:
+      - Когда условия сложные
+      - Когда нужно использовать циклы
+      - Когда требуется сравнение двух переменных
+- matching:
+    question:
+      types: matching
+      text_data: Сопоставьте ключевые слова и их назначения в контексте switch-case.
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      first:
+      - switch
+      - case
+      - default
+      - break
+      second:
+      - Начало блока выбора
+      - Определяет возможное значение переменной
+      - Обрабатывает случаи, когда нет совпадений
+      - Выход из блока switch

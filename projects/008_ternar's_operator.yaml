@@ -1,0 +1,235 @@
+- choice:
+    question:
+      types: choice
+      text_data: Что такое тернарный оператор в языке Си?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - Сокращенная форма условного оператора if-else
+      wrong:
+      - Оператор для работы с массивами
+      - Специальный оператор для циклов
+      - Оператор для работы с указателями
+- choice:
+    question:
+      types: choice
+      text_data: Какой синтаксис тернарного оператора в Си?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - 'условие ? выражение1 : выражение2'
+      wrong:
+      - условие ? выражение1; выражение2
+      - 'условие выражение1 : выражение2'
+      - 'выражение1 ? условие : выражение2'
+- matching:
+    question:
+      types: matching
+      text_data: Сопоставьте термины и их определения.
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      first:
+      - Тернарный оператор
+      - Условие
+      - Выражение
+      second:
+      - Оператор, который принимает три аргумента
+      - Логическое выражение, определяющее выбор результата
+      - Результат, возвращаемый в зависимости от условия
+- choice:
+    question:
+      types: choice
+      text_data: 'Что будет результатом выполнения следующего кода: ```c\nint a = 5, b = 10;\nint max = (a > b) ? a : b;\n```?'
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - '10'
+      wrong:
+      - '5'
+      - '0'
+      - Ошибка компиляции
+- choice:
+    question:
+      types: choice
+      text_data: Какой тип данных может возвращать тернарный оператор?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - Тип данных, соответствующий выражениям
+      wrong:
+      - Только int
+      - Только float
+      - Только char
+- choice:
+    question:
+      types: choice
+      text_data: Какой из следующих вариантов является корректным использованием тернарного
+        оператора?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - 'int result = (x > y) ? x : y;'
+      wrong:
+      - int result = x > y ? x; y;
+      - int result = (x > y) ? ;
+      - 'int result = x > y ? x :'
+- choice:
+    question:
+      types: choice
+      text_data: Каков основной недостаток использования тернарного оператора?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - Сложность чтения кода при вложенных операторах
+      wrong:
+      - Невозможность использования в функциях
+      - Увеличение времени выполнения
+      - Отсутствие поддержки в стандарте C
+- choice:
+    question:
+      types: choice
+      text_data: >
+        Какой результат будет у следующего выражения:
+        ```c
+        int a = 3, b = 4;
+        int c = (a < b) ? a + b : a - b;
+        ```
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - '7'
+      wrong:
+      - '1'
+      - '-1'
+      - Ошибка компиляции
+- matching:
+    question:
+      types: matching
+      text_data: Сопоставьте примеры с их результатами.
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      first:
+      - '(5 > 3) ? 1 : 0'
+      - '(2 < 1) ? "yes" : "no"'
+      - '(10 == 10) ? true : false'
+      second:
+      - '1'
+      - '"no"'
+      - 'true'
+- choice:
+    question:
+      types: choice
+      text_data: Можно ли использовать тернарный оператор для присваивания значения
+        переменной?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - Да
+      wrong:
+      - Нет
+      - Только для глобальных переменных
+      - Только для локальных переменных
+- choice:
+    question:
+      types: choice
+      text_data: Какой из следующих примеров является ***ошибочным*** использованием тернарного
+        оператора?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - 'int result = (x > y) ? : z;'
+      wrong:
+      - 'int result = (x > y) ? x : z;'
+      - 'int result = (x < y) ? y : x;'
+      - 'int result = (x == y) ? 1 : 0;'
+- choice:
+    question:
+      types: choice
+      text_data: В каком случае целесообразно использовать тернарный оператор?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - Когда нужно присвоить значение переменной на основе условия
+      wrong:
+      - Когда нужно выполнить несколько операций
+      - Когда нужно создать массив
+      - Когда нужно использовать циклы
+- matching:
+    question:
+      types: matching
+      text_data: Сопоставьте ошибки с их описанием.
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      first:
+      - '(x > y) ?: z;'
+      - (a < b) ? a;
+      - '(x == y) ? x :'
+      second:
+      - Отсутствует первое выражение
+      - Отсутствует второе выражение
+      - Недостаток скобок в условии
