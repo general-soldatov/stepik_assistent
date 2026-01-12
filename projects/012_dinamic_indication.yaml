@@ -1,0 +1,220 @@
+- choice:
+    question:
+      types: choice
+      text_data: Какой из следующих циклов используется для итерации с заранее известным
+        количеством повторений?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - for
+      wrong:
+      - while
+      - do-while
+      - if
+- choice:
+    question:
+      types: choice
+      text_data: Какой оператор используется для выбора между несколькими вариантами
+        в языке Си?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - switch
+      wrong:
+      - if
+      - for
+      - while
+- choice:
+    question:
+      types: choice
+      text_data: Какой из следующих инструментов можно использовать для моделирования
+        работы микроконтроллеров?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - simulIDE
+      wrong:
+      - Photoshop
+      - Excel
+      - Word
+- choice:
+    question:
+      types: choice
+      text_data: Какой из следующих операторов позволяет выполнять код, если условие
+        истинно?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - if
+      wrong:
+      - else
+      - switch
+      - for
+- choice:
+    question:
+      types: choice
+      text_data: Что такое `debouncing` в контексте динамической индикации?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - устранение дребезга контактов
+      wrong:
+      - увеличение скорости работы
+      - уменьшение потребления энергии
+      - изменение частоты
+- choice:
+    question:
+      types: choice
+      text_data: Какой из этих инструментов позволяет программировать и тестировать
+        проекты на микроконтроллерах в браузере?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - wokwi
+      wrong:
+      - Arduino IDE
+      - Eclipse
+      - Visual Studio
+- choice:
+    question:
+      types: choice
+      text_data: Какой цикл лучше использовать, если необходимо выполнить код хотя
+        бы один раз?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - do-while
+      wrong:
+      - for
+      - while
+      - switch
+- choice:
+    question:
+      types: choice
+      text_data: Какой из следующих элементов управления лучше всего подходит для
+        отображения состояния на LED-индикаторе?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - цикл с задержкой
+      wrong:
+      - переменная-счетчик
+      - условный оператор
+      - функция вывода
+- choice:
+    question:
+      types: choice
+      text_data: Что необходимо сделать перед использованием порта ввода-вывода на
+        микроконтроллере AVR?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - Настроить направление порта
+      wrong:
+      - Инициализировать переменные
+      - Создать библиотеку
+      - Подключить к интернету
+- matching:
+    question:
+      types: matching
+      text_data: Сопоставьте типы циклов с их описанием.
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      first:
+      - for
+      - while
+      - do-while
+      second:
+      - Цикл с известным количеством итераций
+      - Цикл с условием проверки перед выполнением
+      - Цикл, выполняющийся хотя бы один раз
+- matching:
+    question:
+      types: matching
+      text_data: Сопоставьте инструменты с их назначением.
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      first:
+      - simulIDE
+      - wokwi
+      - Arduino IDE
+      - Microchip Studio
+      second:
+      - Моделирование схем и микроконтроллеров
+      - Онлайн-среда для разработки и тестирования
+      - Офлайн-среда для разработки программ для Arduino
+      - Офлайн-среда для разработки программ для микроконтроллеров Atmega
+- matching:
+    question:
+      types: matching
+      text_data: Сопоставьте типы данных с их описанием.
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      first:
+      - int
+      - float
+      - char
+      second:
+      - Целое число
+      - Число с плавающей запятой
+      - Символьный тип данных

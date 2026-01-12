@@ -1,0 +1,190 @@
+- choice:
+    question:
+      types: choice
+      text_data: Какой из следующих вариантов правильно описывает цикл `do-while`?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - Цикл выполняется хотя бы один раз, даже если условие ложно
+      wrong:
+      - Цикл не выполняется, если условие ложно
+      - Цикл выполняется только при истинном условии
+      - Цикл выполняется бесконечно
+- choice:
+    question:
+      types: choice
+      text_data: Как выглядит синтаксис цикла `do-while` в C?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - do { /* код */ } while (условие);
+      wrong:
+      - while (условие) { /* код */ } do;
+      - do { /* код */ } until (условие);
+      - for (инициализация; условие; итерация) { /* код */ }
+- choice:
+    question:
+      types: choice
+      text_data: Что произойдет, если условие в цикле `do-while` всегда ложно?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - Цикл выполнится один раз
+      wrong:
+      - Цикл не выполнится ни разу
+      - Произойдет бесконечный цикл
+      - Компилятор выдаст ошибку
+- choice:
+    question:
+      types: choice
+      text_data: Какой оператор может использоваться для выхода из цикла `do-while`?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - break
+      - return
+      wrong:
+      - continue
+      - exit
+- choice:
+    question:
+      types: choice
+      text_data: Какое значение вернет цикл `do-while`, если условие ложно?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - Цикл завершится, и управление передастся следующему оператору
+      wrong:
+      - Цикл продолжит выполнение
+      - Произойдет ошибка компиляции
+      - Цикл вернет значение 0
+- choice:
+    question:
+      types: choice
+      text_data: Можно ли использовать оператор `break` внутри цикла `do-while`?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - Да
+      wrong:
+      - Нет
+      - Только если условие истинно
+      - Только в начале цикла
+- choice:
+    question:
+      types: choice
+      text_data: Какой из следующих примеров является правильным использованием цикла
+        `do-while`?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - int i = 0; do { i++; } while (i < 10);
+      wrong:
+      - int i = 0; while (i < 10) { i++; } do;
+      - do { i++; } while (i < 10);
+      - for (int i = 0; i < 10; i++) { do {}; }
+- choice:
+    question:
+      types: choice
+      text_data: Что произойдет, если не указать точку с запятой после условия в цикле
+        `do-while`?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - Компилятор выдаст ошибку
+      wrong:
+      - Цикл выполнится корректно
+      - Будет выполнен бесконечный цикл
+      - Произойдет ошибка времени выполнения
+- choice:
+    question:
+      types: choice
+      text_data: Каково основное отличие между циклом `while` и `do-while`?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - Цикл do-while гарантирует выполнение тела хотя бы один раз
+      wrong:
+      - Цикл while выполняется быстрее
+      - Цикл do-while не требует условия
+      - Цикл while всегда выполняется
+- choice:
+    question:
+      types: choice
+      text_data: Какой из следующих вариантов является ***неверным*** использованием цикла
+        do-while?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - do { /* код */ } while ;
+      wrong:
+      - do { /* код */ } while (условие);
+      - do { /* код */ } while (1 == 1);
+      - do { /* код */ } while (x > 0);
+- choice:
+    question:
+      types: choice
+      text_data: В каком случае цикл `do-while` может быть полезен?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - Когда необходимо выполнить код хотя бы один раз перед проверкой условия
+      wrong:
+      - Когда нужно выполнить код, только если условие истинно
+      - Когда необходимо создать бесконечный цикл
+      - Когда требуется выполнить код несколько раз без проверки условия

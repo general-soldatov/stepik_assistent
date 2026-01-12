@@ -31,6 +31,10 @@ class MatchingTest(TestOfCode):
         self.block.options = dict()
         self._set_source()
 
+    def _set_answers(self):
+        return (self.project.answer.sample_size,
+                self._add_options(self.project))
+
 class SortingTest(TestOfCode):
     @staticmethod
     def _add_options(project):

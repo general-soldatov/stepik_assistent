@@ -83,7 +83,7 @@ class Test(Data):
         return [*(OptionsTest(is_correct=True, text=text)
             for text in answers.correct), *(OptionsTest(
                 is_correct=False, text=text)
-            for text in answers.wrong)], len(answers.correct)
+            for text in answers.wrong)], len(answers.correct) or 0
 
     def _set_answers(self):
         sample_size = self.project.answer.sample_size
