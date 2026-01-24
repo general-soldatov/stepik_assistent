@@ -1,0 +1,124 @@
+- choice:
+    question:
+      types: choice
+      text_data: Какой регистр используется для чтения состояния кнопки на порту `D`?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - PIND
+      wrong:
+      - PORTD
+      - DDRD
+      - PINB
+- choice:
+    question:
+      types: choice
+      text_data: Что необходимо сделать перед опросом состояния кнопки?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - Настроить порт как вход
+      wrong:
+      - Настроить порт как выход
+      - Включить прерывания
+      - Сбросить регистры
+- choice:
+    question:
+      types: choice
+      text_data: Какой регистр отвечает за направление порта?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - DDRD
+      wrong:
+      - PORTD
+      - PIND
+      - PINB
+- choice:
+    question:
+      types: choice
+      text_data: Что произойдет, если кнопка не подключена к земле?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - Состояние будет неопределенным
+      wrong:
+      - Кнопка всегда будет считаться нажатой
+      - Кнопка всегда будет считаться отпущенной
+      - Программа не скомпилируется
+- choice:
+    question:
+      types: choice
+      text_data: Какой метод можно использовать для предотвращения дребезга контактов
+        при нажатии кнопки?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: 'Ты программист!'
+        wrong: 'Подумай, хотя этого ответа и нет в теории!'
+      correct:
+      - Дебаунсинг
+      wrong:
+      - Фильтрация
+      - Сглаживание
+      - Устранение
+- matching:
+    question:
+      types: matching
+      text_data: Сопоставьте элементы кода и их функции.
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      first:
+      - DDRD = 0xFF;
+      - DDRD = 0x00;
+      - _delay_ms(100);
+      - // Обработка состояния кнопки
+      second:
+      - Настройка порта на выход
+      - Настройка порта на вход
+      - Задержка выполнения программы
+      - Комментарий к коду
+- matching:
+    question:
+      types: matching
+      text_data: Сопоставьте виды резисторов и их применение.
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      first:
+      - Подтягивающий резистор
+      - Токовый ограничивающий резистор
+      second:
+      - Используется для подтягивания входа к высокому уровню
+      - Используется для ограничения тока в цепи

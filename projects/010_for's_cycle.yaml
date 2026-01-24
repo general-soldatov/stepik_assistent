@@ -1,0 +1,195 @@
+- choice:
+    question:
+      types: choice
+      text_data: Что такое цикл `for` в языке C?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - Цикл, который выполняется заданное количество раз
+      wrong:
+      - Цикл, который выполняется, пока условие истинно
+      - Цикл, который всегда выполняется хотя бы один раз
+      - Цикл, который не может быть вложенным
+- choice:
+    question:
+      types: choice
+      text_data: Какой из следующих вариантов является правильным синтаксисом для
+        цикла `for`?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - for (инициализация; условие; итерация) { /* тело цикла */ }
+      wrong:
+      - 'for: (инициализация; условие; итерация) { /* тело цикла */ }'
+      - for (инициализация; условие) { /* тело цикла */; итерация}
+      - for (инициализация; условие; итерация) / * тело цикла * /
+- choice:
+    question:
+      types: choice
+      text_data: Какое из следующих утверждений верно относительно цикла for?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - Цикл может быть использован для итерации по массиву
+      wrong:
+      - Цикл не может содержать несколько операторов в инициализации
+      - Цикл всегда выполняется хотя бы один раз
+      - Цикл не может быть вложенным
+- choice:
+    question:
+      types: choice
+      text_data: 'Какой результат выполнения следующего кода: `for (int i = 0; i <
+        5; i++) {   /* код */  }`?'
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - Цикл выполнится 5 раз
+      wrong:
+      - Цикл выполнится 4 раза
+      - Цикл выполнится бесконечно
+      - Ошибка компиляции
+- choice:
+    question:
+      types: choice
+      text_data: Какой оператор можно использовать для выхода из цикла `for`?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - break
+      wrong:
+      - continue
+      - exit
+      - return
+- choice:
+    question:
+      types: choice
+      text_data: Как можно избежать бесконечного цикла `for`?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - Убедиться, что условие изменяется в каждой итерации
+      wrong:
+      - Использовать оператор return
+      - Отказываться использовать оператор break
+      - Совсем не использовать цикл for
+- choice:
+    question:
+      types: choice
+      text_data: В каком случае цикл `for` будет выполнен хотя бы один раз?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - Нет правильного ответа
+      wrong:
+      - Если условие изначально истинно
+      - Если условие изначально ложно
+      - Если используется оператор do-while
+- choice:
+    question:
+      types: choice
+      text_data: Какие из этих вариантов являются корректными при использовании цикла
+        `for`?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - for (int i = 0; i < 10; i++) { /* код */ }
+      - for (int i = 0; i < 10; i++) PORTD |= (1 << i);
+      - int i = 0; for (; i < 10; i++) { /* код */ }
+      wrong:
+      - for (int i = 0; i < 10; i++) /* код */
+      - for (i = 0; i < 10; i++) { /* код */ }
+      - for (int i = 0; i < 10) { /* код */ }
+      - for int i = 0; i < 10; i++ { /* код */ }
+- choice:
+    question:
+      types: choice
+      text_data: Что произойдет, если не изменить переменную цикла внутри цикла `for`?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - Цикл станет бесконечным
+      wrong:
+      - Цикл выполнится один раз
+      - Программа завершится с ошибкой
+      - Цикл выполнится и завершится корректно
+- choice:
+    question:
+      types: choice
+      text_data: Какой из следующих примеров является примером вложенного цикла `for`?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - for (int i = 0; i < 5; i++) { for (int j = 0; j < 5; j++) { /* код */ } }
+      wrong:
+      - for (int i = 0; i < 5; i++) { /* код */ for (int j = 0; j < 5; j++) }
+      - for (int i = 0; i < 5; i++) for (int j = 0; j < 5; j++) { /* код */ }
+      - while (условие) { for (int j = 0; j < 5; j++) { /* код */ } }
+- choice:
+    question:
+      types: choice
+      text_data: Какой из следующих вариантов является ***неверным*** использованием цикла
+        `for`?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - Нет правильного ответа
+      wrong:
+      - for (int i = 0; i < 10; i++) {}
+      - for (int i = 0; i < 10;) {}
+      - for (;;) {}
+      - Все ответы правильные

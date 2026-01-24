@@ -51,9 +51,9 @@ class BuildProject:
 
     def import_ai(self, data: Dict[str, List[dict]]) -> None:
         pr = TestAI.model_validate(data)
-        self._extend(pr.test_tasks, 'choice')
-        self._extend(pr.matching_task, 'matching')
-        self._extend(pr.sequence_task, 'sorting')
+        for key in pr.__dict__.keys():
+            if pr.__dict__[key]:
+                self._extend(pr.__dict__[key], key)
 
     def export_to_yaml(self, path: str, encoding: str = 'utf-8') -> None:
         data = self.data.model_dump()['project']

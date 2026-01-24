@@ -1,0 +1,164 @@
+- choice:
+    question:
+      types: choice
+      text_data: Какой тип семисегментного индикатора используется в данной теме?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - С общим катодом
+      wrong:
+      - С общим анодом
+      - Двухразрядный
+      - Трехразрядный
+- choice:
+    question:
+      types: choice
+      text_data: Какой регистр используется для управления выводами порта D?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - DDRD
+      wrong:
+      - PORTD
+      - PIND
+      - TCCR0
+- choice:
+    question:
+      types: choice
+      text_data: Какой код необходимо записать в PORTD, чтобы отобразить цифру '3'
+        на семисегментном индикаторе?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - '0b01001111'
+      wrong:
+      - '0b10000011'
+      - '0b01001101'
+      - '0b10001011'
+- choice:
+    question:
+      types: choice
+      text_data: Какая битовая операция сможет отобразить сегмент индикатора 'g'?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - 1 << 6
+      wrong:
+      - 1 << 5
+      - 1 << 4
+      - 1 << 3
+- choice:
+    question:
+      types: choice
+      text_data: Какой из следующих вариантов является правильным определением функции
+        для инициализации порта D?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - void init_portD() { DDRD = 0xFF; }
+      wrong:
+      - void init_portD() { PORTD = 0x00; }
+      - void init_portD() { PIND = 0xFF; }
+      - void init_portD() { DDRD = 0x00; }
+- choice:
+    question:
+      types: choice
+      text_data: Какой из следующих вариантов кода правильно отображает цифру '5'
+        на семисегментном индикаторе?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - PORTD = 0b01101101;
+      wrong:
+      - PORTD = 0b00111111;
+      - PORTD = 0b01001101;
+      - PORTD = 0b00001110;
+- choice:
+    question:
+      types: choice
+      text_data: Какой сегмент не используется для отображения цифры '1' на семисегментном
+        индикаторе?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - a
+      wrong:
+      - b
+      - c
+      - d
+- choice:
+    question:
+      types: choice
+      text_data: Какой из следующих кодов соответствует отображению цифры '0' на семисегментном
+        индикаторе?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - '0b00111111'
+      wrong:
+      - '0b00001111'
+      - '0b00111101'
+      - '0b01111111'
+- matching:
+    question:
+      types: matching
+      text_data: Сопоставьте цифры с их битовыми значениями для семисегментного индикатора.
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      first:
+      - '0'
+      - '1'
+      - '2'
+      - '3'
+      - '4'
+      second:
+      - '0b00111111'
+      - '0b00000110'
+      - '0b01011011'
+      - '0b01001111'
+      - '0b01100110'

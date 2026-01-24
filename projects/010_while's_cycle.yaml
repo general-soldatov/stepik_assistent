@@ -1,0 +1,191 @@
+- choice:
+    question:
+      types: choice
+      text_data: Что такое цикл `while` в языке C?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - Цикл, который выполняется, пока условие истинно
+      wrong:
+      - Цикл, который выполняется один раз
+      - Цикл, который всегда завершает выполнение
+      - Цикл, который выполняется только при условии ложности
+- choice:
+    question:
+      types: choice
+      text_data: Какой из следующих вариантов является правильным синтаксисом для
+        цикла `while`?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - while (условие) { /* тело цикла */ }
+      wrong:
+      - 'while: (условие) { /* тело цикла */ }'
+      - while (условие) / * тело цикла * /
+      - 'while (условие) { /* тело цикла */ '
+- choice:
+    question:
+      types: choice
+      text_data: Какое из следующих утверждений верно относительно цикла while?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - Цикл может не выполниться ни разу
+      wrong:
+      - Цикл всегда выполняется хотя бы один раз
+      - Цикл не может быть вложенным
+      - Цикл не может содержать оператор break
+- choice:
+    question:
+      types: choice
+      text_data: Что произойдет, если условие в цикле `while` никогда не станет ложным?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - Цикл будет выполняться бесконечно
+      wrong:
+      - Цикл завершится через определенное время
+      - Программа завершится с ошибкой
+      - Цикл выполнится один раз
+- choice:
+    question:
+      types: choice
+      text_data: Какой оператор можно использовать для выхода из цикла `while`?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - break
+      wrong:
+      - continue
+      - exit
+      - return
+- choice:
+    question:
+      types: choice
+      text_data: Как можно избежать бесконечного цикла `while`?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - Убедиться, что условие изменяется внутри цикла
+      wrong:
+      - Использовать оператор return
+      - Не использовать оператор break
+      - Не использовать цикл while
+- choice:
+    question:
+      types: choice
+      text_data: В каком случае цикл `while` будет выполнен хотя бы один раз?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - Все ответы неправильные
+      wrong:
+      - Если условие изначально истинно
+      - Если условие изначально ложно
+      - Если используется оператор do-while
+      - Все ответы правильные
+- choice:
+    question:
+      types: choice
+      text_data: Какой из следующих примеров является корректным использованием цикла
+        `while`?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - int i = 0; while (i < 10) { i++; }
+      wrong:
+      - int i = 0; while i < 10 { i++; }
+      - int i = 0; while (i < 10) i++;
+      - int i = 0; while (i < 10) { i; }
+- choice:
+    question:
+      types: choice
+      text_data: 'Какой результат выполнения следующего кода: `int i = 0; while (i
+        < 5) { i++; }`?'
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - i станет равным 5
+      wrong:
+      - i станет равным 4
+      - Цикл выполнится бесконечно
+      - Ошибка компиляции
+- choice:
+    question:
+      types: choice
+      text_data: Что произойдет, если не изменить переменную цикла внутри цикла `while`?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - Цикл станет бесконечным
+      wrong:
+      - Цикл выполнится один раз
+      - Программа завершится с ошибкой
+      - Цикл выполнится и завершится корректно
+- choice:
+    question:
+      types: choice
+      text_data: Какой из этих вариантов является примером вложенного цикла `while`?
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      correct:
+      - while (условие1) { while (условие2) { /* тело */ } }
+      wrong:
+      - while (условие1) { /* тело */ while (условие2) }
+      - while (условие1) { for (int i = 0; i < 10; i++) {} }
+      - for (int i = 0; i < 10; i++) { while (условие) {} }

@@ -3,6 +3,7 @@ from app.models.stepik import Step, OptionsTest, Block, SourceTest
 from app.models.main_model import TaskTemplate
 from app.models.project import Text
 from typing import Tuple
+from py_markdown import ReadMD
 
 class Data(ABC):
     def __init__(self, project: TaskTemplate | Text, case_num = None, path: str = 'app/creator/sample_test.step'):
@@ -42,8 +43,8 @@ class Test(Data):
         self.block.feedback_correct = self.project.answer.feedback.correct
         self.block.feedback_wrong = self.project.answer.feedback.wrong
         self.set_text()
-        self._set_answers()
-        self._set_options(multiply_choice=False)
+        self._set_source()
+        # self._set_options()
 
     @staticmethod
     def template_text(text: str, num: int) -> str:
@@ -52,25 +53,26 @@ class Test(Data):
         return text_step
 
     def set_text(self) -> None:
-        self.block.text = self.template_text(
-            text=self.project.question.text_data,
-            num=self.case_num
-        )
+        self.block.text = ReadMD(
+            self.template_text(
+                text=self.project.question.text_data,
+                num=self.case_num
+        )).to_html_text()
 
     def _set_help(self):
         if self.project.question.help:
             self.block.text += self.template_help(self.project.question.help)
 
-    def _set_options(self, multiply_choice: bool):
+    def _set_options(self, multiply_choice: bool = None):
         self.block.options = dict(is_multiple_choice=multiply_choice)
         self._set_source()
 
     def _set_source(self):
-        sample_size, options = self._set_answers()
+        sample_size, options, is_multiple_choice = self._set_answers()
         self.block.source = SourceTest(
             is_html_enabled = True,
             preserve_order = False,
-            is_multiple_choice = self.block.options['is_multiple_choice'],
+            is_multiple_choice = is_multiple_choice,
             sample_size=sample_size, options=options,
             is_always_correct=False,
             is_options_feedback=False)
@@ -81,14 +83,14 @@ class Test(Data):
         return [*(OptionsTest(is_correct=True, text=text)
             for text in answers.correct), *(OptionsTest(
                 is_correct=False, text=text)
-            for text in answers.wrong)]
+            for text in answers.wrong)], len(answers.correct) or 0
 
     def _set_answers(self):
         sample_size = self.project.answer.sample_size
-        options = self._add_options(self.project)
+        options, correct_count = self._add_options(self.project)
         if not sample_size:
             sample_size = len(options)
-        return sample_size, options
+        return sample_size, options, correct_count > 1
 
     @staticmethod
     def template_help(text: str):

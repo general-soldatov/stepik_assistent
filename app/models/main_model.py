@@ -12,9 +12,9 @@ class YamlProject(BaseModel):
             return cls.model_validate(data)
 
 class TestAI(BaseModel):
-    test_tasks: List[TestTask] | None = None
-    sequence_task: List[SortingTask] | None = None
-    matching_task: List[MatchingTask] | None = None
+    choice: List[TestTask] | None = None
+    sequence: List[SortingTask] | None = None
+    matching: List[MatchingTask] | None = None
 
 class TaskTemplate(YamlProject):
     question: Question
