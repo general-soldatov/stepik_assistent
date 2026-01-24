@@ -1,0 +1,1 @@
+bool lumen_on = (time_now < 21 && time_now >= 7) || illumination < 6000;

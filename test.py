@@ -22,7 +22,7 @@ def read_yaml(path="projects/project_2.yaml"):
         data = yaml.safe_load(file.read())
         print(data)
 
-json_indent('export/1633992_16_code.step')
+# json_indent('export/1633992_16_code.step')
 # read_yaml()
 # txt = "projects/text.md"
 # with open(txt, 'r', encoding='utf-8') as file:
@@ -32,3 +32,12 @@ json_indent('export/1633992_16_code.step')
 # print(data)
 # obj = ReadMD.file_import(txt)
 # obj.to_html_file('text.html')
+import re 
+
+with open("projects/template_led.c", 'r', encoding='utf-8') as file:
+    data = file.read()
+    text = re.sub(r"::", '//', data)
+    with open("projects/test.c", "r", encoding="utf-8") as test:
+        text = re.sub(r'//code', test.read(), text)
+    with open("test.c", 'w', encoding='utf-8') as test:
+        test.write(text)
