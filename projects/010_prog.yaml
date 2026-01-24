@@ -1,0 +1,25 @@
+- code:
+    question:
+      text_data: Что вернет оператор сравнения ==, если два сравниваемых значения
+        равны?
+      code_path: null
+      help: null
+      tests:
+        input:
+        - ''
+        - ''
+        output:
+        - ''
+        - ''
+      limits:
+        time: 5
+        memory: 256
+
+    answer:
+      sample_size: 1
+      feedback:
+        correct: ''
+        wrong: ''
+      code_path:
+        test: ""
+        templates_data: ""
