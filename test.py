@@ -32,12 +32,34 @@ def read_yaml(path="projects/project_2.yaml"):
 # print(data)
 # obj = ReadMD.file_import(txt)
 # obj.to_html_file('text.html')
-import re 
 
-with open("projects/template_led.c", 'r', encoding='utf-8') as file:
-    data = file.read()
-    text = re.sub(r"::", '//', data)
-    with open("projects/test.c", "r", encoding="utf-8") as test:
-        text = re.sub(r'//code', test.read(), text)
-    with open("test.c", 'w', encoding='utf-8') as test:
-        test.write(text)
+import re 
+import subprocess
+
+def create_file():
+    with open("projects/template_led.c", 'r', encoding='utf-8') as file:
+        with open("projects/test.c", "r", encoding="utf-8") as test:
+            text = re.sub(r'::code[^::]*::footer', test.read(), file.read())    
+        text = re.sub(r"::", '//', text)
+        with open("test.c", 'w', encoding='utf-8') as test:
+            test.write(text)
+
+# result = subprocess.run(["gcc", "test.c"])
+# result = subprocess.run(['./a.out'],
+#         capture_output=True,
+#         text=True
+#         )
+result = subprocess.run(['python3', 'test.c'], capture_output=True, input='Data'.encode())
+print(f"Command finished with return code: \n{result.stdout.decode()}")
+
+# process = subprocess.Popen(
+#     ['python3', '-c', 'print("console: ", input())'], # Replace with your command
+#     stdin=subprocess.PIPE,
+#     stdout=subprocess.PIPE,
+#     stderr=subprocess.PIPE
+# )
+
+# stdout, stderr = process.communicate(input="data to send to stdin".encode())
+
+# print(f"Stdout: {stdout.decode()}")
+# print(f"Stderr: {stderr.decode()}")
