@@ -2,6 +2,7 @@ from app.models.stepik import Pairs, SourceMatching, SourceSorting, Options
 from .template import TestOfCode, Data
 from app.models.project import ObjectsTypes, Text
 from app.models.main_model import TaskTemplate
+from app.creator.program import ProgramStep
 from py_markdown import ReadMD
 
 class TestChoice(TestOfCode):
@@ -73,3 +74,7 @@ class TaskObject(ObjectsTypes):
     def sorting(self, project: TaskTemplate):
         self.number += 1
         return SortingTest(project, self.number)
+    
+    def code(self, project: TaskTemplate):
+        self.number += 1
+        return ProgramStep(project, self.number)

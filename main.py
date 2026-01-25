@@ -56,5 +56,5 @@ def import_data():
     data.create()
 
 # build_test_project()
-parseAI()
-# import_data()
+# parseAI()
+import_data()

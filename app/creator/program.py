@@ -1,7 +1,7 @@
 import re 
 import subprocess
 from .template import TestOfCode
-from app.models.stepik import SourceProgram
+from app.models.stepik import SourceProgram, OptionsProgram
 
 class ProgramStep(TestOfCode):
     @staticmethod
@@ -28,9 +28,17 @@ class ProgramStep(TestOfCode):
             feedback_correct=self.project.answer.feedback.correct,
             feedback_wrong=self.project.answer.feedback.wrong
         )
+        self.block.options = OptionsProgram(
+            limits={self.language: {"time": 5, "memory": 256}},
+            code_templates={self.language: self.open_code(self.project.answer.code_path.code_template)},
+            code_templates_header_lines_count={self.language: 11},
+            code_templates_footer_lines_count={self.language: 5},
+            samples=tests
+        )
 
     def build_prog_test(self):
         path = self.project.answer.code_path.example
+        self.language = "c"
         self.create_file_to_test(self.project.answer.code_path.templates_data,
                                  self.project.answer.code_path.example,
                                  self.project.answer.code_path.test)
@@ -38,6 +46,7 @@ class ProgramStep(TestOfCode):
             func = self.subprocess_cpp
         if path.endswith('.py'):
             func = self.subprocess_python
+            self.language = "python"
         return [[item, func(self.project.answer.code_path.test, item.encode())] 
                 for item in self.project.answer.tests['input']]
 

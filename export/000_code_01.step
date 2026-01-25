@@ -1,0 +1,64 @@
+{
+    "block": {
+        "name": "code",
+        "text": "<p><strong>Свершение 1.</strong>&nbsp;Sample text for code</p>",
+        "video": null,
+        "options": {
+            "execution_time_limit": 5,
+            "execution_memory_limit": 256,
+            "limits": {
+                "c": {
+                    "time": 5,
+                    "memory": 256
+                }
+            },
+            "code_templates": {
+                "c": "// Add your code at now"
+            },
+            "code_templates_header_lines_count": {
+                "c": 11
+            },
+            "code_templates_footer_lines_count": {
+                "c": 5
+            },
+            "code_templates_options": {},
+            "samples": [
+                [
+                    "",
+                    "Тест 1: Ошибка ❌\nТест 2: Успешно ✅\nТест 3: Ошибка ❌\nТест 4: Ошибка ❌\nТест 5: Ошибка ❌\nТест 6: Успешно ✅\nТест 7: Успешно ✅\nТест 8: Ошибка ❌\nТест 9: Ошибка ❌\n"
+                ]
+            ],
+            "is_run_user_code_allowed": true
+        },
+        "subtitle_files": [],
+        "is_deprecated": false,
+        "source": {
+            "code": "# This is a sample Code Challenge\\n# Learn more: https://stepik.org/lesson/9172\\\n# Ask your questions via help@stepik.org\n\ndef generate():\n    return []\n\ndef check(reply, clue):\n    return reply.strip() == clue.strip()\n\ndef solve(dataset):\n    a, b = dataset.split()\n    return str(int(a) + int(b))",
+            "execution_time_limit": 5,
+            "execution_memory_limit": 256,
+            "samples_count": 1,
+            "templates_data": "::c\n::header\n#include <stdio.h>\n#include <stdbool.h>\n#define TEST 9\n#define CONDITION (!(time_now < 21 && time_now >= 7) || illumination < 6000) == lumen_on\n\nint main(void){\n    int data[TEST][2] = {{6000, 11}, {5000, 12}, {6000, 21}, {10000, 11}, {6000, 7}, {5999, 7}, {2000, 20}, {7000, 6}, {8000, 22}};\n    for (short i = 0; i < TEST; i++) {\n        int illumination = data[i][0], time_now = data[i][1];\n::code\n       // Напишите Ваш код здесь\n       \n::footer\n        printf(\"Тест %d: \", i + 1);\n        printf((CONDITION) ? \"Успешно ✅\\n\" : \"Ошибка ❌\\n\");\n    }\n}",
+            "is_time_limit_scaled": true,
+            "is_memory_limit_scaled": true,
+            "is_run_user_code_allowed": true,
+            "manual_time_limits": [],
+            "manual_memory_limits": [],
+            "test_archive": [],
+            "test_cases": [
+                [
+                    "",
+                    "Тест 1: Ошибка ❌\nТест 2: Успешно ✅\nТест 3: Ошибка ❌\nТест 4: Ошибка ❌\nТест 5: Ошибка ❌\nТест 6: Успешно ✅\nТест 7: Успешно ✅\nТест 8: Ошибка ❌\nТест 9: Ошибка ❌\n"
+                ]
+            ],
+            "feedback_correct": "",
+            "feedback_wrong": ""
+        },
+        "subtitles": {},
+        "tests_archive": null,
+        "feedback_correct": "",
+        "feedback_wrong": ""
+    },
+    "id": "8736153",
+    "has_review": false,
+    "time": "2025-11-12T07:09:19.592Z"
+}

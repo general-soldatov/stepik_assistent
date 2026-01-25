@@ -14,6 +14,7 @@ class CodePath(BaseModel):
     example: str = ''
     test: str = ''
     code_run: str = ''
+    code_template: str = ''
 
 class Answer(BaseModel):
     sample_size: int | None = None

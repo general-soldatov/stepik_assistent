@@ -5,7 +5,7 @@
       code_path: null
       help: null
     answer:
-      sample_size: null
+      sample_size: 1
       feedback:
         correct: ''
         wrong: ''
@@ -16,7 +16,8 @@
         time: 5
         memory: 256
       code_path:
-        templates_data: ''
-        example: ''
-        test: ''
-        code_run: ''
+        templates_data: 'projects/template_led.c'
+        example: 'projects/test.c'
+        test: 'test.c'
+        code_run: 'projects/code_run.py'
+        code_template: 'main.c'
