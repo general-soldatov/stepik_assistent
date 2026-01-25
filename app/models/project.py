@@ -1,9 +1,18 @@
 from pydantic import BaseModel, field_validator
-from typing import List
+from typing import List, Dict
 
 class Feedback(BaseModel):
     correct: str = ""
     wrong: str = ""
+
+class LimitsProg(BaseModel):
+    time: int = 5
+    memory: int = 256
+
+class CodePath(BaseModel):
+    templates_data: str = ''
+    example: str = ''
+    test: str = ''
 
 class Answer(BaseModel):
     sample_size: int | None = None
@@ -19,6 +28,11 @@ class AnswerMatching(Answer):
 
 class AnswerSorting(Answer):
     steps: List[str]
+
+class AnswerProgram(Answer):
+    tests: Dict[str, List[str]]
+    limits: LimitsProg
+    code_path: CodePath
 
 class Text(BaseModel):
     path: str | None = None
@@ -40,6 +54,9 @@ class ObjectsTypes:
 
     def sorting(self):
         return AnswerSorting
+    
+    def code(self):
+        return AnswerProgram
 
 class Question(BaseModel):
     types: str

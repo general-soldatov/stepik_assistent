@@ -1,5 +1,5 @@
 import yaml
-from app.models.project import Text, Question, ObjectsTypes
+from app.models.project import Text, Question, ObjectsTypes, LimitsProg, CodePath
 from app.models.main_model import TaskTemplate, TestAI
 from .test_task import TaskObject
 from .template import Data
@@ -47,6 +47,13 @@ class BuildProject:
         types = 'matching'
         question = self._create_question(types)
         answer =  self._create_answer(types, first=['first', 'second'], second=['one', 'two'])
+        self._add(question, answer, types)
+
+    def add_program(self) -> None:
+        types = 'code'
+        question = self._create_question(types)
+        answer =  self._create_answer(types, tests={'input': ['']}, 
+                                      limits=LimitsProg(), code_path=CodePath())
         self._add(question, answer, types)
 
     def import_ai(self, data: Dict[str, List[dict]]) -> None:

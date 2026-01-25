@@ -1,0 +1,21 @@
+- code:
+    question:
+      types: code
+      text_data: Sample text for code
+      code_path: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      tests:
+        input:
+        - ''
+      limits:
+        time: 5
+        memory: 256
+      code_path:
+        templates_data: ''
+        example: ''
+        test: ''

@@ -30,7 +30,7 @@ TEXT = '''Представь, что ты автор курса по прогр�
     ]
 }'''
 PATH_AI = "ai_request.json"
-PATH = "projects/012_dinamic_indication.yaml"
+PATH = "projects/013_program.yaml"
 
 def build_test_project():
     project = TaskTemplate.model_validate_yaml(PATH)
@@ -41,8 +41,9 @@ def parseAI():
     with open(PATH_AI, 'r', encoding='utf-8') as file:
         data = json.load(file)
     project = BuildProject()
+    project.add_program()
     # project.add_text()
-    project.import_ai(data)
+    # project.import_ai(data)
     # project.add_choice()
     # project.add_matching()
     # project.add_sorting()
@@ -55,5 +56,5 @@ def import_data():
     data.create()
 
 # build_test_project()
-# parseAI()
-import_data()
+parseAI()
+# import_data()

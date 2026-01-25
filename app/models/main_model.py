@@ -2,7 +2,7 @@ import yaml
 from pydantic import BaseModel
 from typing import List, Union
 from .ai_prompt import TestTask, SortingTask, MatchingTask, PromptAI
-from .project import Question, AnswerTest, AnswerSorting, AnswerMatching
+from .project import Question, AnswerTest, AnswerSorting, AnswerMatching, AnswerProgram, Answer
 
 class YamlProject(BaseModel):
     @classmethod
@@ -18,7 +18,7 @@ class TestAI(BaseModel):
 
 class TaskTemplate(YamlProject):
     question: Question
-    answer: Union[AnswerTest, AnswerMatching, AnswerSorting]
+    answer: Union[AnswerTest, AnswerMatching, AnswerSorting, AnswerProgram]
 
     @classmethod
     def model_validate_ai(cls, obj: PromptAI):
