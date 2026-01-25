@@ -1,1 +1,7 @@
-bool lumen_on = (time_now < 21 && time_now >= 7) || illumination < 6000;
+int main(void) {
+    DDRD = 0xFF;
+    while(1) {
+        PORTD ^= 0xFF;
+        _delay_ms(1000);
+    }
+}

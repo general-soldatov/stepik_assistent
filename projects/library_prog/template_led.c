@@ -1,5 +1,5 @@
-//c
-//header
+::c
+::header
 #define TEST 10
 
 #include <stdio.h>
@@ -23,10 +23,12 @@ void delay_ms(int ms) {
 
 #define _delay_ms(a) do { if (tst >= TEST) return 0; delay_ms(a);} while (0)
 
+::code
 int main(void) {
-    DDRD = 0xFF;
+
     while(1) {
-        PORTD ^= 0xFF;
-        _delay_ms(1000);
+
     }
 }
+
+::footer

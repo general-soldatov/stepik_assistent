@@ -1,4 +1,4 @@
-import re 
+import re
 import subprocess
 from .template import TestOfCode
 from app.models.stepik import SourceProgram, OptionsProgram
@@ -8,12 +8,12 @@ class ProgramStep(TestOfCode):
     def open_code(path):
         with open(path, 'r', encoding='utf-8') as file:
             return file.read()
-        
+
     @staticmethod
     def create_file_to_test(path_template="projects/template_led.c", path_example="projects/test.c", path_test="test.c"):
         with open(path_template, 'r', encoding='utf-8') as file:
             with open(path_example, "r", encoding="utf-8") as test:
-                text = re.sub(r'::code[^::]*::footer', test.read(), file.read())    
+                text = re.sub(r'::code[^::]*::footer', test.read(), file.read())
             text = re.sub(r"::", '//', text)
             with open(path_test, 'w', encoding='utf-8') as test:
                 test.write(text)
@@ -24,9 +24,7 @@ class ProgramStep(TestOfCode):
             code=self.open_code(self.project.answer.code_path.code_run),
             samples_count=self.project.answer.sample_size,
             templates_data=self.open_code(self.project.answer.code_path.templates_data),
-            test_cases=tests,
-            feedback_correct=self.project.answer.feedback.correct,
-            feedback_wrong=self.project.answer.feedback.wrong
+            test_cases=tests
         )
         self.block.options = OptionsProgram(
             limits={self.language: {"time": 5, "memory": 256}},
@@ -47,28 +45,28 @@ class ProgramStep(TestOfCode):
         if path.endswith('.py'):
             func = self.subprocess_python
             self.language = "python"
-        return [[item, func(self.project.answer.code_path.test, item.encode())] 
+        return [[item, func(self.project.answer.code_path.test, item.encode())]
                 for item in self.project.answer.tests['input']]
 
 
     @staticmethod
-    def subprocess_cpp(file_path="test.c", test=None):  
+    def subprocess_cpp(file_path="test.c", test=None):
         subprocess.run(["gcc", file_path])
         if test:
             test = test.encode()
-        result = subprocess.run(['./a.out'],
+        result = subprocess.run(['./a.exe'],
                 capture_output=True, input=test)
         return result.stdout.decode()
-    
+
     @staticmethod
     def subprocess_python(file_path='test.py', test=None):
         if test:
             test = test.encode()
-        result = subprocess.run(['python3', file_path], 
+        result = subprocess.run(['python3', file_path],
                                 capture_output=True, input=test)
         return result.stdout.decode()
-        
-# result = 
+
+# result =
 # print(f"Command finished with return code: \n{result.stdout.decode()}")
 
 # process = subprocess.Popen(

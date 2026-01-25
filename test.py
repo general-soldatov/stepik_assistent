@@ -22,7 +22,7 @@ def read_yaml(path="projects/project_2.yaml"):
         data = yaml.safe_load(file.read())
         print(data)
 
-# json_indent('export/1633992_16_code.step')
+# json_indent('1984673_2_code.step')
 # read_yaml()
 # txt = "projects/text.md"
 # with open(txt, 'r', encoding='utf-8') as file:
@@ -33,13 +33,13 @@ def read_yaml(path="projects/project_2.yaml"):
 # obj = ReadMD.file_import(txt)
 # obj.to_html_file('text.html')
 
-import re 
+import re
 import subprocess
 
 def create_file():
     with open("projects/template_led.c", 'r', encoding='utf-8') as file:
         with open("projects/test.c", "r", encoding="utf-8") as test:
-            text = re.sub(r'::code[^::]*::footer', test.read(), file.read())    
+            text = re.sub(r'::code[^::]*::footer', test.read(), file.read())
         text = re.sub(r"::", '//', text)
         with open("test.c", 'w', encoding='utf-8') as test:
             test.write(text)
@@ -57,9 +57,9 @@ def create_file():
 # print(f"Stdout: {stdout.decode()}")
 # print(f"Stderr: {stderr.decode()}")
 
-from app.creator.program import ProgramStep
+# from app.creator.program import ProgramStep
 
-ProgramStep.create_file_to_test()
-# res = ProgramStep.subprocess_python("test.c", "Datave")
-res = ProgramStep.subprocess_cpp(test='df')
-print(res)
+# ProgramStep.create_file_to_test()
+# # res = ProgramStep.subprocess_python("test.c", "Datave")
+# res = ProgramStep.subprocess_cpp(test='df')
+# print(res)

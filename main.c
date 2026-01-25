@@ -1,1 +1,6 @@
-// Add your code at now
+int main(void) {
+
+    while(1) {
+
+    }
+}

@@ -1,0 +1,36 @@
+{
+    "block": {
+        "name": "code",
+        "text": "Вы можете изменить условие задания в этом поле и указать настройки ниже. <br><br> Напишите программу, которая считает сумму двух чисел.",
+        "video": null,
+        "options": {},
+        "subtitle_files": [],
+        "is_deprecated": false,
+        "source": {
+            "code": "# This is a sample Code Challenge\n# Learn more: https://stepik.org/lesson/9172\n# Ask your questions via help@stepik.org\n\ndef generate():\n    return []\n\ndef check(reply, clue):\n    return reply.strip() == clue.strip()\n\n# def solve(dataset):\n#     a, b = dataset.split()\n#     return str(int(a) + int(b))",
+            "execution_time_limit": 5,
+            "execution_memory_limit": 256,
+            "samples_count": 1,
+            "templates_data": "::python3\n\n\n\n\n",
+            "is_time_limit_scaled": true,
+            "is_memory_limit_scaled": true,
+            "is_run_user_code_allowed": true,
+            "manual_time_limits": [],
+            "manual_memory_limits": [],
+            "test_archive": [],
+            "test_cases": [
+                [
+                    "8 11\n",
+                    "19\n"
+                ]
+            ]
+        },
+        "subtitles": {},
+        "tests_archive": "/api/step-sources/9389370/tests",
+        "feedback_correct": "",
+        "feedback_wrong": ""
+    },
+    "id": "9389370",
+    "has_review": false,
+    "time": "2026-01-25T11:45:01.756Z"
+}

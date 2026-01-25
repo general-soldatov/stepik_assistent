@@ -13,7 +13,7 @@
                 }
             },
             "code_templates": {
-                "c": "// Add your code at now"
+                "c": "int main(void) {\n\n    while(1) {\n\n    }\n}"
             },
             "code_templates_header_lines_count": {
                 "c": 11
@@ -25,7 +25,7 @@
             "samples": [
                 [
                     "",
-                    "Тест 1: Ошибка ❌\nТест 2: Успешно ✅\nТест 3: Ошибка ❌\nТест 4: Ошибка ❌\nТест 5: Ошибка ❌\nТест 6: Успешно ✅\nТест 7: Успешно ✅\nТест 8: Ошибка ❌\nТест 9: Ошибка ❌\n"
+                    "Панель: | 🟩🟩🟩🟩🟩🟩🟩🟩 | Задержка в 1000 мc\r\nПанель: | ⬛⬛⬛⬛⬛⬛⬛⬛ | Задержка в 1000 мc\r\nПанель: | 🟩🟩🟩🟩🟩🟩🟩🟩 | Задержка в 1000 мc\r\nПанель: | ⬛⬛⬛⬛⬛⬛⬛⬛ | Задержка в 1000 мc\r\nПанель: | 🟩🟩🟩🟩🟩🟩🟩🟩 | Задержка в 1000 мc\r\nПанель: | ⬛⬛⬛⬛⬛⬛⬛⬛ | Задержка в 1000 мc\r\nПанель: | 🟩🟩🟩🟩🟩🟩🟩🟩 | Задержка в 1000 мc\r\nПанель: | ⬛⬛⬛⬛⬛⬛⬛⬛ | Задержка в 1000 мc\r\nПанель: | 🟩🟩🟩🟩🟩🟩🟩🟩 | Задержка в 1000 мc\r\nПанель: | ⬛⬛⬛⬛⬛⬛⬛⬛ | Задержка в 1000 мc\r\n"
                 ]
             ],
             "is_run_user_code_allowed": true
@@ -33,11 +33,11 @@
         "subtitle_files": [],
         "is_deprecated": false,
         "source": {
-            "code": "# This is a sample Code Challenge\\n# Learn more: https://stepik.org/lesson/9172\\\n# Ask your questions via help@stepik.org\n\ndef generate():\n    return []\n\ndef check(reply, clue):\n    return reply.strip() == clue.strip()\n\ndef solve(dataset):\n    a, b = dataset.split()\n    return str(int(a) + int(b))",
+            "code": "# This is a sample Code Challenge\\n# Learn more: https://stepik.org/lesson/9172\\\n# Ask your questions via help@stepik.org\n\ndef generate():\n    return []\n\ndef check(reply, clue):\n    return reply.strip() == clue.strip()\n\n# def solve(dataset):\n#     a, b = dataset.split()\n#     return str(int(a) + int(b))",
             "execution_time_limit": 5,
             "execution_memory_limit": 256,
             "samples_count": 1,
-            "templates_data": "::c\n::header\n#include <stdio.h>\n#include <stdbool.h>\n#define TEST 9\n#define CONDITION (!(time_now < 21 && time_now >= 7) || illumination < 6000) == lumen_on\n\nint main(void){\n    int data[TEST][2] = {{6000, 11}, {5000, 12}, {6000, 21}, {10000, 11}, {6000, 7}, {5999, 7}, {2000, 20}, {7000, 6}, {8000, 22}};\n    for (short i = 0; i < TEST; i++) {\n        int illumination = data[i][0], time_now = data[i][1];\n::code\n       // Напишите Ваш код здесь\n       \n::footer\n        printf(\"Тест %d: \", i + 1);\n        printf((CONDITION) ? \"Успешно ✅\\n\" : \"Ошибка ❌\\n\");\n    }\n}",
+            "templates_data": "::c\n::header\n#define TEST 10\n\n#include <stdio.h>\n\nchar reg[2] = {0}, port[2] = {0};\nint tst = 0;\n\n#define DDRD reg[0]\n#define DDRB reg[1]\n#define PORTD port[0]\n#define PORTB port[1]\n\nvoid delay_ms(int ms) {\n    printf(\"Панель: | \");\n    for (int i = 0; i < 8; i++) {\n        printf(DDRD&PORTD&(1 << i) ? \"🟩\" : \"⬛\");\n    }\n    printf(\" | Задержка в %d мc\\n\", ms);\n    tst++;\n}\n\n#define _delay_ms(a) do { if (tst >= TEST) return 0; delay_ms(a);} while (0)\n\n::code\nint main(void) {\n\n    while(1) {\n\n    }\n}\n\n::footer",
             "is_time_limit_scaled": true,
             "is_memory_limit_scaled": true,
             "is_run_user_code_allowed": true,
@@ -47,11 +47,9 @@
             "test_cases": [
                 [
                     "",
-                    "Тест 1: Ошибка ❌\nТест 2: Успешно ✅\nТест 3: Ошибка ❌\nТест 4: Ошибка ❌\nТест 5: Ошибка ❌\nТест 6: Успешно ✅\nТест 7: Успешно ✅\nТест 8: Ошибка ❌\nТест 9: Ошибка ❌\n"
+                    "Панель: | 🟩🟩🟩🟩🟩🟩🟩🟩 | Задержка в 1000 мc\r\nПанель: | ⬛⬛⬛⬛⬛⬛⬛⬛ | Задержка в 1000 мc\r\nПанель: | 🟩🟩🟩🟩🟩🟩🟩🟩 | Задержка в 1000 мc\r\nПанель: | ⬛⬛⬛⬛⬛⬛⬛⬛ | Задержка в 1000 мc\r\nПанель: | 🟩🟩🟩🟩🟩🟩🟩🟩 | Задержка в 1000 мc\r\nПанель: | ⬛⬛⬛⬛⬛⬛⬛⬛ | Задержка в 1000 мc\r\nПанель: | 🟩🟩🟩🟩🟩🟩🟩🟩 | Задержка в 1000 мc\r\nПанель: | ⬛⬛⬛⬛⬛⬛⬛⬛ | Задержка в 1000 мc\r\nПанель: | 🟩🟩🟩🟩🟩🟩🟩🟩 | Задержка в 1000 мc\r\nПанель: | ⬛⬛⬛⬛⬛⬛⬛⬛ | Задержка в 1000 мc\r\n"
                 ]
-            ],
-            "feedback_correct": "",
-            "feedback_wrong": ""
+            ]
         },
         "subtitles": {},
         "tests_archive": null,
