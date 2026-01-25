@@ -5,6 +5,11 @@ from app.models.stepik import SourceProgram
 
 class ProgramStep(TestOfCode):
     @staticmethod
+    def open_code(path):
+        with open(path, 'r', encoding='utf-8') as file:
+            return file.read()
+        
+    @staticmethod
     def create_file_to_test(path_template="projects/template_led.c", path_example="projects/test.c", path_test="test.c"):
         with open(path_template, 'r', encoding='utf-8') as file:
             with open(path_example, "r", encoding="utf-8") as test:
@@ -13,15 +18,49 @@ class ProgramStep(TestOfCode):
             with open(path_test, 'w', encoding='utf-8') as test:
                 test.write(text)
 
-    
+    def _set_source(self):
+        tests = self.build_prog_test()
+        self.block.source = SourceProgram(
+            code=self.open_code(self.project.answer.code_path.code_run),
+            samples_count=self.project.answer.sample_size,
+            templates_data=self.open_code(self.project.answer.code_path.templates_data),
+            test_cases=tests,
+            feedback_correct=self.project.answer.feedback.correct,
+            feedback_wrong=self.project.answer.feedback.wrong
+        )
 
-# result = subprocess.run(["gcc", "test.c"])
-# result = subprocess.run(['./a.out'],
-#         capture_output=True,
-#         text=True
-#         )
-result = subprocess.run(['python3', 'test.c'], capture_output=True, input='Data'.encode())
-print(f"Command finished with return code: \n{result.stdout.decode()}")
+    def build_prog_test(self):
+        path = self.project.answer.code_path.example
+        self.create_file_to_test(self.project.answer.code_path.templates_data,
+                                 self.project.answer.code_path.example,
+                                 self.project.answer.code_path.test)
+        if path.endswith('.c') or path.endswith('.cpp'):
+            func = self.subprocess_cpp
+        if path.endswith('.py'):
+            func = self.subprocess_python
+        return [[item, func(self.project.answer.code_path.test, item.encode())] 
+                for item in self.project.answer.tests['input']]
+
+
+    @staticmethod
+    def subprocess_cpp(file_path="test.c", test=None):  
+        subprocess.run(["gcc", file_path])
+        if test:
+            test = test.encode()
+        result = subprocess.run(['./a.out'],
+                capture_output=True, input=test)
+        return result.stdout.decode()
+    
+    @staticmethod
+    def subprocess_python(file_path='test.py', test=None):
+        if test:
+            test = test.encode()
+        result = subprocess.run(['python3', file_path], 
+                                capture_output=True, input=test)
+        return result.stdout.decode()
+        
+# result = 
+# print(f"Command finished with return code: \n{result.stdout.decode()}")
 
 # process = subprocess.Popen(
 #     ['python3', '-c', 'print("console: ", input())'], # Replace with your command

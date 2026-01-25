@@ -44,13 +44,6 @@ def create_file():
         with open("test.c", 'w', encoding='utf-8') as test:
             test.write(text)
 
-# result = subprocess.run(["gcc", "test.c"])
-# result = subprocess.run(['./a.out'],
-#         capture_output=True,
-#         text=True
-#         )
-result = subprocess.run(['python3', 'test.c'], capture_output=True, input='Data'.encode())
-print(f"Command finished with return code: \n{result.stdout.decode()}")
 
 # process = subprocess.Popen(
 #     ['python3', '-c', 'print("console: ", input())'], # Replace with your command
@@ -63,3 +56,10 @@ print(f"Command finished with return code: \n{result.stdout.decode()}")
 
 # print(f"Stdout: {stdout.decode()}")
 # print(f"Stderr: {stderr.decode()}")
+
+from app.creator.program import ProgramStep
+
+ProgramStep.create_file_to_test()
+# res = ProgramStep.subprocess_python("test.c", "Datave")
+res = ProgramStep.subprocess_cpp(test='df')
+print(res)

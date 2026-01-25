@@ -13,6 +13,7 @@ class CodePath(BaseModel):
     templates_data: str = ''
     example: str = ''
     test: str = ''
+    code_run: str = ''
 
 class Answer(BaseModel):
     sample_size: int | None = None
