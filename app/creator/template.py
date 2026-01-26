@@ -27,6 +27,9 @@ class Data(ABC):
     def _build(self):
         pass
 
+    def check(self):
+        pass
+
     def preview(self):
         self._build()
         return self.step.model_dump_json(indent=4, ensure_ascii=False)

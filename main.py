@@ -55,6 +55,11 @@ def import_data():
     # print(*[dt for dt in data.data], sep='\n')
     data.create()
 
+def check():
+    data = ImportProject(PATH)
+    data.check()
+
 # build_test_project()
 # parseAI()
-import_data()
+# import_data()
+check()

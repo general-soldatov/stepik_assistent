@@ -1,3 +1,26 @@
+# - code:
+#     question:
+#       types: code
+#       text_data: Sample text for code
+#       code_path: null
+#       help: null
+#     answer:
+#       sample_size: 1
+#       feedback:
+#         correct: ''
+#         wrong: ''
+#       tests:
+#         input:
+#         - ''
+#       limits:
+#         time: 5
+#         memory: 256
+#       code_path:
+#         templates_data: 'projects/library_prog/template_led.c'
+#         example: 'projects/test.c'
+#         test: 'test.c'
+#         code_run: 'projects/library_prog/code_run.py'
+#         code_template: 'main.c'
 - code:
     question:
       types: code
@@ -16,8 +39,8 @@
         time: 5
         memory: 256
       code_path:
-        templates_data: 'projects/template_led.c'
+        templates_data: 'projects/library_prog/template_button_to_led.c'
         example: 'projects/test.c'
         test: 'test.c'
-        code_run: 'projects/code_run.py'
+        code_run: 'projects/library_prog/code_run.py'
         code_template: 'main.c'

@@ -48,6 +48,11 @@ class ProgramStep(TestOfCode):
         return [[item, func(self.project.answer.code_path.test, item.encode())]
                 for item in self.project.answer.tests['input']]
 
+    def check(self):
+        for i, data in enumerate(self.build_prog_test(), 1):
+            print(f"Test {i:02} | Input data: \n{data[0]}\nOutput data:\n{data[1]}")
+
+
 
     @staticmethod
     def subprocess_cpp(file_path="test.c", test=None):

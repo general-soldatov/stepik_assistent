@@ -52,7 +52,7 @@ class BuildProject:
     def add_program(self) -> None:
         types = 'code'
         question = self._create_question(types)
-        answer =  self._create_answer(types, tests={'input': ['']}, 
+        answer =  self._create_answer(types, tests={'input': ['']},
                                       limits=LimitsProg(), code_path=CodePath())
         self._add(question, answer, types)
 
@@ -83,3 +83,11 @@ class ImportProject:
             for name, task in elem.items():
                 data: Data = TaskObject.__dict__[name](obj, task)
                 data.export(f'{i:03}_{name}_{obj.number:02}')
+
+    def check(self):
+        obj = TaskObject()
+        for i, elem in enumerate(self.data.project, 0):
+            for name, task in elem.items():
+                data: Data = TaskObject.__dict__[name](obj, task)
+                print(f"Question {i}")
+                data.check()
