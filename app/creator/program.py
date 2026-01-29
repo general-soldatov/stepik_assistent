@@ -2,6 +2,7 @@ import re
 import subprocess
 from .template import TestOfCode
 from app.models.stepik import SourceProgram, OptionsProgram
+from app.config import config
 
 class ProgramStep(TestOfCode):
     @staticmethod
@@ -59,7 +60,7 @@ class ProgramStep(TestOfCode):
         subprocess.run(["gcc", file_path])
         if test:
             test = test.encode()
-        result = subprocess.run(['./a.exe'],
+        result = subprocess.run([config.file_cpp],
                 capture_output=True, input=test)
         return result.stdout.decode()
 

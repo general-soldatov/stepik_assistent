@@ -1,0 +1,29 @@
+app: "code"
+file_cpp: './a.exe'
+path_ai: "ai_request.json"
+path_default: "projects/013_program.yaml"
+data_prog: {
+    'start': 'start program',
+    'end': 'end program'
+}
+prompt: 'Представь, что ты автор курса по программированию микроконтроллеров на Си. Напиши вопросы к теме "Переключатель switch-case". Должно быть 10 заданий тестовых на выбор одного или нескольких правильных ответов (choice), а также 5 на сортировку (sequence) или сопоставление (matching). Ответ представь в формате json по образцу:{
+    "choice": [
+    {
+        "text": "Text question",
+        "correct": ["correct"],
+        "wrong": ["uncorrect_1", "uncorrect_2", "uncorrect_3"]
+    }],
+    "sequence": [
+        {
+            "text": "Text",
+            "steps": ["one", "two", "three"]
+        }
+    ],
+    "matching": [
+    {
+        "text": "Question",
+        "therms": ["one", "two", "three"],
+        "definitions": ["first", "second", "third"]
+    }
+    ]
+}'

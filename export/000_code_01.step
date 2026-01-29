@@ -25,7 +25,7 @@
             "samples": [
                 [
                     "",
-                    "Панель: | 🟩🟩🟩🟩🟩🟩🟩🟩 | Задержка в 1000 мc\r\nПанель: | ⬛⬛⬛⬛⬛⬛⬛⬛ | Задержка в 1000 мc\r\nПанель: | 🟩🟩🟩🟩🟩🟩🟩🟩 | Задержка в 1000 мc\r\nПанель: | ⬛⬛⬛⬛⬛⬛⬛⬛ | Задержка в 1000 мc\r\nПанель: | 🟩🟩🟩🟩🟩🟩🟩🟩 | Задержка в 1000 мc\r\nПанель: | ⬛⬛⬛⬛⬛⬛⬛⬛ | Задержка в 1000 мc\r\nПанель: | 🟩🟩🟩🟩🟩🟩🟩🟩 | Задержка в 1000 мc\r\nПанель: | ⬛⬛⬛⬛⬛⬛⬛⬛ | Задержка в 1000 мc\r\nПанель: | 🟩🟩🟩🟩🟩🟩🟩🟩 | Задержка в 1000 мc\r\nПанель: | ⬛⬛⬛⬛⬛⬛⬛⬛ | Задержка в 1000 мc\r"
+                    "Кнопка | on |\r\nПанель: 🟩🟩🟩🟩🟩🟩🟩🟩 | Задержка 500 ms\r\nКнопка | off |\r\nПанель: ⬛⬛⬛⬛⬛⬛⬛⬛ | Задержка 500 ms\r\n"
                 ]
             ],
             "is_run_user_code_allowed": true
@@ -37,7 +37,7 @@
             "execution_time_limit": 5,
             "execution_memory_limit": 256,
             "samples_count": 1,
-            "templates_data": "::c\n::header\n#define TEST 10\n\n#include <stdio.h>\n\nchar reg[2] = {0}, port[2] = {0};\nint tst = 0;\n\n#define DDRD reg[0]\n#define DDRB reg[1]\n#define PORTD port[0]\n#define PORTB port[1]\n\nvoid delay_ms(int ms) {\n    printf(\"Панель: | \");\n    for (int i = 0; i < 8; i++) {\n        printf(DDRD&PORTD&(1 << i) ? \"🟩\" : \"⬛\");\n    }\n    printf(\" | Задержка в %d мc\\n\", ms);\n    tst++;\n}\n\n#define _delay_ms(a) do { if (tst >= TEST) return 0; delay_ms(a);} while (0)\n\n::code\nint main(void) {\n\n    while(1) {\n\n    }\n}\n\n::footer",
+            "templates_data": "::c\n::header\n#define TEST 1\n\n#include <stdio.h>\nunsigned char portd, ddrd, ddrb, portb, pinb;\n#define PORTD portd\n#define DDRD ddrd\n#define PORTB portb\n#define DDRB ddrb\n#define PINB pinb\n#define TST_MASS 9\n#define while(a) if (a == 1) for(int iter = 0; iter < TEST; iter++)\n\nvoid _delay_ms(int msec) {\n    if (!(~(DDRB&(0 << 0))&(PORTB&(1 << 0))) || (DDRD != 0xFF)) {\n        printf(\"Ошибка! Не правильно настроены регистры!\\n\");\n        return;\n    }\n    printf(\"Кнопка | %s |\\n\", (PINB&(1 << 0) ? \"off\" : \"on\"));\n    printf(\"Панель: \");\n    for (int i = 0; i < 8; i++)\n        printf(DDRD&PORTD&(1 << i) ? \"🟩\" : \"⬛\");\n    printf(\" | Задержка %d ms\\n\", msec);\n}\n\n\nint main(void)\n{\n::code\n/* #include <avr/io.h>\n   #define F_CPU 8000000UL\n   #include <avr/delay.h> */\n#define BUTTON 0\n\nint main(void)\n{\n    while(1)\n    {\n\n    }\n}\n::footer\n    unsigned char button[2] = {0, 1};\n    for (int i = 0; i < 2; i++) {\n        PINB = button[i];\n        main();\n    }\n}\n",
             "is_time_limit_scaled": true,
             "is_memory_limit_scaled": true,
             "is_run_user_code_allowed": true,
@@ -47,7 +47,7 @@
             "test_cases": [
                 [
                     "",
-                    "Панель: | 🟩🟩🟩🟩🟩🟩🟩🟩 | Задержка в 1000 мc\r\nПанель: | ⬛⬛⬛⬛⬛⬛⬛⬛ | Задержка в 1000 мc\r\nПанель: | 🟩🟩🟩🟩🟩🟩🟩🟩 | Задержка в 1000 мc\r\nПанель: | ⬛⬛⬛⬛⬛⬛⬛⬛ | Задержка в 1000 мc\r\nПанель: | 🟩🟩🟩🟩🟩🟩🟩🟩 | Задержка в 1000 мc\r\nПанель: | ⬛⬛⬛⬛⬛⬛⬛⬛ | Задержка в 1000 мc\r\nПанель: | 🟩🟩🟩🟩🟩🟩🟩🟩 | Задержка в 1000 мc\r\nПанель: | ⬛⬛⬛⬛⬛⬛⬛⬛ | Задержка в 1000 мc\r\nПанель: | 🟩🟩🟩🟩🟩🟩🟩🟩 | Задержка в 1000 мc\r\nПанель: | ⬛⬛⬛⬛⬛⬛⬛⬛ | Задержка в 1000 мc\r"
+                    "Кнопка | on |\r\nПанель: 🟩🟩🟩🟩🟩🟩🟩🟩 | Задержка 500 ms\r\nКнопка | off |\r\nПанель: ⬛⬛⬛⬛⬛⬛⬛⬛ | Задержка 500 ms\r\n"
                 ]
             ]
         },

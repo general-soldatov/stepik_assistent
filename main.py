@@ -1,65 +1,75 @@
-from app.creator.test_task import TestChoice, MatchingTest, SortingTest
-from app.creator.template import Test
-from app.models.main_model import TestAI, TaskTemplate
-from app.creator.create import BuildProject, ImportProject
-
 import json
+import os
 import click
+import subprocess
+import logging
+from app.creator.create import BuildProject, ImportProject
+from app.config import config, create_division, PATH
 
+@click.group()
+def cli():
+    pass
 
+def division(func):
+    def inner(*args, **kwargs):
+        try:
+            click.echo(create_division(config.data_prog['start']))
+            func(*args, **kwargs)
+            click.echo(create_division(config.data_prog["end"]))
+        except Exception as e:
+            # logging.ERROR(e)
+            print(e)
+    return inner
 
-TEXT = '''Представь, что ты автор курса по программированию микроконтроллеров на Си. Напиши вопросы к теме "Переключатель switch-case". Должно быть 10 заданий тестовых на выбор одного или нескольких правильных ответов (choice), а также 5 на сортировку (sequence) или сопоставление (matching). Ответ представь в формате json по образцу:{
-    "choice": [
-    {
-        "text": "Text question",
-        "correct": ["correct"],
-        "wrong": ["uncorrect_1", "uncorrect_2", "uncorrect_3"]
-    }],
-    "sequence": [
-        {
-            "text": "Text",
-            "steps": ["one", "two", "three"]
-        }
-    ],
-    "matching": [
-    {
-        "text": "Question",
-        "therms": ["one", "two", "three"],
-        "definitions": ["first", "second", "third"]
-    }
-    ]
-}'''
-PATH_AI = "ai_request.json"
-PATH = "projects/013_program.yaml"
+@cli.command("config", help="Update of config data")
+@division
+def configurate():
+    click.echo('')
+    subprocess.run([config.app, PATH])
 
-def build_test_project():
-    project = TaskTemplate.model_validate_yaml(PATH)
-    data: Test = TestChoice(project)
-    data.export()
+@cli.command("prompt", help="Print of the prompt to AI-model")
+@division
+def prompt():
+    click.echo(config.prompt)
+    if not os.path.exists(config.path_ai):
+        with open(config.path_ai, 'w', encoding='utf-8') as file:
+            file.write('Insert your responsible from AI-model at json')
 
-def parseAI():
-    with open(PATH_AI, 'r', encoding='utf-8') as file:
-        data = json.load(file)
+@cli.command("create", help="Create project's makefile")
+@click.option("--path", prompt="Path", help="Check path to makefile", default=config.path_default)
+@click.option("--ai_path", prompt="Path to AI", help="Path to AI-responsible from json", default=config.path_ai)
+@division
+def create(path, ai_path):
     project = BuildProject()
-    project.add_program()
-    # project.add_text()
-    # project.import_ai(data)
-    # project.add_choice()
-    # project.add_matching()
-    # project.add_sorting()
-    # print(*project.project, sep='\n')
-    project.export_to_yaml(PATH)
+    if click.confirm(f"Do you want to add text to the project"):
+        project.add_text()
+    if click.confirm(f"Do you want to add AI-responsible to the project"):
+        with open(ai_path, 'r', encoding='utf-8') as file:
+            data = json.load(file)
+            project.import_ai(data)
+    if click.confirm(f"Do you want to add choice's test to the project"):
+        project.add_choice()
+    if click.confirm(f"Do you want to add sorting task to the project"):
+        project.add_sorting()
+    if click.confirm(f"Do you want to add matching task to the project"):
+        project.add_matching()
+    if click.confirm(f"Do you want to add program to the project"):
+        project.add_program()
+    project.export_to_yaml(path)
 
-def import_data():
-    data = ImportProject(PATH)
-    # print(*[dt for dt in data.data], sep='\n')
+@cli.command("build", help="Build project from makefile")
+@click.option("--path", prompt="Path", help="Check path to makefile", default=config.path_default)
+@division
+def build(path):
+    data = ImportProject(path)
     data.create()
 
-def check():
-    data = ImportProject(PATH)
+@cli.command("check", help="Check of test project from makefile")
+@click.option("--path", prompt="Path", help="Check path to makefile", default=config.path_default)
+@division
+def check(path):
+    data = ImportProject(path)
     data.check()
 
-# build_test_project()
-# parseAI()
-# import_data()
-check()
+if __name__ == '__main__':
+    cli()
