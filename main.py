@@ -24,8 +24,9 @@ def division(func):
 @cli.command("config", help="Update of config data")
 @division
 def configurate():
-    click.echo('')
+    click.echo('Load of program`s config')
     subprocess.run([config.app, PATH])
+    click.echo('Update file succesfull')
 
 @cli.command("prompt", help="Print of the prompt to AI-model")
 @division

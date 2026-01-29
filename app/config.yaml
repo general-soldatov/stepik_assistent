@@ -1,4 +1,4 @@
-app: "code"
+app: "nano"
 file_cpp: './a.exe'
 path_ai: "ai_request.json"
 path_default: "projects/013_program.yaml"
