@@ -6,6 +6,14 @@ import logging
 from app.creator.create import BuildProject, ImportProject
 from app.config import config, create_division, PATH
 
+logging.basicConfig(
+    level=logging.INFO,
+    format='[{asctime}] #{levelname:8} {filename}:'
+           '{lineno} - {name} - {message}',
+    style='{'
+)
+logger = logging.getLogger(__name__)
+
 @click.group()
 def cli():
     pass
@@ -17,8 +25,7 @@ def division(func):
             func(*args, **kwargs)
             click.echo(create_division(config.data_prog["end"]))
         except Exception as e:
-            # logging.ERROR(e)
-            print(e)
+            logger.error(e)
     return inner
 
 @cli.command("config", help="Update of config data")

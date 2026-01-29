@@ -63,3 +63,13 @@ def create_file():
 # # res = ProgramStep.subprocess_python("test.c", "Datave")
 # res = ProgramStep.subprocess_cpp(test='df')
 # print(res)
+
+
+
+def check_test(score: int) -> bool:
+    return score >= 80
+
+name = input("Enter your name: ")
+score = int(input("How do you have of score: "))
+prize = check_test(score)
+print(name, '-', prize)
