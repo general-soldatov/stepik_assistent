@@ -5,6 +5,7 @@ from .test_task import TaskObject
 from .template import Data
 from typing import List, Dict, Union
 from pydantic import BaseModel
+from app.config import create_division
 
 class DataObject(BaseModel):
     project: List[Dict[str, Union[TaskTemplate, Text]]]
@@ -89,5 +90,5 @@ class ImportProject:
         for i, elem in enumerate(self.data.project, 0):
             for name, task in elem.items():
                 data: Data = TaskObject.__dict__[name](obj, task)
-                print(f"Question {i}")
+                print(create_division(f"Question {i}", division='^'))
                 data.check()

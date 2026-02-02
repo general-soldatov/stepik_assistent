@@ -66,10 +66,25 @@ def create_file():
 
 
 
-def check_test(score: int) -> bool:
-    return score >= 80
+# def check_test(score: int) -> bool:
+#     return score >= 80
 
-name = input("Enter your name: ")
-score = int(input("How do you have of score: "))
-prize = check_test(score)
-print(name, '-', prize)
+# name = input("Enter your name: ")
+# score = int(input("How do you have of score: "))
+# prize = check_test(score)
+# print(name, '-', prize)
+
+
+class Pupil:
+    def __init__(self, name, surname, mark):
+        self.name = name
+        self.surname = surname
+        self.mark = int(mark)
+
+pupil = ['df', 'ds', '5']
+pup = {'sep': '\n', 'end': '\n\n'}
+
+def name(arg1, arg2, nar=23, nar2='df'):
+    print(arg1 + arg2 + nar, nar2)
+
+name(*dict(arg1=1, arg2=2, nar=23, nar2='df'))

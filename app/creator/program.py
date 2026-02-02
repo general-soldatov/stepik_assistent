@@ -71,18 +71,3 @@ class ProgramStep(TestOfCode):
         result = subprocess.run(['python3', file_path],
                                 capture_output=True, input=test)
         return result.stdout.decode()
-
-# result =
-# print(f"Command finished with return code: \n{result.stdout.decode()}")
-
-# process = subprocess.Popen(
-#     ['python3', '-c', 'print("console: ", input())'], # Replace with your command
-#     stdin=subprocess.PIPE,
-#     stdout=subprocess.PIPE,
-#     stderr=subprocess.PIPE
-# )
-
-# stdout, stderr = process.communicate(input="data to send to stdin".encode())
-
-# print(f"Stdout: {stdout.decode()}")
-# print(f"Stderr: {stderr.decode()}")
