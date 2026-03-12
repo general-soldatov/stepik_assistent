@@ -5,6 +5,7 @@ import subprocess
 import logging
 from app.creator.create import BuildProject, ImportProject
 from app.config import config, create_division, PATH
+from app.models.ai_prompt import analys_md
 
 logging.basicConfig(
     level=logging.INFO,
@@ -36,9 +37,15 @@ def configurate():
     click.echo('Update file succesfull')
 
 @cli.command("prompt", help="Print of the prompt to AI-model")
+@click.option("--path", prompt="Path", help="Check path to theory-file", default=None)
 @division
-def prompt():
-    click.echo(config.prompt)
+def prompt(path):
+    prompt = config.prompt
+    if path:
+        data = config.course
+        data.update(analys_md(config.course['name'], path))
+        prompt = prompt.format(**data)
+    click.echo(prompt + config.template)
     if not os.path.exists(config.path_ai):
         with open(config.path_ai, 'w', encoding='utf-8') as file:
             file.write('Insert your responsible from AI-model at json')

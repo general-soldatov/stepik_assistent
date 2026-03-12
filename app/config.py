@@ -11,6 +11,8 @@ class Config(YamlProject):
     data_prog: Dict[str, str]
     prompt: str
     file_cpp: str
+    course: Dict[str, int | str]
+    template: str
 
 config = Config.model_validate_yaml(PATH)
 

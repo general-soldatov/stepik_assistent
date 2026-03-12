@@ -10,6 +10,7 @@ PATH = "projects/test_1.yaml"
 import json
 import yaml
 from py_markdown import ReadMD
+from app.config import config
 
 def json_indent(path='text.step'):
     with open(path, 'r', encoding='utf-8') as fl:
@@ -44,7 +45,6 @@ def create_file():
         with open("test.c", 'w', encoding='utf-8') as test:
             test.write(text)
 
-
 # process = subprocess.Popen(
 #     ['python3', '-c', 'print("console: ", input())'], # Replace with your command
 #     stdin=subprocess.PIPE,
@@ -64,27 +64,4 @@ def create_file():
 # res = ProgramStep.subprocess_cpp(test='df')
 # print(res)
 
-
-
-# def check_test(score: int) -> bool:
-#     return score >= 80
-
-# name = input("Enter your name: ")
-# score = int(input("How do you have of score: "))
-# prize = check_test(score)
-# print(name, '-', prize)
-
-
-class Pupil:
-    def __init__(self, name, surname, mark):
-        self.name = name
-        self.surname = surname
-        self.mark = int(mark)
-
-pupil = ['df', 'ds', '5']
-pup = {'sep': '\n', 'end': '\n\n'}
-
-def name(arg1, arg2, nar=23, nar2='df'):
-    print(arg1 + arg2 + nar, nar2)
-
-name(*dict(arg1=1, arg2=2, nar=23, nar2='df'))
+# print(data)
