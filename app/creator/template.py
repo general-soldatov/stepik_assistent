@@ -6,7 +6,7 @@ from typing import Tuple
 from py_markdown import ReadMD
 
 class Data(ABC):
-    def __init__(self, project: TaskTemplate | Text, case_num = None, path: str = 'app/creator/sample_test.step'):
+    def __init__(self, project: TaskTemplate | Text, case_num = None, path: str = '/root/stepik_assistent/export/000_text_00.step'):
         self.step: Step = self._load_temp(path)
         self.block: Block = self.step.block
         self.project = project

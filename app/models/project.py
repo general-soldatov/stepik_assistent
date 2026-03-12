@@ -39,6 +39,7 @@ class AnswerProgram(Answer):
 class Text(BaseModel):
     path: str | None = None
     data: str | None = None
+    # question: str = None
 
 class ObjectsTypes:
     def __init__(self):
@@ -56,7 +57,7 @@ class ObjectsTypes:
 
     def sorting(self):
         return AnswerSorting
-    
+
     def code(self):
         return AnswerProgram
 

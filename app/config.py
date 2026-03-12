@@ -2,7 +2,7 @@ from app.models.main_model import YamlProject
 from typing import Dict
 import os
 
-PATH = "app/config.yaml"
+PATH = "/root/stepik_assistent/app/config.yaml"
 
 class Config(YamlProject):
     app: str

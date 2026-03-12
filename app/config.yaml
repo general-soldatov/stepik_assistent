@@ -1,5 +1,5 @@
 app: "nano"
-file_cpp: './a.exe'
+file_cpp: './a.out'
 path_ai: "ai_request.json"
 path_default: "projects/013_program.yaml"
 data_prog: {

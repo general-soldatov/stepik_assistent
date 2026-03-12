@@ -20,12 +20,12 @@ def cli():
 
 def division(func):
     def inner(*args, **kwargs):
-        try:
+        # try:
             click.echo(create_division(config.data_prog['start']))
             func(*args, **kwargs)
             click.echo(create_division(config.data_prog["end"]))
-        except Exception as e:
-            logger.error(e)
+        # except Exception as e:
+        #     logger.error(e)
     return inner
 
 @cli.command("config", help="Update of config data")
