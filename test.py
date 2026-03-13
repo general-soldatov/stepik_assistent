@@ -23,7 +23,7 @@ def read_yaml(path="projects/project_2.yaml"):
         data = yaml.safe_load(file.read())
         print(data)
 
-json_indent('2270650_2_string.step')
+# json_indent('2270650_2_string.step')
 # read_yaml()
 # txt = "projects/text.md"
 # with open(txt, 'r', encoding='utf-8') as file:
@@ -65,3 +65,16 @@ def create_file():
 # print(res)
 
 # print(data)
+
+from app.connections.bucket import ImageMover
+
+# Пример строки
+html_string = '<img width="960" height="1280" alt="image" src="https://github.com/user-attachments/assets/6002f3c0-e366-4c73-aff0-7f910da566d6" />\n<img width="1024" height="1024" alt="image" src="https://github.com/user-attachments/assets/6eb51127-7225-498d-9945-6565c01d271d" />'
+img = ImageMover(html_string)
+img.replace_url()
+print(img.html)
+
+
+# response = requests.get(url)
+# with open('data.jpg', 'wb') as file:
+#     file.write(response.content)

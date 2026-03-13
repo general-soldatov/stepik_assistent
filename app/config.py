@@ -1,8 +1,10 @@
 from app.models.main_model import YamlProject
 from typing import Dict
 import os
+from boto_orm.models.config import AWSConfig, AWSSession
 
 PATH = "/root/stepik_assistent/app/config.yaml"
+SERVICE = "/root/stepik_assistent/app/session.yaml"
 
 class Config(YamlProject):
     app: str
@@ -14,7 +16,15 @@ class Config(YamlProject):
     course: Dict[str, int | str]
     template: str
 
+class Service(YamlProject):
+    aws_session: Dict[str, str]
+    s3_config: Dict[str, str]
+
 config = Config.model_validate_yaml(PATH)
+service = Service.model_validate_yaml(SERVICE)
+
+s3_config = AWSConfig(**service.s3_config)
+session = AWSSession(**service.aws_session)
 
 def create_division(message: str = None, division: str = '#') -> str:
     columns = os.get_terminal_size().columns

@@ -81,6 +81,7 @@ class Question(BaseModel):
     types: str
     text_data: str
     code_path: str | None = None
+    image: str | None = None
     help: str | None = None
 
     @field_validator('types')

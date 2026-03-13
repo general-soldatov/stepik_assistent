@@ -1,0 +1,39 @@
+{
+    "block": {
+        "name": "choice",
+        "text": "<p><strong>Свершение 1.</strong>&nbsp;Sample text for choice</p><img src=\"https://github.com/user-attachments/assets/cf5de84e-bece-4244-ae9a-336d67988b78\" alt=\"image\">",
+        "video": null,
+        "options": {
+            "is_multiple_choice": false
+        },
+        "subtitle_files": [],
+        "is_deprecated": false,
+        "source": {
+            "is_html_enabled": true,
+            "is_multiple_choice": false,
+            "is_always_correct": false,
+            "sample_size": 2,
+            "preserve_order": false,
+            "is_options_feedback": false,
+            "options": [
+                {
+                    "text": "correct_answer",
+                    "is_correct": true,
+                    "feedback": ""
+                },
+                {
+                    "text": "wrong_answer",
+                    "is_correct": false,
+                    "feedback": ""
+                }
+            ]
+        },
+        "subtitles": {},
+        "tests_archive": null,
+        "feedback_correct": "",
+        "feedback_wrong": ""
+    },
+    "id": "8736153",
+    "has_review": false,
+    "time": "2025-11-12T07:09:19.592Z"
+}

@@ -7,6 +7,7 @@ from app.models.main_model import TaskTemplate
 from app.models.project import Text
 from typing import Tuple
 from py_markdown import ReadMD
+from app.connections.bucket import ImageMover
 
 class Data(ABC):
     def __init__(self, project: TaskTemplate | Text, case_num = None, path: str = '/root/stepik_assistent/app/creator/sample_test.step'):
@@ -35,7 +36,7 @@ class Data(ABC):
 
     def preview(self):
         self._build()
-        return self.step.model_dump_json(indent=4, ensure_ascii=False)
+        return self.step.model_dump_json(indent=4)
 
     def export(self, name: str) -> None:
         data = self.preview()
@@ -59,15 +60,21 @@ class Test(Data):
         return text_step
 
     def set_text(self) -> None:
-        self.block.text = ReadMD(
+        html_string = ReadMD(
             self.template_text(
                 text=self.project.question.text_data,
                 num=self.case_num
         )).to_html_text()
+        img = ImageMover(html_string)
+        img.replace_url()
+        self.block.text = img.html
 
     def _set_help(self):
+        if self.project.question.image:
+            self.block.text += self._set_image(self.project.question.image)
         if self.project.question.help:
             self.block.text += self.template_help(self.project.question.help)
+
 
     def _set_options(self, multiply_choice: bool = None):
         self.block.options = dict(is_multiple_choice=multiply_choice)
@@ -82,6 +89,9 @@ class Test(Data):
             sample_size=sample_size, options=options,
             is_always_correct=False,
             is_options_feedback=False)
+
+    def _set_image(self, url_image) -> str:
+        return f'<img src="{url_image}" alt="image">'
 
     @staticmethod
     def _add_options(project: TaskTemplate):
