@@ -4,6 +4,7 @@ from app.models.project import ObjectsTypes, Text
 from app.models.main_model import TaskTemplate
 from app.creator.program import ProgramStep
 from py_markdown import ReadMD
+from app.connections.bucket import ImageMover
 
 class TestChoice(TestOfCode):
     def set_text(self) -> None:
@@ -69,9 +70,12 @@ class StringTest(TestOfCode):
 class TextData(Data):
     def _build(self):
         if self.project.path:
-            self.block.text = ReadMD.file_import(self.project.path).to_html_text()
+            text = ReadMD.file_import(self.project.path).to_html_text()
         if self.project.data:
-            self.block.text = ReadMD(self.project.data).to_html_text()
+            text = ReadMD(self.project.data).to_html_text()
+        img = ImageMover(text)
+        img.replace_url()
+        self.block.text = img.html
         self.block.name = "text"
         self.block.options = {}
 
