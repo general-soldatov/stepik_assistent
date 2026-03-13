@@ -23,7 +23,7 @@ def read_yaml(path="projects/project_2.yaml"):
         data = yaml.safe_load(file.read())
         print(data)
 
-# json_indent('1984673_2_code.step')
+json_indent('2270650_2_string.step')
 # read_yaml()
 # txt = "projects/text.md"
 # with open(txt, 'r', encoding='utf-8') as file:

@@ -68,6 +68,10 @@ def create(path, ai_path):
         project.add_sorting()
     if click.confirm(f"Do you want to add matching task to the project"):
         project.add_matching()
+    if click.confirm(f"Do you want to add number task to the project"):
+        project.add_number()
+    if click.confirm(f"Do you want to add string task to the project"):
+        project.add_string()
     if click.confirm(f"Do you want to add program to the project"):
         project.add_program()
     project.export_to_yaml(path)

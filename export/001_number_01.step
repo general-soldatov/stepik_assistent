@@ -1,0 +1,27 @@
+{
+    "block": {
+        "name": "number",
+        "text": "<p><strong>Свершение 1.</strong>&nbsp;Sample text for number</p>",
+        "video": null,
+        "options": {
+            "is_multiple_choice": false
+        },
+        "subtitle_files": [],
+        "is_deprecated": false,
+        "source": {
+            "options": [
+                {
+                    "answer": "10",
+                    "max_error": "0"
+                }
+            ]
+        },
+        "subtitles": {},
+        "tests_archive": null,
+        "feedback_correct": "",
+        "feedback_wrong": ""
+    },
+    "id": "8736153",
+    "has_review": false,
+    "time": "2025-11-12T07:09:19.592Z"
+}

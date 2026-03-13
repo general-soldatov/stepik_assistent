@@ -65,6 +65,22 @@ class SourceMatching(Source):
     preserve_firsts_order: bool = False
     pairs: List[Pairs]
 
+class OptionNumber(BaseModel):
+    answer: str
+    max_error: str = 0
+
+class SourceNumber(BaseModel):
+    options: List[OptionNumber]
+
+class SourceString(Source):
+    pattern: str
+    use_re: bool
+    match_substring: bool
+    case_sensitive: bool
+    code: str
+    is_text_disabled: bool
+    is_file_disabled: bool
+
 class Block(BaseModel):
     name: str
     text: str
@@ -72,7 +88,7 @@ class Block(BaseModel):
     options: dict
     subtitle_files: list
     is_deprecated: bool = False
-    source: Union[SourceTest, SourceMatching, SourceSorting, None] = None
+    source: Union[SourceTest, SourceMatching, SourceSorting, SourceNumber, SourceString, None] = None
     subtitles: dict
     tests_archive: str | None = None
     feedback_correct: str

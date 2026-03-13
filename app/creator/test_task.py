@@ -1,4 +1,4 @@
-from app.models.stepik import Pairs, SourceMatching, SourceSorting, Options
+from app.models.stepik import Pairs, SourceMatching, SourceSorting, Options, SourceNumber, OptionNumber, SourceString
 from .template import TestOfCode, Data
 from app.models.project import ObjectsTypes, Text
 from app.models.main_model import TaskTemplate
@@ -45,6 +45,27 @@ class SortingTest(TestOfCode):
         _, options = self._set_answers()
         self.block.source = SourceSorting(options=options)
 
+class NumberTest(TestOfCode):
+    def _build(self):
+        self.block.name = self.project.question.types
+        self.set_text()
+        self._set_source()
+
+    def _set_source(self):
+        number = [OptionNumber(answer=elem.answer, max_error=elem.max_error) for elem in self.project.answer.data]
+        self.block.source = SourceNumber(
+            options=number)
+
+
+class StringTest(TestOfCode):
+    def _build(self):
+        self.block.name = self.project.question.types
+        self.set_text()
+        self._set_source()
+
+    def _set_source(self):
+        self.block.source = self.project.answer
+
 class TextData(Data):
     def _build(self):
         if self.project.path:
@@ -74,7 +95,15 @@ class TaskObject(ObjectsTypes):
     def sorting(self, project: TaskTemplate):
         self.number += 1
         return SortingTest(project, self.number)
-    
+
     def code(self, project: TaskTemplate):
         self.number += 1
         return ProgramStep(project, self.number)
+
+    def number(self, project: TaskTemplate):
+        self.number += 1
+        return NumberTest(project, self.number)
+
+    def string(self, project: TaskTemplate):
+        self.number += 1
+        return StringTest(project, self.number)

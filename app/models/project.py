@@ -1,5 +1,6 @@
-from pydantic import BaseModel, field_validator
+from pydantic import BaseModel, field_validator, ConfigDict
 from typing import List, Dict
+from app.models.stepik import SourceString
 
 class Feedback(BaseModel):
     correct: str = ""
@@ -36,6 +37,15 @@ class AnswerProgram(Answer):
     limits: LimitsProg
     code_path: CodePath
 
+class OptionNumber(BaseModel):
+    model_config = ConfigDict(coerce_numbers_to_str=True)
+    answer: str = '0'
+    max_error: str = '0'
+
+class AnswerNumber(Answer):
+    data: List[OptionNumber]
+
+
 class Text(BaseModel):
     path: str | None = None
     data: str | None = None
@@ -57,6 +67,12 @@ class ObjectsTypes:
 
     def sorting(self):
         return AnswerSorting
+
+    def number(self):
+        return AnswerNumber
+
+    def string(self):
+        return SourceString
 
     def code(self):
         return AnswerProgram
