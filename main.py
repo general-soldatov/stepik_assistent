@@ -1,5 +1,8 @@
 import json
 import os
+import sys
+sys.path.append(os.path.dirname(os.path.dirname('/root/stepik_assistent')))
+
 import click
 import subprocess
 import logging

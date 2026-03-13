@@ -42,7 +42,7 @@ class SortingTest(TestOfCode):
         return [Options(text=txt) for txt in project.answer.steps]
 
     def _set_source(self):
-        _, options = self._set_answers()
+        options = [Options(text=elem) for elem in self.project.answer.steps]
         self.block.source = SourceSorting(options=options)
 
 class NumberTest(TestOfCode):
