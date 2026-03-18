@@ -29,8 +29,8 @@ class BuildProject:
         obj = ObjectsTypes()
         return ObjectsTypes.__dict__[types](obj)(**kwargs)
 
-    def add_text(self) -> None:
-        self.data.project.append({'text': Text()})
+    def add_text(self, text: Text = Text()) -> None:
+        self.data.project.append({'text': text})
 
     def add_choice(self) -> None:
         types = 'choice'

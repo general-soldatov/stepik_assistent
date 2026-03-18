@@ -6,9 +6,10 @@ sys.path.append(os.path.dirname(os.path.dirname('/root/stepik_assistent')))
 import click
 import subprocess
 import logging
-from app.creator.create import BuildProject, ImportProject
+from app.creator.create import BuildProject, ImportProject, Text
 from app.config import config, create_division, PATH
 from app.models.ai_prompt import analys_md
+from app.automatize.folders import SearchFiles
 
 logging.basicConfig(
     level=logging.INFO,
@@ -92,6 +93,21 @@ def build(path):
 def check(path):
     data = ImportProject(path)
     data.check()
+
+@cli.command("collecting", help="Collecting project's text files to makefile")
+@click.option("--extension", '-e', prompt="Extension", help="Type of file's extension", default='.md')
+@click.option("--path", prompt="Path", help="Check path to makefile", default=config.path_default)
+def collecting_files(extension: str, path: str):
+    project = BuildProject()
+    files = SearchFiles(path=os.getcwd())
+    files.search(extension.encode())
+    click.echo(f"Всего найдено {files.count} файлов с расширением {extension}")
+    for key, value in files.data.items():
+        print(key.decode(), '->', end=' ')
+        for elem in value:
+            project.add_text(text=Text(path=elem))
+        print('Succesfull')
+    project.export_to_yaml(path)
 
 if __name__ == '__main__':
     cli()
