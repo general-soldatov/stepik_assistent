@@ -1,5 +1,5 @@
-from pydantic import BaseModel
-from typing import List, Union
+from pydantic import BaseModel, Field, model_serializer
+from typing import List, Union, Optional, Annotated
 
 class Options(BaseModel):
     text: str
@@ -72,7 +72,7 @@ class OptionNumber(BaseModel):
 class SourceNumber(BaseModel):
     options: List[OptionNumber]
 
-class SourceString(Source):
+class SourceString(BaseModel):
     pattern: str
     use_re: bool
     match_substring: bool
@@ -99,3 +99,36 @@ class Step(BaseModel):
     id: str
     has_review: bool
     time: str
+
+class OmitIfNone:
+    pass
+
+class NoSerializeNoneModel(BaseModel):
+    @model_serializer
+    def _serialize(self):
+        omit_if_none_fields = {
+            k
+            for k, v in self.model_fields.items()
+            if any(isinstance(m, OmitIfNone) for m in v.metadata)
+        }
+        return {k: v for k, v in self if k not in omit_if_none_fields or v is not None}
+
+class StepSource(NoSerializeNoneModel):
+    block: Block
+    lesson: int
+    position: int
+    cost: Annotated[Optional[int], OmitIfNone()] = None
+
+class Section(BaseModel):
+    course: Optional[int] = Field(alias='course_id')
+    title: str
+    position: int = 1
+
+class Lesson(BaseModel):
+    title: str
+    is_public: bool = False
+
+class Unit(BaseModel):
+    section: int
+    lesson: int
+    position: int

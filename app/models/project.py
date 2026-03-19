@@ -1,5 +1,5 @@
 from pydantic import BaseModel, field_validator, ConfigDict
-from typing import List, Dict
+from typing import List, Dict, Optional
 from app.models.stepik import SourceString
 
 class Feedback(BaseModel):
@@ -89,3 +89,15 @@ class Question(BaseModel):
         if value in ObjectsTypes().objects:
             return value
         raise ValueError('Неопознанный объект!')
+
+class Course(BaseModel):
+    course_id: int
+    score: Dict[str, Optional[int]]
+
+class Lesson(BaseModel):
+    title: str
+    steps: str
+
+class SectionProject(BaseModel):
+    title: str
+    lessons: List[Lesson]

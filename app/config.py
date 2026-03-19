@@ -19,6 +19,7 @@ class Config(YamlProject):
 class Service(YamlProject):
     aws_session: Dict[str, str]
     s3_config: Dict[str, str]
+    stepik: Dict[str, str]
 
 config = Config.model_validate_yaml(PATH)
 service = Service.model_validate_yaml(SERVICE)

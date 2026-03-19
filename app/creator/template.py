@@ -2,9 +2,9 @@ import os
 import sys
 sys.path.append(os.path.dirname(os.path.dirname('/root/stepik_assistent')))
 from abc import ABC, abstractmethod
-from app.models.stepik import Step, OptionsTest, Block, SourceTest
+from app.models.stepik import Step, OptionsTest, Block, SourceTest, StepSource
 from app.models.main_model import TaskTemplate
-from app.models.project import Text
+from app.models.project import Text, Course
 from typing import Tuple
 from py_markdown import ReadMD
 from app.connections.bucket import ImageMover
@@ -34,12 +34,21 @@ class Data(ABC):
     def check(self):
         pass
 
-    def preview(self):
+    def preview_json(self):
         self._build()
         return self.step.model_dump_json(indent=4)
 
+    def create_step_source(self, lesson: int, position: int, course: Course):
+        self._build()
+        return StepSource(
+            block=self.step.block,
+            lesson=lesson,
+            position=position,
+            cost=course.score[self.step.block.name]
+        )
+
     def export(self, name: str) -> None:
-        data = self.preview()
+        data = self.preview_json()
         with open(f"export/{name}.step", 'w', encoding='utf-8') as file:
             file.write(data)
 

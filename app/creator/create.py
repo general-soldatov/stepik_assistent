@@ -1,5 +1,5 @@
 import yaml
-from app.models.project import Text, Question, ObjectsTypes, LimitsProg, CodePath, OptionNumber, SourceString
+from app.models.project import Text, Question, ObjectsTypes, LimitsProg, CodePath, OptionNumber, Course
 from app.models.main_model import TaskTemplate, TestAI
 from .test_task import TaskObject
 from .template import Data
@@ -98,6 +98,14 @@ class ImportProject:
             for name, task in elem.items():
                 data: Data = TaskObject.__dict__[name](obj, task)
                 data.export(f'{i:03}_{name}_{obj.number:02}')
+
+    def get_dict(self, lesson: int, course: Course):
+        obj = TaskObject()
+        for position, elem in enumerate(self.data.project, 1):
+            for name, task in elem.items():
+                data: Data = TaskObject.__dict__[name](obj, task)
+                yield data.create_step_source(lesson, position, course)
+
 
     def check(self):
         obj = TaskObject()

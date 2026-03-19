@@ -10,6 +10,7 @@ from app.creator.create import BuildProject, ImportProject, Text
 from app.config import config, create_division, PATH
 from app.models.ai_prompt import analys_md
 from app.automatize.folders import SearchFiles
+from app.models.pipeline import Pipeline
 
 logging.basicConfig(
     level=logging.INFO,
@@ -108,6 +109,13 @@ def collecting_files(extension: str, path: str):
             project.add_text(text=Text(path=elem))
         print('Succesfull')
     project.export_to_yaml(path)
+
+@cli.command("course", help="Create course with using API")
+@click.option("--path", prompt="Path", help="Check path to pipeline")
+@division
+def course(path):
+    pl = Pipeline.model_validate_yaml(path)
+    pl.create_sections()
 
 if __name__ == '__main__':
     cli()

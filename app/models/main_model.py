@@ -1,5 +1,5 @@
 import yaml
-from pydantic import BaseModel
+from pydantic import BaseModel, model_serializer
 from typing import List, Union
 from .ai_prompt import TestTask, SortingTask, MatchingTask, PromptAI
 from .project import Question, AnswerTest, AnswerSorting, AnswerMatching, AnswerProgram, AnswerNumber, SourceString
