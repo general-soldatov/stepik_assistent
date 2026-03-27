@@ -1,2 +1,2 @@
 pyinstaller --onefile main.py
-alias stepik='/root/stepik_assistent/dist/main'
+# alias stepik='/root/stepik_assistent/dist/main'

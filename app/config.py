@@ -3,8 +3,8 @@ from typing import Dict
 import os
 from boto_orm.models.config import AWSConfig, AWSSession
 
-PATH = "/root/stepik_assistent/app/config.yaml"
-SERVICE = "/root/stepik_assistent/app/session.yaml"
+PATH = "/Users/general_soldatov/own_app/stepik_assistent/app/config.yaml"
+SERVICE = "/Users/general_soldatov/Yandex.Disk.localized/Stepik/session.yaml"
 
 class Config(YamlProject):
     app: str
