@@ -1,0 +1,167 @@
+- number:
+    question:
+      types: number
+      text_data: Определить модуль равнодействующей двух равных по модулю сходящихся
+        сил F1 = F2 = 2 Н, образующих между собой угол α = 60°.
+      code_path: null
+      image: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      data:
+      - answer: '3.4641'
+        max_error: '0.05'
+- number:
+    question:
+      types: number
+      text_data: Определить угол в градусах между равнодействующей двух сил F1 = 8
+        Н и F2 = 3 Н и осью Ох, если угол α = 30°.
+      code_path: null
+      image: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      data:
+      - answer: '45.29534'
+        max_error: '0.05'
+- number:
+    question:
+      types: number
+      text_data: Какую по модулю силу F3 надо приложить к сходящимся силам F1 = 3
+        Н и F2 = 9 Н, образующим с осью Ох углы α = 30° и β = 60°, чтобы равнодействующая
+        этих трех сил равнялась нулю?
+      code_path: null
+      image: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      data:
+      - answer: '13.92473'
+        max_error: '0.05'
+- number:
+    question:
+      types: number
+      text_data: К столбу в точке А приложена плоская система сходящихся сил F1 =
+        F2 = F3 = 10 Н. Определить сумму проекций заданных сил на ось Ах, если угол
+        α = 60°.
+      code_path: null
+      image: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      data:
+      - answer: '27.32051'
+        max_error: '0.05'
+- number:
+    question:
+      types: number
+      text_data: 'Определить модуль равнодействующей сходящихся сил F1 и F2, если
+        известны их проекции на декартовы оси координат: F1x = 2 Н, F1y = 5 Н, F2x=
+        1 Н, F2y = 6 Н.'
+      code_path: null
+      image: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      data:
+      - answer: '11.40175'
+        max_error: '0.05'
+- number:
+    question:
+      types: number
+      text_data: Силы F1 = F2 = 11 Н и F3 находятся в равновесии. Линии действия сил
+        между собой образуют углы по 120°. Определить модуль силы F3.
+      code_path: null
+      image: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      data:
+      - answer: '11.0'
+        max_error: '0.05'
+- number:
+    question:
+      types: number
+      text_data: Груз удерживается в равновесии двумя стержнями АС и ВС, шарнирно
+        соединенными в точках А, В и С. Стержень ВС растянут силой F2 = 20 Н, а стержень
+        АС сжат силой F1 = 66 Н. Определить вес груза, если заданы углы α = 60° и
+        β = 30°.
+      code_path: null
+      image: https://storage.yandexcloud.net/phys-bot/mechanic/statics_3_1.jpg
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      data:
+      - answer: '57.15768'
+        max_error: '0.05'
+- number:
+    question:
+      types: number
+      text_data: Пластина весом G = 10 Н удерживается в равновесии двумя канатами
+        АВ и CD, расположенными в вертикальной плоскости. Определить натяжение каната
+        CD, если угол α = 30°.
+      code_path: null
+      image: https://storage.yandexcloud.net/phys-bot/mechanic/statics_3_2.jpg
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      data:
+      - answer: '20.0'
+        max_error: '0.05'
+- number:
+    question:
+      types: number
+      text_data: Однородный шар весом 6 Н удерживается в равновесии на гладкой наклонной
+        плоскости с помощью веревки АВ. Определить давление шара на плоскость, если
+        угол α = 60°.
+      code_path: null
+      image: https://storage.yandexcloud.net/phys-bot/mechanic/statics_3_3.jpg
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      data:
+      - answer: '5.19615'
+        max_error: '0.05'
+- number:
+    question:
+      types: number
+      text_data: Вес однородной горизонтальной балки АВ равен 155 Н. Задан угол α
+        = 45°. Определить реакцию шарнира А.
+      code_path: null
+      image: https://storage.yandexcloud.net/phys-bot/mechanic/statics_3_4.jpg
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      data:
+      - answer: '109.60155'
+        max_error: '0.05'

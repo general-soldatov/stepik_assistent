@@ -4,6 +4,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '/root/s
 
 from app.automatize.folders import SearchFiles
 from app.creator.create import BuildProject, Text
+from app.automatize.termex_tasks.task_user import TaskData
 
 PATH = "/root/stepik/theorethical_mechanics"
 PROJECT = 'tests/test.yaml'
@@ -20,4 +21,10 @@ def collecting_files(path: str):
         print('Succesfull')
     project.export_to_yaml(path)
 
-collecting_files(PROJECT)
+
+def task_creator():
+    task = TaskData.load_json("/root/stepik_assistent/app/automatize/termex_tasks/DYNRAND.json")
+    task.create_all_tasks(path='tests')
+
+# collecting_files(PROJECT)
+task_creator()

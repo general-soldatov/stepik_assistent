@@ -1,0 +1,297 @@
+- number:
+    question:
+      types: number
+      text_data: Заданы уравнения движения точки х = 1t, у = 1 - 2 sin(0.1t). Определить
+        ближайший момент времени, когда точка пересечет ось Ох.
+      code_path: null
+      image: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      data:
+      - answer: '0.87'
+        max_error: '0.05'
+- number:
+    question:
+      types: number
+      text_data: Даны уравнения движения точки х = t^2, у = sin (πt), z = cos (πt)
+        Определить модуль скорости точки в момент времени t = 5 с.
+      code_path: null
+      image: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      data:
+      - answer: '10.47229'
+        max_error: '0.05'
+- number:
+    question:
+      types: number
+      text_data: Положение линейки АВ определяется углом φ = 0,5t. Определить в см/с
+        проекцию скорости точки М на ось Ох в момент времени t = 2 с, если расстояние
+        ВМ = 0.12 м.
+      code_path: null
+      image: https://storage.yandexcloud.net/phys-bot/mechanic/kinematics_3_1
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      data:
+      - answer: '-5.04883'
+        max_error: '0.05'
+- number:
+    question:
+      types: number
+      text_data: Проекция скорости точки vx = 2 cos π/2 t. Определить координату х
+        точки в момент времени t = 0.4 с, если при to = 0 координата xо = 0.
+      code_path: null
+      image: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      data:
+      - answer: '0.74839'
+        max_error: '0.05'
+- number:
+    question:
+      types: number
+      text_data: Скорость автомобиля равномерно увеличивается в течение 18 с от нуля
+        до 67 км/ч. Определить ускорение автомобиля.
+      code_path: null
+      image: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      data:
+      - answer: '1.03395'
+        max_error: '0.05'
+- number:
+    question:
+      types: number
+      text_data: Точка движется по прямой. Дан график ускорения а = f(t). Определить
+        скорость точки в момент времени t = 6 с, если при t0 = 0 скорость v0 = 0.
+      code_path: null
+      image: https://storage.yandexcloud.net/phys-bot/mechanic/kinematics_3_2
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      data:
+      - answer: '3.0'
+        max_error: '0.05'
+- number:
+    question:
+      types: number
+      text_data: Сколько секунд должен работать двигатель, который сообщает ракете
+        ускорение 3g, чтобы скорость ракеты в прямолинейном движении возросла с 4
+        до 7 км/с?
+      code_path: null
+      image: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      data:
+      - answer: '101.97734'
+        max_error: '0.05'
+- number:
+    question:
+      types: number
+      text_data: Положение кривошипа ОА определяется углом φ = 2t. Определить проекцию
+        ускорения ах точки А в момент времени t = 6 с, если длина ОА = 4 м.
+      code_path: null
+      image: https://storage.yandexcloud.net/phys-bot/mechanic/kinematics_3_3
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      data:
+      - answer: '0.84385'
+        max_error: '0.05'
+- number:
+    question:
+      types: number
+      text_data: При равномерном вращении маховик делает 10 оборота в секунду. За
+        сколько секунд маховик повернется на угол φ = 22π
+      code_path: null
+      image: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      data:
+      - answer: '1.1'
+        max_error: '0.05'
+- number:
+    question:
+      types: number
+      text_data: Частота вращения маховика за время t1 = 6 с уменьшилась в 3 раза
+        и стала равной 30 об/мин. Определить угловое ускорение вала, если он вращался
+        равнозамедленно.
+      code_path: null
+      image: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      data:
+      - answer: '-1.0472'
+        max_error: '0.05'
+- number:
+    question:
+      types: number
+      text_data: Тело вращается вокруг неподвижной оси согласно закону φ = t^3 + 2.
+        Определить угловую скорость тела в момент времени, когда угол поворота φ =
+        16 рад.
+      code_path: null
+      image: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      data:
+      - answer: '16.58642'
+        max_error: '0.05'
+- number:
+    question:
+      types: number
+      text_data: Тело вращается вокруг неподвижной оси согласно закону φ = t^2. Определите
+        скорость точки тела на расстоянии r = 0.7 м от оси вращения в момент времени,
+        когда угол поворота φ = 15 рад.
+      code_path: null
+      image: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      data:
+      - answer: '5.23832'
+        max_error: '0.05'
+- number:
+    question:
+      types: number
+      text_data: Скорость точки тела на расстоянии r = 0.2 м от оси вращения изменяется
+        по закону v = 4t^2. Определить угловое ускорение данного тела в момент времени
+        t = 4 с.
+      code_path: null
+      image: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      data:
+      - answer: '160.0'
+        max_error: '0.05'
+- number:
+    question:
+      types: number
+      text_data: В данный момент времени тело совершает мгновенное вращение относительно
+        точки касания его с плоскостью. Определить угловую скорость тела, если скорость
+        точки С равна 17 м/с, а расстояние АС = 86 см.
+      code_path: null
+      image: https://storage.yandexcloud.net/phys-bot/mechanic/kinematics_3_4
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      data:
+      - answer: '19.76744'
+        max_error: '0.05'
+- number:
+    question:
+      types: number
+      text_data: Определить угловую скорость колеса, если точка А имеет скорость vA=
+        19 м/с, а радиус колеса r = 0.3 м.
+      code_path: null
+      image: https://storage.yandexcloud.net/phys-bot/mechanic/kinematics_3_5
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      data:
+      - answer: '42.22222'
+        max_error: '0.05'
+- number:
+    question:
+      types: number
+      text_data: Стержень АВ длиной 79 см движется в плоскости чертежа. В некоторый
+        момент времени точки А и В стержня имеют скорости v_A = 3 м/с, v_B = 8 м/с.
+        Определить расстояние от точки А до мгновенного центра скоростей.
+      code_path: null
+      image: https://storage.yandexcloud.net/phys-bot/mechanic/kinematics_3_6
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      data:
+      - answer: '0.21545'
+        max_error: '0.05'
+- number:
+    question:
+      types: number
+      text_data: Определить скорость точки В колеса, если точка А колеса имеет скорость
+        2 м\с.
+      code_path: null
+      image: https://storage.yandexcloud.net/phys-bot/mechanic/kinematics_3_7
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      data:
+      - answer: '4.24264'
+        max_error: '0.05'
+- number:
+    question:
+      types: number
+      text_data: Автомобиль двигается со скоростью v1 = 7.9 км/ч, а монтажная вышка
+        поднимается со скоростью v2 = 1.2 м/с. Определить абсолютную скорость рабочего,
+        который стоит на вышке неподвижно.
+      code_path: null
+      image: https://storage.yandexcloud.net/phys-bot/mechanic/kinematics_3_8
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      data:
+      - answer: '2.50112'
+        max_error: '0.05'

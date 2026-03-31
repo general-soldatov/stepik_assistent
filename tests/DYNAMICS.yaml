@@ -1,0 +1,222 @@
+- number:
+    question:
+      types: number
+      text_data: Точка массой m = 2 кг движется по горизонтальной прямой с ускорением
+        а = 0.1 t. Определить модуль силы, действующей на точку в направлении ее движения
+        в момент времени t = 9 с.
+      code_path: null
+      image: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      data:
+      - answer: '16.2'
+        max_error: '0.05'
+- number:
+    question:
+      types: number
+      text_data: Точка массой m = 10 кг движется по горизонтальной оси Ох с ускорением
+        ах = ln t. Определить модуль силы, действующей на точку в направлении движения
+        в момент времени t = 6 с.
+      code_path: null
+      image: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      data:
+      - answer: '17.91759'
+        max_error: '0.05'
+- number:
+    question:
+      types: number
+      text_data: Моторная лодка массой m = 250 кг после остановки мотора движется
+        прямолинейно, преодолевая сопротивление воды. Сила сопротивления R = 4v^2.
+        Определить ускорение лодки, когда ее скорость v = 5 м/с.
+      code_path: null
+      image: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      data:
+      - answer: '-0.4'
+        max_error: '0.05'
+- number:
+    question:
+      types: number
+      text_data: Трактор, двигаясь с ускорением а = 2 м/с^2 по горизонтальному участку
+        пути, перемещает нагруженные сани массой 600 кг. Определить силу тяги на крюке,
+        если коэффициент трения скольжения саней f = 0.05.
+      code_path: null
+      image: https://storage.yandexcloud.net/phys-bot/mechanic/dynamics_3_1.jpg
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      data:
+      - answer: '1494.183'
+        max_error: '0.05'
+- number:
+    question:
+      types: number
+      text_data: Материальная точка массой m = 47 кг из состояния покоя движется по
+        гладкой горизонтальной направляющей под действием силы F = 45 Н, вектор которой
+        образует постоянный угол α = 20 grad с направляющей. Определить путь, пройденный
+        точкой за время t = 12 с.
+      code_path: null
+      image: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      data:
+      - answer: '64.77881'
+        max_error: '0.05'
+- number:
+    question:
+      types: number
+      text_data: Груз массой m = 45 кг подвешен к пружине с коэффициентом жесткости
+        с = 700 Н/м и находится в свободном прямолинейном вертикальном колебательном
+        движении. Определить модуль ускорения груза в момент времени, когда центр
+        тяжести груза находится на расстоянии 5 см от положения статического равновесия.
+      code_path: null
+      image: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      data:
+      - answer: '0.77778'
+        max_error: '0.05'
+- number:
+    question:
+      types: number
+      text_data: Тело подвешено к пружине и совершает свободные вертикальные колебания
+        с периодом Т = 0.4 с. Определить массу точки, если коэффициент жесткости пружины
+        с = 200 Н/м.
+      code_path: null
+      image: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      data:
+      - answer: '0.93181'
+        max_error: '0.05'
+- number:
+    question:
+      types: number
+      text_data: Постоянная по модулю и направлению сила действует на тело в течение
+        8 с. Найти модуль ее импульса за это время, если проекции силы на оси координат
+        Fx = 6Н, Fy = 9Н.
+      code_path: null
+      image: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      data:
+      - answer: '86.53323'
+        max_error: '0.05'
+- number:
+    question:
+      types: number
+      text_data: Материальная точка массой 3 кг движется в плоскости Оху согласно
+        уравнениям х = sin πt, у = 0,5t^2. Определить модуль количества движения точки
+        в момент времени t = 2.4 с.
+      code_path: null
+      image: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      data:
+      - answer: '7.76656'
+        max_error: '0.05'
+- number:
+    question:
+      types: number
+      text_data: Материальная точка массой m = 3 кг движется по окружности со скоростью
+        v = 6 м/с. Определить кинетическую энергию этой точки.
+      code_path: null
+      image: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      data:
+      - answer: '54.0'
+        max_error: '0.05'
+- number:
+    question:
+      types: number
+      text_data: Шарик без начальной скорости падает с высоты h1 = 1.3 м и после удара
+        по горизонтальной преграде поднимается на высоту h2 = 0.5 м. Определить коэффициент
+        восстановления при ударе.
+      code_path: null
+      image: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      data:
+      - answer: '0.62017'
+        max_error: '0.05'
+- number:
+    question:
+      types: number
+      text_data: Определить в кН среднюю силу удара молотка массой m = 0.7 кг при
+        абсолютно неупругом ударе по наковальне, если скорость до удара v = 9 м/с
+        и время удара 0.0005 с.
+      code_path: null
+      image: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      data:
+      - answer: '12.6'
+        max_error: '0.05'
+- number:
+    question:
+      types: number
+      text_data: Тело массой m1 = 1 кг ударяет со скоростью v10 = 6 м/с по неподвижному
+        телу массой m2 = 6 кг. Принимая, что удар абсолютно неупругий, определить
+        потери кинетической энергии.
+      code_path: null
+      image: null
+      help: null
+    answer:
+      sample_size: null
+      feedback:
+        correct: ''
+        wrong: ''
+      data:
+      - answer: '15.42857'
+        max_error: '0.05'
