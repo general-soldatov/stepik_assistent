@@ -1,5 +1,5 @@
 import yaml
-from app.models.project import Text, Question, ObjectsTypes, LimitsProg, CodePath
+from app.models.project import Text, Question, ObjectsTypes, LimitsProg, CodePath, OptionNumber, Course
 from app.models.main_model import TaskTemplate, TestAI
 from .test_task import TaskObject
 from .template import Data
@@ -29,8 +29,8 @@ class BuildProject:
         obj = ObjectsTypes()
         return ObjectsTypes.__dict__[types](obj)(**kwargs)
 
-    def add_text(self) -> None:
-        self.data.project.append({'text': Text()})
+    def add_text(self, text: Text = Text()) -> None:
+        self.data.project.append({'text': text})
 
     def add_choice(self) -> None:
         types = 'choice'
@@ -55,6 +55,20 @@ class BuildProject:
         question = self._create_question(types)
         answer =  self._create_answer(types, tests={'input': ['']},
                                       limits=LimitsProg(), code_path=CodePath())
+        self._add(question, answer, types)
+
+    def add_number(self) -> None:
+        types = 'number'
+        question = self._create_question(types)
+        answer = self._create_answer(types, data=[OptionNumber(answer=10, max_error=0)])
+        self._add(question, answer, types)
+
+    def add_string(self) -> None:
+        types = 'string'
+        question = self._create_question(types)
+        data = dict(pattern= "hello, world", use_re=False, match_substring=False,
+            case_sensitive=False, code="", is_text_disabled=False, is_file_disabled=True)
+        answer = self._create_answer(types, **data)
         self._add(question, answer, types)
 
     def import_ai(self, data: Dict[str, List[dict]]) -> None:
@@ -84,6 +98,14 @@ class ImportProject:
             for name, task in elem.items():
                 data: Data = TaskObject.__dict__[name](obj, task)
                 data.export(f'{i:03}_{name}_{obj.number:02}')
+
+    def get_dict(self, lesson: int, course: Course):
+        obj = TaskObject()
+        for position, elem in enumerate(self.data.project, 1):
+            for name, task in elem.items():
+                data: Data = TaskObject.__dict__[name](obj, task)
+                yield data.create_step_source(lesson, position, course)
+
 
     def check(self):
         obj = TaskObject()

@@ -1,10 +1,16 @@
 import json
 import os
+import sys
+sys.path.append(os.path.dirname(os.path.dirname('/root/stepik_assistent')))
+
 import click
 import subprocess
 import logging
-from app.creator.create import BuildProject, ImportProject
+from app.creator.create import BuildProject, ImportProject, Text
 from app.config import config, create_division, PATH
+from app.models.ai_prompt import analys_md
+from app.automatize.folders import SearchFiles
+from app.models.pipeline import Pipeline
 
 logging.basicConfig(
     level=logging.INFO,
@@ -20,12 +26,12 @@ def cli():
 
 def division(func):
     def inner(*args, **kwargs):
-        try:
+        # try:
             click.echo(create_division(config.data_prog['start']))
             func(*args, **kwargs)
             click.echo(create_division(config.data_prog["end"]))
-        except Exception as e:
-            logger.error(e)
+        # except Exception as e:
+        #     logger.error(e)
     return inner
 
 @cli.command("config", help="Update of config data")
@@ -36,9 +42,15 @@ def configurate():
     click.echo('Update file succesfull')
 
 @cli.command("prompt", help="Print of the prompt to AI-model")
+@click.option("--path", prompt="Path", help="Check path to theory-file", default=None)
 @division
-def prompt():
-    click.echo(config.prompt)
+def prompt(path):
+    prompt = config.prompt
+    if path:
+        data = config.course
+        data.update(analys_md(config.course['name'], path))
+        prompt = prompt.format(**data)
+    click.echo(prompt + config.template)
     if not os.path.exists(config.path_ai):
         with open(config.path_ai, 'w', encoding='utf-8') as file:
             file.write('Insert your responsible from AI-model at json')
@@ -61,6 +73,10 @@ def create(path, ai_path):
         project.add_sorting()
     if click.confirm(f"Do you want to add matching task to the project"):
         project.add_matching()
+    if click.confirm(f"Do you want to add number task to the project"):
+        project.add_number()
+    if click.confirm(f"Do you want to add string task to the project"):
+        project.add_string()
     if click.confirm(f"Do you want to add program to the project"):
         project.add_program()
     project.export_to_yaml(path)
@@ -78,6 +94,28 @@ def build(path):
 def check(path):
     data = ImportProject(path)
     data.check()
+
+@cli.command("collecting", help="Collecting project's text files to makefile")
+@click.option("--extension", '-e', prompt="Extension", help="Type of file's extension", default='.md')
+@click.option("--path", prompt="Path", help="Check path to makefile", default=config.path_default)
+def collecting_files(extension: str, path: str):
+    project = BuildProject()
+    files = SearchFiles(path=os.getcwd())
+    files.search(extension.encode())
+    click.echo(f"Всего найдено {files.count} файлов с расширением {extension}")
+    for key, value in files.data.items():
+        print(key.decode(), '->', end=' ')
+        for elem in value:
+            project.add_text(text=Text(path=elem))
+        print('Succesfull')
+    project.export_to_yaml(path)
+
+@cli.command("course", help="Create course with using API")
+@click.option("--path", prompt="Path", help="Check path to pipeline")
+@division
+def course(path):
+    pl = Pipeline.model_validate_yaml(path)
+    pl.create_sections()
 
 if __name__ == '__main__':
     cli()

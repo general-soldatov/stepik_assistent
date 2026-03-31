@@ -1,0 +1,83 @@
+# - text:
+#     path: projects/text.md
+#     data: null
+# - choice:
+#     question:
+#       types: choice
+#       text_data: Sample text for choice
+#       code_path: null
+#       image: null
+#       help: null
+#     answer:
+#       sample_size: null
+#       feedback:
+#         correct: ''
+#         wrong: ''
+#       correct:
+#       - correct_answer
+#       wrong:
+#       - wrong_answer
+# - sorting:
+#     question:
+#       types: sorting
+#       text_data: Sample text for sorting
+#       code_path: null
+#       image: null
+#       help: null
+#     answer:
+#       sample_size: null
+#       feedback:
+#         correct: ''
+#         wrong: ''
+#       steps:
+#       - step 1
+#       - step 2
+# - matching:
+#     question:
+#       types: matching
+#       text_data: Sample text for matching
+#       code_path: null
+#       image: null
+#       help: null
+#     answer:
+#       sample_size: null
+#       feedback:
+#         correct: ''
+#         wrong: ''
+#       first:
+#       - first
+#       - second
+#       second:
+#       - one
+#       - two
+# - number:
+#     question:
+#       types: number
+#       text_data: Sample text for number
+#       code_path: null
+#       image: null
+#       help: null
+#     answer:
+#       sample_size: null
+#       feedback:
+#         correct: ''
+#         wrong: ''
+#       data:
+#       - answer: '10'
+#         max_error: '0'
+- string:
+    question:
+      types: string
+      text_data: Sample text for string
+      code_path: null
+      image: null
+      help: null
+    answer:
+      is_html_enabled: true
+      pattern: hello, world
+      use_re: false
+      match_substring: false
+      case_sensitive: false
+      code: '#'
+      is_text_disabled: false
+      is_file_disabled: true

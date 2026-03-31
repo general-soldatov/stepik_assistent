@@ -3,3 +3,5 @@ data.txt
 data.py
 /__pycache__/
 *.bat
+config.yaml
+session.yaml

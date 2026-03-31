@@ -1,12 +1,16 @@
+import os
+import sys
+sys.path.append(os.path.dirname(os.path.dirname('/root/stepik_assistent')))
 from abc import ABC, abstractmethod
-from app.models.stepik import Step, OptionsTest, Block, SourceTest
+from app.models.stepik import Step, OptionsTest, Block, SourceTest, StepSource
 from app.models.main_model import TaskTemplate
-from app.models.project import Text
+from app.models.project import Text, Course
 from typing import Tuple
 from py_markdown import ReadMD
+from app.connections.bucket import ImageMover
 
 class Data(ABC):
-    def __init__(self, project: TaskTemplate | Text, case_num = None, path: str = 'app/creator/sample_test.step'):
+    def __init__(self, project: TaskTemplate | Text, case_num = None, path: str = '/root/stepik_assistent/app/creator/sample_test.step'):
         self.step: Step = self._load_temp(path)
         self.block: Block = self.step.block
         self.project = project
@@ -30,12 +34,21 @@ class Data(ABC):
     def check(self):
         pass
 
-    def preview(self):
+    def preview_json(self):
         self._build()
-        return self.step.model_dump_json(indent=4, ensure_ascii=False)
+        return self.step.model_dump_json(indent=4)
+
+    def create_step_source(self, lesson: int, position: int, course: Course):
+        self._build()
+        return StepSource(
+            block=self.step.block,
+            lesson=lesson,
+            position=position,
+            cost=course.score[self.step.block.name]
+        )
 
     def export(self, name: str) -> None:
-        data = self.preview()
+        data = self.preview_json()
         with open(f"export/{name}.step", 'w', encoding='utf-8') as file:
             file.write(data)
 
@@ -56,15 +69,21 @@ class Test(Data):
         return text_step
 
     def set_text(self) -> None:
-        self.block.text = ReadMD(
+        html_string = ReadMD(
             self.template_text(
                 text=self.project.question.text_data,
                 num=self.case_num
         )).to_html_text()
+        img = ImageMover(html_string)
+        img.replace_url()
+        self.block.text = img.html
 
     def _set_help(self):
+        if self.project.question.image:
+            self.block.text += self._set_image(self.project.question.image)
         if self.project.question.help:
             self.block.text += self.template_help(self.project.question.help)
+
 
     def _set_options(self, multiply_choice: bool = None):
         self.block.options = dict(is_multiple_choice=multiply_choice)
@@ -79,6 +98,9 @@ class Test(Data):
             sample_size=sample_size, options=options,
             is_always_correct=False,
             is_options_feedback=False)
+
+    def _set_image(self, url_image) -> str:
+        return f'<img src="{url_image}" alt="image">'
 
     @staticmethod
     def _add_options(project: TaskTemplate):

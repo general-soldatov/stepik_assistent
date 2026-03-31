@@ -1,7 +1,16 @@
+import re
 from pydantic import BaseModel, computed_field, Field
 from typing import List
 from .project import Question, AnswerTest, AnswerMatching, AnswerSorting
 from abc import ABC, abstractmethod
+
+def analys_md(course, path):
+    with open(path, 'r', encoding='utf-8') as file:
+        text = file.read()
+        return {
+            'themes': (re.findall(r'^#\s*(.+)', text, flags=re.MULTILINE) or [course])[0],
+            'thesis': ', '.join(map(lambda x: x.replace('*', ''), re.findall(r'\*\*(.*?)\*\*', text)))
+            }
 
 class PromptAI(BaseModel, ABC):
     text: str

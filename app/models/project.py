@@ -1,5 +1,6 @@
-from pydantic import BaseModel, field_validator
-from typing import List, Dict
+from pydantic import BaseModel, field_validator, ConfigDict
+from typing import List, Dict, Optional
+from app.models.stepik import SourceString
 
 class Feedback(BaseModel):
     correct: str = ""
@@ -36,9 +37,19 @@ class AnswerProgram(Answer):
     limits: LimitsProg
     code_path: CodePath
 
+class OptionNumber(BaseModel):
+    model_config = ConfigDict(coerce_numbers_to_str=True)
+    answer: str = '0'
+    max_error: str = '0'
+
+class AnswerNumber(Answer):
+    data: List[OptionNumber]
+
+
 class Text(BaseModel):
     path: str | None = None
     data: str | None = None
+    # question: str = None
 
 class ObjectsTypes:
     def __init__(self):
@@ -56,7 +67,13 @@ class ObjectsTypes:
 
     def sorting(self):
         return AnswerSorting
-    
+
+    def number(self):
+        return AnswerNumber
+
+    def string(self):
+        return SourceString
+
     def code(self):
         return AnswerProgram
 
@@ -64,6 +81,7 @@ class Question(BaseModel):
     types: str
     text_data: str
     code_path: str | None = None
+    image: str | None = None
     help: str | None = None
 
     @field_validator('types')
@@ -71,3 +89,15 @@ class Question(BaseModel):
         if value in ObjectsTypes().objects:
             return value
         raise ValueError('Неопознанный объект!')
+
+class Course(BaseModel):
+    course_id: int
+    score: Dict[str, Optional[int]]
+
+class Lesson(BaseModel):
+    title: str
+    steps: str
+
+class SectionProject(BaseModel):
+    title: str
+    lessons: List[Lesson]

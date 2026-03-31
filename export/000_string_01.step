@@ -1,0 +1,29 @@
+{
+    "block": {
+        "name": "string",
+        "text": "<p><strong>Свершение 1.</strong>&nbsp;Sample text for string</p>",
+        "video": null,
+        "options": {
+            "is_multiple_choice": false
+        },
+        "subtitle_files": [],
+        "is_deprecated": false,
+        "source": {
+            "is_html_enabled": true,
+            "pattern": "hello, world",
+            "use_re": false,
+            "match_substring": false,
+            "case_sensitive": false,
+            "code": "",
+            "is_text_disabled": false,
+            "is_file_disabled": true
+        },
+        "subtitles": {},
+        "tests_archive": null,
+        "feedback_correct": "",
+        "feedback_wrong": ""
+    },
+    "id": "8736153",
+    "has_review": false,
+    "time": "2025-11-12T07:09:19.592Z"
+}
