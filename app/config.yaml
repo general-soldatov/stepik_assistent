@@ -20,7 +20,7 @@ template: '{
         "correct": ["correct"],
         "wrong": ["uncorrect_1", "uncorrect_2", "uncorrect_3"]
     }],
-    "sequence": [
+    "sorting": [
         {
             "text": "Text",
             "steps": ["one", "two", "three"]
