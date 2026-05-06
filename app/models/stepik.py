@@ -49,7 +49,7 @@ class SourceProgram(BaseModel):
 class SourceTest(Source):
     is_multiple_choice: bool
     is_always_correct: bool
-    sample_size: int
+    sample_size: Optional[int]
     preserve_order: bool
     is_options_feedback: bool
     options: List[OptionsTest]

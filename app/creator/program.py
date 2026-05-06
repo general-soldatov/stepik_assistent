@@ -14,8 +14,8 @@ class ProgramStep(TestOfCode):
     def create_file_to_test(path_template="projects/template_led.c", path_example="projects/test.c", path_test="test.c"):
         with open(path_template, 'r', encoding='utf-8') as file:
             with open(path_example, "r", encoding="utf-8") as test:
-                text = re.sub(r'::code[^::]*::footer', test.read(), file.read())
-            text = re.sub(r"::", '//', text)
+                text = re.sub(r'::code\n(.*?)\n::footer', test.read(), file.read(), flags=re.DOTALL) #r'::code[^::]*::footer'
+            text = re.sub(r'^::(\w+)', r'// \1', text, flags=re.MULTILINE)
             with open(path_test, 'w', encoding='utf-8') as test:
                 test.write(text)
 
@@ -23,7 +23,7 @@ class ProgramStep(TestOfCode):
         tests = self.build_prog_test()
         self.block.source = SourceProgram(
             code=self.open_code(self.project.answer.code_path.code_run),
-            samples_count=self.project.answer.sample_size,
+            # samples_count=self.project.answer.sample_size,
             templates_data=self.open_code(self.project.answer.code_path.templates_data),
             test_cases=tests
         )
@@ -41,9 +41,11 @@ class ProgramStep(TestOfCode):
         self.create_file_to_test(self.project.answer.code_path.templates_data,
                                  self.project.answer.code_path.example,
                                  self.project.answer.code_path.test)
-        if path.endswith('.c') or path.endswith('.cpp'):
+        if path.endswith('.c'):
+            func = self.subprocess_c
+        elif path.endswith('.cpp'):
             func = self.subprocess_cpp
-        if path.endswith('.py'):
+        elif path.endswith('.py'):
             func = self.subprocess_python
             self.language = "python"
         return [[item, func(self.project.answer.code_path.test, item.encode())]
@@ -56,18 +58,27 @@ class ProgramStep(TestOfCode):
 
 
     @staticmethod
-    def subprocess_cpp(file_path="test.c", test=None):
+    def subprocess_c(file_path="test.c", test=None):
         subprocess.run(["gcc", file_path])
-        if test:
-            test = test.encode()
+        # if test:
+        #     test = test.encode()
+        result = subprocess.run([config.file_cpp],
+                capture_output=True, input=test)
+        return result.stdout.decode()
+
+    @staticmethod
+    def subprocess_cpp(file_path="test.c", test=None):
+        subprocess.run(["g++", file_path])
+        # if test:
+        #     test = test.decode()
         result = subprocess.run([config.file_cpp],
                 capture_output=True, input=test)
         return result.stdout.decode()
 
     @staticmethod
     def subprocess_python(file_path='test.py', test=None):
-        if test:
-            test = test.encode()
+        # if test:
+        #     test = test.encode()
         result = subprocess.run(['python3', file_path],
                                 capture_output=True, input=test)
         return result.stdout.decode()

@@ -73,9 +73,9 @@ class TextData(Data):
             text = ReadMD.file_import(self.project.path).to_html_text()
         if self.project.data:
             text = ReadMD(self.project.data).to_html_text()
-        img = ImageMover(text)
-        img.replace_url()
-        self.block.text = img.html
+        # img = ImageMover(text)
+        # img.replace_url()
+        self.block.text = text
         self.block.name = "text"
         self.block.options = {}
 

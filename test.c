@@ -1,5 +1,5 @@
-//c
-//header
+// c
+// header
 #define TEST 1
 
 #include <stdio.h>

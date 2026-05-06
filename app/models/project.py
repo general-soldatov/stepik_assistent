@@ -50,6 +50,7 @@ class Text(BaseModel):
     path: str | None = None
     data: str | None = None
     # question: str = None
+    # answer: str | None = None
 
 class ObjectsTypes:
     def __init__(self):
